@@ -1,0 +1,15 @@
+@import "/src/sass/base/colors";
+
+button {
+	border: none;
+	background-color: $sunset;
+	border-radius: 30px;
+	padding: 10px 20px;
+	color: $moonlight;
+	text-transform: uppercase;
+	margin: 15px 0;
+}
+
+button:hover {
+	cursor: pointer;
+}

@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import React from 'react'
 import './style.scss'
 
 const Section = () => {
-    return(
-        <div></div>
-    )
+    return <div></div>
+    
 } 
+
+export default Section
