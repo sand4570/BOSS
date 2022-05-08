@@ -6,7 +6,9 @@
 		width: 100%;
 		position: absolute;
 		top: 0;
-		left: 0;
+		right: -3px;
+		z-index: -1;
+		max-width: 1200px;
 	}
 }
 
@@ -17,6 +19,9 @@
 		margin-bottom: 50px;
 		.icon {
 			width: 80px;
+		}
+		p {
+			margin: 0 auto;
 		}
 	}
 }
@@ -31,9 +36,57 @@
 }
 
 #boss_section {
-	margin: 30px 0;
+	margin: 30px auto;
 	img {
 		margin-top: 20px;
 		width: 100%;
+	}
+}
+
+@media only screen and (min-width: 900px) {
+	#splash_section {
+		margin: 27vh 30px 30px;
+		h1 {
+			max-width: 600px;
+		}
+		p {
+			max-width: 500px;
+			font-size: 1.4rem;
+			line-height: 30px;
+			margin-bottom: 20px;
+		}
+		img {
+			width: 75%;
+		}
+	}
+
+	#icons_section {
+		display: flex;
+		gap: 20px;
+		margin: 70px auto 20px;
+		justify-content: center;
+		p {
+			max-width: 300px;
+		}
+	}
+
+	#forum_section {
+		display: flex;
+		gap: 30px;
+		padding: 30px 55px;
+		img {
+			width: 40vw;
+			height: 27vw;
+		}
+	}
+	#boss_section {
+		display: flex;
+		gap: 50px;
+		justify-content: center;
+		img {
+			margin-top: 0px;
+			width: 40vw;
+			height: 26vw;
+		}
 	}
 }

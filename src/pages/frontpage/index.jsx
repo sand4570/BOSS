@@ -46,7 +46,7 @@ const Frontpage = () => {
                 <img src='/girls_chat.png'></img>
             </section>
             <section id='review_section'>
-                <h3 className='citat'>“ Med Boss er der altid styr på vores bøger. Det er nemt og hurtigt og jeg er bare så glad for at bruge det ”</h3>
+                <h3 className='citat'>“ Med BOSS er der altid styr på vores bøger. Det er nemt og hurtigt og jeg er bare så glad for at bruge det ”</h3>
                 <p className='citat_afsender'>Knud Hansen</p>
             </section>
          </>

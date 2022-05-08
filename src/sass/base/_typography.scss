@@ -26,6 +26,8 @@ p {
 	font-family: "Sarabun", sans-serif;
 	color: $eclipse;
 	margin: 0;
+	line-height: 22px;
+	max-width: 600px;
 }
 
 button {
@@ -35,9 +37,11 @@ button {
 
 .citat {
 	color: $nightsky;
-	font-size: 1.3rem;
+	font-size: 1.5rem;
 	text-align: center;
 	line-height: 35px;
+	max-width: 650px;
+	margin: 0 auto 15px;
 }
 
 .citat_afsender {
@@ -45,4 +49,11 @@ button {
 	font-weight: 300;
 	color: $fog;
 	text-align: center;
+	max-width: none;
+}
+
+@media only screen and (min-width: 900px) {
+	h1 {
+		font-size: 2.7rem;
+	}
 }
