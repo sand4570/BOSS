@@ -4,6 +4,7 @@ import PrimaryButton from '../../components/PrimaryButton'
 import SecondaryButton from '../../components/SecondaryButton'
 
 
+
 const Frontpage = () => {
     return (
         <>
