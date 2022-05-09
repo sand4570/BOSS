@@ -9,10 +9,11 @@ import Footer from './components/Footer/index'
 import Navigation from './components/Navigation'
 import { Route, BrowserRouter, Routes } from 'react-router-dom'
 
+import Login from './pages/login'
+
 function App () {
  return (
     <>
-      
       <BrowserRouter>
       <Navigation/>
       <main>

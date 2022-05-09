@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { useState } from 'react';
 import {BrowserRouter, Link} from 'react-router-dom';
 
@@ -14,7 +14,7 @@ const Navbar = () => {
     const [ active, setActive ] = useState(false)
     const [color, setColor] = useState('transparent')
     const [activeLink, setActiveLink] = useState('FORSIDE')
-    const [login, setLogin] = useState(false)
+    const [login, setLogin] = useState(true)
     
 
     //Open and close the burger menu on mobile
