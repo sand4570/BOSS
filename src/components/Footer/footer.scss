@@ -38,14 +38,16 @@ footer {
 }
 
 @media only screen and (min-width: 900px) {
-	#footer_wrapper {
-		display: flex;
-		justify-content: space-between;
-		align-items: flex-end;
-		width: 65%;
-		margin-left: 17vw;
-	}
-	#links {
-		gap: 15px;
+	footer {
+		padding-top: 30px;
+		#footer_wrapper {
+			display: flex;
+			justify-content: space-between;
+			width: 65%;
+			margin-left: 17vw;
+		}
+		#links {
+			gap: 15px;
+		}
 	}
 }
