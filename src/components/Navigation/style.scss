@@ -6,9 +6,7 @@
     padding: 0;
 }
 
-img {
-    height: 100%;
-}
+
 
 .nav-wrapper {
     position: fixed;
@@ -32,6 +30,10 @@ img {
     .logoContainer {
         height: 100%;
         margin-left: 1rem;
+
+        img {
+            height: 100%;
+        }
 
     }
 
