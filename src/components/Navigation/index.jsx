@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { useState } from 'react';
+import {BrowserRouter, Link} from 'react-router-dom';
 
 import './style.scss';
 import logo from '../../../public/boss_logo.png'
@@ -28,9 +29,7 @@ const Navbar = () => {
     //Change manu color on scroll
     const listenScrollEvent = e => {
         if (window.scrollY > 5) {
-            console.log('color is white');
             setColor('white')
-            console.log('color', color)
         } else {
             setColor('transparent')
         }  
@@ -55,9 +54,9 @@ const Navbar = () => {
                         <ul className={active ? 'nav-menu active' : 'nav-menu'}>
                             {NavLink(login).map((item, index) => {
                                 return (
-                                    <li key={index}><a className={activeLink === item.title ? `${item.cName} activeLink` : item.cName} onClick={() => setActiveLink(item.title)} href={item.url}>
+                                    <li key={index}><Link to={item.url} className={activeLink === item.title ? `${item.cName} activeLink` : item.cName} onClick={() => setActiveLink(item.title)}>
                                     {item.title}   
-                                    </a></li>
+                                    </Link></li>
                                 )
                             })}
                             
