@@ -8,7 +8,7 @@ const NavLink = (login) => {
       [
         {
           title: 'FORSIDE',
-          url: '#',
+          url: '/',
           cName: 'nav-links'
         },
         {
@@ -33,22 +33,22 @@ const NavLink = (login) => {
       [
         {
           title: 'FORSIDE',
-          url: '#',
+          url: '/',
           cName: 'nav-links'
         },
         {
           title: 'OM BOSS',
-          url: '#',
+          url: 'about',
           cName: 'nav-links'
         },
         {
           title: 'KONTAKT',
-          url: '#',
+          url: 'kontakt',
           cName: 'nav-links'
         },
         {
           title: 'LOG IND',
-          url: '/login',
+          url: 'login',
           cName: 'nav-links'
         }
       ]

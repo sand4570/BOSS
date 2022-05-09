@@ -1,8 +1,7 @@
 import React from 'react'
-import './primaryButton.scss'
 
 const PrimaryButton = ({text}) => {
-    return <button>{text}</button>
+    return <button className='primaryButton'>{text}</button>
 }
 
 export default PrimaryButton

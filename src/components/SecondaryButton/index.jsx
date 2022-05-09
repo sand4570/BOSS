@@ -1,9 +1,7 @@
 import React from 'react'
-import './secondaryButton.scss'
 
 const SecondaryButton = ({text}) => {
-    return <button>{text}</button>
-    
+    return <button className='secondaryButton'>{text}</button>
 } 
 
 export default SecondaryButton
