@@ -48,7 +48,7 @@ const NavLink = (login) => {
         },
         {
           title: 'LOG IND',
-          url: '#',
+          url: '/login',
           cName: 'nav-links'
         }
       ]
