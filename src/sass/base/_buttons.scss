@@ -8,6 +8,7 @@
 	color: $moonlight;
 	text-transform: uppercase;
 	margin: 15px 0;
+	min-width: 120px;
 }
 
 .secondaryButton {
@@ -18,6 +19,7 @@
 	color: $sunset;
 	text-transform: uppercase;
 	margin: 15px 0;
+	min-width: 120px;
 }
 
 button:hover {

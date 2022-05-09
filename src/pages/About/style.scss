@@ -1,0 +1,60 @@
+@import "../../sass/base/colors";
+#form_section {
+	background-color: $rain;
+	padding: 15px;
+	border-radius: 20px;
+	margin: 50px 0;
+	p {
+		margin: 15px 0;
+	}
+	.input_wrapper {
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+		margin: 15px 0;
+		input {
+			border: none;
+			border-radius: 20px;
+			height: 35px;
+		}
+		textarea {
+			border: none;
+			border-radius: 20px;
+			height: 130px;
+		}
+	}
+}
+
+#contact_section {
+	text-align: center;
+	padding: 10px;
+	div {
+		margin-bottom: 50px;
+		.icon {
+			width: 80px;
+		}
+		p {
+			margin: 0 auto;
+		}
+	}
+}
+
+@media only screen and (min-width: 800px) {
+	#form_section {
+		display: flex;
+		gap: 90px;
+		label,
+		textarea {
+			width: 40vw;
+		}
+	}
+	#contact_section {
+		display: flex;
+		gap: 30px;
+		margin: 70px auto 0px;
+		justify-content: space-evenly;
+		p {
+			max-width: 300px;
+		}
+	}
+}
