@@ -5,6 +5,14 @@ import './footer.scss'
 const Footer = () => {
     const d = new Date();
     let year = d.getFullYear();
+
+    const goToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+    };
+
     return (
         <footer>
             <div id='footer_container'>
@@ -20,7 +28,7 @@ const Footer = () => {
                 <a href=''>LOGIN</a>
             </div>
             </div>
-            <button>TOPPEN</button>
+            <button onClick={goToTop}>TOPPEN</button>
             </div>
             <p id='copyright'>ⓒ All copyrights reserved I {year}</p>
         </footer>
