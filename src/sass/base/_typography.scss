@@ -52,6 +52,12 @@ button {
 	max-width: none;
 }
 
+a {
+	font-family: "Sarabun", sans-serif;
+	text-decoration: none;
+	color: $nightsky;
+}
+
 @media only screen and (min-width: 900px) {
 	h1 {
 		font-size: 2.7rem;

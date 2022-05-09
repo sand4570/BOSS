@@ -1,0 +1,25 @@
+@import "./colors";
+
+.primaryButton {
+	border: none;
+	background-color: $sunset;
+	border-radius: 30px;
+	padding: 10px 20px;
+	color: $moonlight;
+	text-transform: uppercase;
+	margin: 15px 0;
+}
+
+.secondaryButton {
+	border: 2px solid $sunset;
+	background-color: transparent;
+	border-radius: 30px;
+	padding: 10px 20px;
+	color: $sunset;
+	text-transform: uppercase;
+	margin: 15px 0;
+}
+
+button:hover {
+	cursor: pointer;
+}
