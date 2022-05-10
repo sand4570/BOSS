@@ -43,7 +43,7 @@ const NavLink = (login) => {
         },
         {
           title: 'KONTAKT',
-          url: 'kontakt',
+          url: 'contact',
           cName: 'nav-links'
         },
         {
