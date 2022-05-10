@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 
 import './style.scss'
-import Section from '../../components/Section'
+
 
 const Login = () => {
     return (
