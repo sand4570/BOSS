@@ -2,9 +2,11 @@ import React from 'react'
 import PrimaryButton from '../../components/PrimaryButton'
 import './style.scss'
 
-const About = () => {
+const Contact = () => {
     return(
     <>
+    <img id='form' src='/form6.svg'></img>
+    <main>
         <section id='form_section'>
             <div>
                 <h2>Kontakt os</h2>
@@ -44,9 +46,10 @@ const About = () => {
                 <a href='#'>Gå til forum</a>
             </div>
         </section>
+    </main>
     </>
     )
 
 }
 
-export default About
+export default Contact
