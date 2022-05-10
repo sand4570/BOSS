@@ -7,6 +7,7 @@ import Contact from './pages/Contact/index'
 import Login from './pages/Login/index'
 import Footer from './components/Footer/index'
 import Navigation from './components/Navigation'
+import About from './pages/About/index'
 import { Route, BrowserRouter, Routes } from 'react-router-dom'
 
 function App () {
@@ -16,6 +17,7 @@ function App () {
       <Navigation/>
       <main>
         <Routes>
+        <Route exact path='about' element={<About/>} />
           <Route exact path='contact' element={<Contact/>} />
           <Route exact path='login' element={<Login/>} />
           <Route exact path='/' element={<Frontpage/>} />

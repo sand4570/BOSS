@@ -5,6 +5,6 @@ main {
 
 @media only screen and (min-width: 800px) {
 	main {
-		padding: 40px;
+		padding: 30px 70px;
 	}
 }
