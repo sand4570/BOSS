@@ -1,57 +1,31 @@
 import React from 'react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
+import SliderText from './Slider';
+import LoginSection from './LoginSection'
+import SignupSection from './SignupSection';
 import './style.scss'
 
 
 const Login = () => {
+    const [toLogin, setToLogin] = useState(true)
+
+
     return (
         <>
         <div className='content-wrapper'>
-            <button className='back-button'>TILBAGE</button>
-            <section className='login-section'>
-                <h1>LOG IND</h1>
-                <form>
-                    <div className='input-wrapper'>
-                        <label for='email' className='login-label'> EMAIL</label>
-                        <input id='email' className='login-input' type='email'></input>
-                    </div>
-                    
-                    <div className='input-wrapper'>
-                        <label for='password' className='login-label'>ADGANGSKODE</label>
-                        <input id='password' className='login-input' type='password'></input>
-                    </div>
-                    
-                    <div className='submit-wrapper'>
-                        <button type='submit'>LOG IND</button>
-                    </div>
-                    
-                </form>
-                
-                
+            <button id='back-button' className='secondaryButton'><Link to={"/"}>TILBAGE</Link></button>
+            <section className={toLogin ? 'login-section' : 'blue-section'}>
+                <h2>LOG IND</h2>
+                <LoginSection state={toLogin}></LoginSection>
                 
             </section>
-            <section className='signup-section'>
-            <h1>OPRET BRUGER</h1>
-                <form>
-                    <div className='input-wrapper'>
-                        <label for='email' className='login-label'> EMAIL</label>
-                        <input id='email' className='login-input' type='email'></input>
-                    </div>
-                    
-                    <div className='input-wrapper'>
-                        <label for='password' className='login-label'>ADGANGSKODE</label>
-                        <input id='password' className='login-input' type='password'></input>
-                    </div>
-
-                    <div className='submit-wrapper'>
-                        <button type='submit'>LOG IND</button>
-                    </div>
-                    
-                </form>
+            <section className={!toLogin ? 'signup-section' : 'blue-section'}>
+            <h2>OPRET BRUGER</h2>
+                <SignupSection state={toLogin}></SignupSection>
             </section>
         </div>
-        <div className='slide-wrapper'></div>
         </>
     )
 }

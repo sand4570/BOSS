@@ -13,13 +13,17 @@ function App () {
  return (
     <>
       <BrowserRouter>
-      <Navigation/>
-      <main>
+      
         <Routes>
-          <Route exact path='contact' element={<Contact/>} />
           <Route exact path='login' element={<Login/>} />
-          <Route exact path='/' element={<Frontpage/>} />
         </Routes>
+
+        <Navigation/>
+        <main>
+          <Routes>
+            <Route exact path='contact' element={<Contact/>} />
+            <Route exact path='/' element={<Frontpage/>} />
+          </Routes>
         </main>
         <Footer/>
       </BrowserRouter>
