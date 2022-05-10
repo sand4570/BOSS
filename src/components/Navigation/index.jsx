@@ -14,7 +14,7 @@ const Navbar = () => {
     const [ active, setActive ] = useState(false)
     const [color, setColor] = useState('transparent')
     const [activeLink, setActiveLink] = useState('FORSIDE')
-    const [login, setLogin] = useState(true)
+    const [login, setLogin] = useState(false)
     
 
     //Open and close the burger menu on mobile
