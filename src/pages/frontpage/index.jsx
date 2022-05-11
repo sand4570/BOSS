@@ -10,9 +10,9 @@ const Frontpage = () => {
         <>
             <section id='splash_section'>
                 <img src='/splash.png'></img>
-                <h1>UDLÅNSSTYRING AF BØGER, COMPUTERE OG MERE</h1>
+                <h1>Udlånsstyring af bøger, computere og mere</h1>
                 <p>BOSS er et specialiseret værktøj til styring af udlån af bøger, computere, iPads, kameraer, cykler og meget andet</p>
-                <PrimaryButton text={'kom i kontakt'}></PrimaryButton>
+                <button className='CTA'>Kom i kontakt</button>
             </section>
             <section id='icons_section'>
                 <div>
@@ -36,7 +36,7 @@ const Frontpage = () => {
                 <div>
                     <h2>Få hurtig og nem vejledning</h2>
                     <p>Står du og mangler en løsning på et problem som du ikke kan løse. Prøv Boss’ nye forum hvor du hurtigt og nemt kan få vejledning eller svar på dine spørgsmål, af Boss eller andre brugere. I forummet kan du finde svar på ofte stillede spørgsmål, stille et nyt spørgsmål samt hjælpe andre med at finde en løsning. Har du et ønske eller forespørgsel kan dette også gøres via. forummet. <br/>Kom i gang og bliv en del af fællesskabet, ved at oprette en bruger i dag, og oplev den nye funktion.</p>
-                    <SecondaryButton text={"gå til forum"}></SecondaryButton>
+                    <SecondaryButton text={"Gå til forum"}></SecondaryButton>
                 </div>
             </section>
             <section id='boss_section'>

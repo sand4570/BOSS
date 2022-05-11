@@ -28,9 +28,11 @@ const Footer = () => {
                 <a href=''>LOGIN</a>
             </div>
             </div>
-            <button onClick={goToTop}>TOPPEN</button>
+            <button onClick={goToTop}>
+            <img className='' width='30' src='/up_arrow.svg'></img>
+            </button>
             </div>
-            <p id='copyright'>ⓒ All copyrights reserved I {year}</p>
+            <p id='copyright'>ⓒ All copyrights reserved | {year}</p>
         </footer>
     )
 }

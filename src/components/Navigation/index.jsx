@@ -44,8 +44,6 @@ const Navbar = () => {
                         <img src={logo}></img>
                     </div>
 
-                    
-
                     <div className='rightWrapper'>
                         <div className='menu-icon' onClick={handleClick}>
                             <span className={active ? 'close' : 'menu'}></span>
@@ -54,12 +52,12 @@ const Navbar = () => {
                         <ul className={active ? 'nav-menu active' : 'nav-menu'}>
                             {NavLink(login).map((item, index) => {
                                 return (
-                                    <li key={index}><Link to={item.url} className={activeLink === item.title ? `${item.cName} activeLink` : item.cName} onClick={() => setActiveLink(item.title)}>
+                                    <li key={index}><Link to={item.url} id={item.url} className={activeLink === item.title ? `${item.cName} activeLink` : item.cName} onClick={() => setActiveLink(item.title)}>
                                     {item.title}   
                                     </Link></li>
                                 )
                             })}
-                            
+                            <hr/>
                         </ul>
                         
                         <div className={login ? 'profilePic' : ''}></div>
