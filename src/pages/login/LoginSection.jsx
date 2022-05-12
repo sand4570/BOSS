@@ -1,4 +1,7 @@
+
 import { useState } from 'react'
+import { useParams } from 'react-router-dom'
+
 import './style.scss'
 
 const LoginSection = ({state, data}) => {
@@ -15,7 +18,7 @@ const LoginSection = ({state, data}) => {
            data.map((account) => {
                if (mail === account.email) {
                    if (password === account.password) {
-                       console.log('login')
+                       window.location.href=`/?id=${account._id}`;
                    } else {console.log('wrong password')}
                } else {
                    console.log('false')
