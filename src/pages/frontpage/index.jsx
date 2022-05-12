@@ -44,7 +44,7 @@ const Frontpage = () => {
                     <h2>hvad er boss</h2>
                     <p>Boss er et system til udlånsstyring af bøger computere, ipads og mere. Boss har i dag over 200 installationer og benyttes af gymnasier, VUC’er og handelsskoler hele Danmark. <br/>Boss håndterer oprettelse af bøger, udlån, hjemkaldelse og regningshåndtering. Herunder er håndtering af e- og i-bøger indbygget, og udlån kan registrerestitel- eller eksemplarbaseret. <br/>Boss er tæt integreret med Ludus, Lectio, Uddata+ og Tabulex og har en række ekstra værktøjer, der gør det endnu nemmere at bruge bl.a WebBoss, der giver undervisere mulighed for at bestille og hjemkalde bøger til deres hold. </p>
                 </div>
-                <img src='/girls_chat.png'></img>
+                <img src='/girls_chat2.png'></img>
             </section>
             <section id='review_section'>
                 <h3 className='citat'>“ Med BOSS er der altid styr på vores bøger. Det er nemt og hurtigt og jeg er bare så glad for at bruge det ”</h3>
