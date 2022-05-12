@@ -1,5 +1,21 @@
 @import "./colors";
 
+.CTA {
+	border: none;
+	background-color: $sunset;
+	border-radius: 30px;
+	padding: 15px 20px;
+	color: $moonlight;
+	margin: 15px 0;
+	width: 190px;
+	font-size: 1.2rem;
+	font-weight: 400;
+}
+
+.CTA:hover {
+	background-color: #e68962;
+}
+
 .primaryButton {
 	border: none;
 	background-color: $sunset;
@@ -8,7 +24,7 @@
 	color: $moonlight;
 	text-transform: uppercase;
 	margin: 15px 0;
-	min-width: 120px;
+	min-width: 130px;
 }
 
 .secondaryButton {
@@ -17,9 +33,8 @@
 	border-radius: 30px;
 	padding: 10px 20px;
 	color: $sunset;
-	text-transform: uppercase;
 	margin: 15px 0;
-	min-width: 120px;
+	min-width: 140px;
 }
 
 button:hover {

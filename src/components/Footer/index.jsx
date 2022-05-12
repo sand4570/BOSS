@@ -1,5 +1,6 @@
 import React from 'react'
 import './footer.scss'
+//import Link from 'react-router-dom';
 
 
 const Footer = () => {
@@ -22,15 +23,17 @@ const Footer = () => {
                 <p> +45 30 14 15 49 <br/> Torben@bossinfo.dk <br/> Kornvænget 8 <br/> 3550 Slangerup <br/> CVR: 42242144 </p>
             </div>
             <div id='links'>
-                <a href=''>FORSIDE</a>
-                <a href=''>OM BOSS</a>
-                <a href=''>KONTAKT</a>
-                <a href=''>LOGIN</a>
+                {/* <Link to='/'>FORSIDE</Link>
+                <Link to='about'>OM BOSS</Link>
+                <Link to='contact'>KONTAKT</Link>
+                <Link to='login'>LOGIN</Link> */}
             </div>
             </div>
-            <button onClick={goToTop}>TOPPEN</button>
+            <button onClick={goToTop}>
+            <img className='' width='30' src='/up_arrow.svg'></img>
+            </button>
             </div>
-            <p id='copyright'>ⓒ All copyrights reserved I {year}</p>
+            <p id='copyright'>ⓒ All copyrights reserved | {year}</p>
         </footer>
     )
 }

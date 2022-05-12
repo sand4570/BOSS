@@ -1,0 +1,118 @@
+@import "../../sass/base/colors";
+
+#form1 {
+	display: none;
+}
+
+#form2 {
+	display: none;
+}
+
+#about_section {
+	margin-top: 60px;
+	img {
+		width: 100%;
+		margin-top: 20px;
+	}
+}
+
+#owner_section {
+	margin-top: 30px;
+	#portrait_wrapper {
+		display: flex;
+		gap: 10px;
+		align-items: center;
+		img {
+			width: 50%;
+		}
+		#owner_desk_wrapper {
+			display: flex;
+			flex-direction: column;
+		}
+	}
+	#torben_wrapper {
+		background-color: $rain;
+		padding: 5px 10px 50px;
+		border-radius: 20px;
+		position: relative;
+		top: -30px;
+		margin: 0 5px;
+	}
+	#work_img {
+		width: 70%;
+		position: relative;
+		top: -60px;
+		right: -110px;
+	}
+}
+
+#vision_section {
+	margin-top: -20px;
+	img {
+		margin: 15px auto;
+		width: 100%;
+	}
+}
+
+@media only screen and (min-width: 900px) {
+	#form1 {
+		display: inline;
+		z-index: -2;
+		position: absolute;
+		left: -5vw;
+		top: 13vw;
+		height: 100vw;
+	}
+	#form2 {
+		display: inline;
+		z-index: -2;
+		position: absolute;
+		top: 67vw;
+		height: 60vw;
+		right: -5vw;
+	}
+	#about_section {
+		margin-top: 0;
+		display: flex;
+		gap: 30px;
+		align-items: center;
+		img {
+			width: 50%;
+		}
+	}
+
+	#owner_section {
+		height: 700px;
+		#portrait_wrapper {
+			align-items: flex-start;
+			#owner_desk_wrapper .citat {
+				max-width: 400px;
+				margin-top: 40px;
+			}
+			img {
+				width: 30% !important;
+			}
+		}
+		#torben_wrapper {
+			max-width: 40vw;
+			margin: 0 auto !important;
+			padding: 10px 20px 20px !important;
+			top: -15vw;
+		}
+		#work_img {
+			width: 35%;
+			z-index: -1;
+			right: -55vw;
+			top: -44vw;
+		}
+	}
+	#vision_section {
+		display: flex;
+		flex-direction: row-reverse;
+		align-items: center;
+		gap: 60px;
+		img {
+			width: 40%;
+		}
+	}
+}

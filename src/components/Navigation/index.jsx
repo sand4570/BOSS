@@ -46,8 +46,6 @@ const Navbar = () => {
                         <img src={logo}></img>
                     </div>
 
-                    
-
                     <div className='rightWrapper'>
                         <div className='menu-icon' onClick={handleClick}>
                             <span className={active ? 'close' : 'menu'}></span>
@@ -61,7 +59,7 @@ const Navbar = () => {
                                     </Link></li>
                                 )
                             })}
-                            
+                            <hr/>
                         </ul>
                         
                         <div className={login ? 'profilePic' : ''}></div>

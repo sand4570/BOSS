@@ -1,4 +1,9 @@
 @import "../../sass/base/colors";
+
+#form {
+	display: none;
+}
+
 #form_section {
 	background-color: $rain;
 	padding: 15px;
@@ -40,9 +45,18 @@
 }
 
 @media only screen and (min-width: 800px) {
+	#form {
+		display: inline-block;
+		position: absolute;
+		height: 83vw;
+		left: -5vw;
+		z-index: -2;
+		top: 5vw;
+	}
 	#form_section {
 		display: flex;
-		gap: 90px;
+		gap: 5vw;
+		padding: 15px 25px;
 		label,
 		textarea {
 			width: 40vw;
