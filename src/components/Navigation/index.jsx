@@ -24,6 +24,15 @@ const Navbar = () => {
 
     const { search } = useLocation()
 
+    useEffect(() => {
+        if (search) {
+            setLogin(true);
+        } else (
+            setLogin(false)
+        )
+    })
+    
+
     //Open and close the burger menu on mobile
     const handleClick = () => {
         if (active) {
@@ -58,8 +67,9 @@ const Navbar = () => {
 
                         <ul className={active ? 'nav-menu active' : 'nav-menu'}>
                             {NavLink(login).map((item, index) => {
+                                const path = item.url === "/logout" ? "/" : item.url + search
                                 return (
-                                    <li key={index}><Link to={item.url + search} className={activeLink === item.url ? `${item.cName} activeLink` : item.cName}>
+                                    <li key={index}><Link to={path} className={activeLink === item.url ? `${item.cName} activeLink` : item.cName}>
                                     {item.title}   
                                     </Link></li>
                                 )
