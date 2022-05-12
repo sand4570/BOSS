@@ -8,12 +8,12 @@
 	color: $moonlight;
 	margin: 15px 0;
 	width: 190px;
-	font-size: 1.2rem;
+	font-size: 1.3rem;
 	font-weight: 400;
 }
 
 .CTA:hover {
-	background-color: #e68962;
+	background-color: #ad552e;
 }
 
 .primaryButton {
@@ -35,6 +35,10 @@
 	color: $sunset;
 	margin: 15px 0;
 	min-width: 140px;
+}
+.secondaryButton:hover {
+	background-color: $sunset;
+	color: $cloud;
 }
 
 button:hover {
