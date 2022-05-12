@@ -26,6 +26,11 @@ const NavLink = (login) => {
           cName: 'nav-links'
         },
         {
+          title: 'FORUM',
+          url: '/forum',
+          cName: 'nav-links'
+        },
+        {
           title: 'LOG UD',
           url: '/logout',
           cName: 'nav-links'
