@@ -38,17 +38,17 @@ const NavLink = (login) => {
         },
         {
           title: 'OM BOSS',
-          url: 'about',
+          url: '/about',
           cName: 'nav-links'
         },
         {
           title: 'KONTAKT',
-          url: 'contact',
+          url: '/contact',
           cName: 'nav-links'
         },
         {
           title: 'LOG IND',
-          url: 'login',
+          url: '/login',
           cName: 'nav-links'
         }
       ]

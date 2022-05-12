@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import {useLocation, Link} from 'react-router-dom';
 
@@ -11,13 +11,18 @@ import NavLink from './NavLink';
 
 const Navbar = () => {
 
+    const pathname = window.location.pathname
+
     const [ active, setActive ] = useState(false)
     const [color, setColor] = useState('transparent')
-    const [activeLink, setActiveLink] = useState('FORSIDE')
+    const [activeLink, setActiveLink] = useState('/')
     const [login, setLogin] = useState(false)
 
+    useEffect(() => {
+        setActiveLink(pathname)
+    })
+
     const { search } = useLocation()
-    
 
     //Open and close the burger menu on mobile
     const handleClick = () => {
@@ -54,7 +59,7 @@ const Navbar = () => {
                         <ul className={active ? 'nav-menu active' : 'nav-menu'}>
                             {NavLink(login).map((item, index) => {
                                 return (
-                                    <li key={index}><Link to={item.url + search} className={activeLink === item.title ? `${item.cName} activeLink` : item.cName} onClick={() => setActiveLink(item.title)}>
+                                    <li key={index}><Link to={item.url + search} className={activeLink === item.url ? `${item.cName} activeLink` : item.cName}>
                                     {item.title}   
                                     </Link></li>
                                 )
