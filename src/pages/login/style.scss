@@ -1,17 +1,24 @@
 @import "/src/sass/base/colors";
+@import '/src/sass/base/buttons';
 
-.back-button {
-    margin-top: 0;
+#back-button {
+    margin: 1rem;
+    width: fit-content;
 }
 
 .content-wrapper {
     padding: 0rem;
     width: 100vw;
     height: 100vh;
-    overflow-y: hidden;
-    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
-    h1 {
+    h2 {
+        text-align: center;
+    }
+
+    p {
         text-align: center;
     }
 
@@ -35,12 +42,25 @@
         padding-bottom: 10px;
     }
 
-    .submit-wrapper {
+    .button-wrapper {
         padding-top: 10px;
         padding-bottom: 10px;
         display: flex;
         justify-content: center;
     }
 
-    .login-section {}
+    .login-section {
+        margin-bottom: 2rem;
+        padding: 1rem;
+    }
+
+    .blue-section {
+        background-color: $rain;
+        padding: 1rem;
+        height: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+    }
 }
