@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import {BrowserRouter, Link} from 'react-router-dom';
+import {useLocation, Link} from 'react-router-dom';
 
 import './style.scss';
 import logo from '../../../public/boss_logo.png'
@@ -15,6 +15,8 @@ const Navbar = () => {
     const [color, setColor] = useState('transparent')
     const [activeLink, setActiveLink] = useState('FORSIDE')
     const [login, setLogin] = useState(false)
+
+    const { search } = useLocation()
     
 
     //Open and close the burger menu on mobile
@@ -54,7 +56,7 @@ const Navbar = () => {
                         <ul className={active ? 'nav-menu active' : 'nav-menu'}>
                             {NavLink(login).map((item, index) => {
                                 return (
-                                    <li key={index}><Link to={item.url} className={activeLink === item.title ? `${item.cName} activeLink` : item.cName} onClick={() => setActiveLink(item.title)}>
+                                    <li key={index}><Link to={item.url + search} className={activeLink === item.title ? `${item.cName} activeLink` : item.cName} onClick={() => setActiveLink(item.title)}>
                                     {item.title}   
                                     </Link></li>
                                 )
