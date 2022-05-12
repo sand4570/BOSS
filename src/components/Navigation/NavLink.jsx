@@ -1,8 +1,12 @@
 import React from 'react';
+import {useLocation, Link} from 'react-router-dom';
+
 
 //import "./style.scss";
 
 const NavLink = (login) => {
+  const { search } = useLocation()
+
   if (login) {
     return (
       [
@@ -13,17 +17,17 @@ const NavLink = (login) => {
         },
         {
           title: 'OM BOSS',
-          url: '#',
+          url: '/about',
           cName: 'nav-links'
         },
         {
           title: 'KONTAKT',
-          url: '#',
+          url: '/contact',
           cName: 'nav-links'
         },
         {
           title: 'LOG UD',
-          url: '#',
+          url: '/logout',
           cName: 'nav-links'
         }
       ]
@@ -38,17 +42,17 @@ const NavLink = (login) => {
         },
         {
           title: 'OM BOSS',
-          url: 'about',
+          url: '/about',
           cName: 'nav-links'
         },
         {
           title: 'KONTAKT',
-          url: 'contact',
+          url: '/contact',
           cName: 'nav-links'
         },
         {
           title: 'LOG IND',
-          url: 'login',
+          url: '/login',
           cName: 'nav-links'
         }
       ]
