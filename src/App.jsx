@@ -11,6 +11,7 @@ import Login from './pages/Login/index'
 import Footer from './components/Footer/index'
 import Navigation from './components/Navigation'
 import About from './pages/About/index'
+import Forum from './pages/Forum/index'
 
 
 function App () {
@@ -28,6 +29,7 @@ function App () {
           <Routes>
             <Route exact path='about' element={<About/>} />
             <Route exact path='contact' element={<Contact/>} />
+            <Route exact path='forum' element={<Forum/>} />
             <Route exact path='/' element={<Frontpage/>} />
           </Routes>
         </main>
