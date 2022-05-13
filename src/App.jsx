@@ -19,10 +19,6 @@ function App () {
     <>
       <BrowserRouter>
         <ScrollToTop />
-      
-        <Routes>
-          <Route exact path='login' element={<Login/>} />
-        </Routes>
 
         <Navigation/>
         <main>
@@ -33,6 +29,11 @@ function App () {
             <Route exact path='/' element={<Frontpage/>} />
           </Routes>
         </main>
+
+        <Routes>
+            <Route exact path='login' element={<Login/>} />
+         </Routes>
+        
         <Footer/>
       </BrowserRouter>
       

@@ -24,7 +24,7 @@ const SignupSection = ({state}) => {
     } else {
         return (
             <>
-                <p>Hvis du allerede benytter Boss men ikke har en bruger, så opret din bruger nedenfor.</p>
+                <p>Hvis du allerede benytter BOSS men ikke har en bruger, så opret din bruger nedenfor.</p>
                 <div className="button-wrapper">
                     <button className='secondaryButton'>OPRET BRUGER</button>
                 </div>

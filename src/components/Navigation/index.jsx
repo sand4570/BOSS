@@ -4,11 +4,7 @@ import {useLocation, Link} from 'react-router-dom';
 
 import './style.scss';
 import './menu.scss'
-import logo from '../../../public/boss_logo.png'
 import NavLink from './NavLink';
-//import BurgerMenu from '../burgermenu/index'
-
-
 
 
 const Navbar = () => {
@@ -34,14 +30,6 @@ const Navbar = () => {
         }
     };
 
-    const closeMenu = () =>{
-        if (active) {
-            setActive(false)
-        } else {
-            setActive(true)
-        }
-    }
-
     useEffect(() => {
         if (search) {
             setLogin(true);
@@ -61,11 +49,16 @@ const Navbar = () => {
 
     window.addEventListener('scroll', listenScrollEvent)
 
+    if(pathname === '/login'){
+        return (
+            <div></div>
+        )
+    } else{
         return (
             <div className='nav-wrapper' style={{backgroundColor: color, transition: '0.5s ease-in', }}>
                 <nav className="Navbar" >
                     <div className='logoContainer'>
-                        <img src={logo}></img>
+                        <img src="/boss_logo.png"></img>
                     </div>
                     <div className='rightWrapper'>
 
@@ -77,9 +70,10 @@ const Navbar = () => {
 
                     <ul className={active ? 'nav-menu active' : 'nav-menu not-active'}>
                         {NavLink(login).map((item, index) => {
+                            
                             const path = item.url === "/logout" ? "/" : item.url + search
                                 return (
-                                    <li key={index}><Link onClick={closeMenu} to={path} className={activeLink === item.url ? `${item.cName} activeLink` : item.cName}>
+                                    <li key={index}><Link onClick={handleClick} to={path} className={activeLink === item.url ? `${item.cName} activeLink` : item.cName}>
                                     {item.title}   
                                     </Link></li>
                                 )
@@ -90,7 +84,7 @@ const Navbar = () => {
                 </nav>
             </div>
         )
-    
+}
 }
 
 

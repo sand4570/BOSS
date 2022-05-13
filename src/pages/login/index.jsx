@@ -10,7 +10,7 @@ import './style.scss'
 
 
 const Login = () => {
-    const [toLogin, setToLogin] = useState(true)
+    const [toLogin, setToLogin] = useState(false)
     const [accountData, setAccountData] = useState(null)
 
     useEffect(() => {
@@ -26,15 +26,15 @@ const Login = () => {
 
     return (
         <>
+        <button id='back-button' className='secondaryButton' onClick={() => history.back()}>TILBAGE</button>
         <div className='content-wrapper'>
-            <button id='back-button' className='secondaryButton' onClick={() => history.back()}>TILBAGE</button>
             <section className={toLogin ? 'login-section' : 'blue-section'}>
-                <h2>LOG IND</h2>
+                <h3>LOG IND</h3>
                 <LoginSection state={toLogin} data={accountData}></LoginSection>
                 
             </section>
             <section className={!toLogin ? 'signup-section' : 'blue-section'}>
-            <h2>OPRET BRUGER</h2>
+            <h3>OPRET BRUGER</h3>
                 <SignupSection state={toLogin}></SignupSection>
             </section>
         </div>

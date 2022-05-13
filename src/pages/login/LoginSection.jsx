@@ -37,12 +37,12 @@ const LoginSection = ({state, data}) => {
             <form onSubmit={handleSubmit}>
                     <div className='input-wrapper'>
                         <label htmlFor='email' className='login-label'> EMAIL</label>
-                        <input id='email' className='login-input' type='email' onChange={event => setMail(event.target.value)}></input>
+                        <input placeholder="Skriv din mail her" id='email' className='login-input' type='email' onChange={event => setMail(event.target.value)}></input>
                     </div>
                     
                     <div className='input-wrapper'>
                         <label htmlFor='password' className='login-label'>ADGANGSKODE</label>
-                        <input id='password' className='login-input' type='password' onChange={event => setPassword(event.target.value)}></input>
+                        <input placeholder="Skal indeholde mindst 6 tegn" id='password' className='login-input' type='password' onChange={event => setPassword(event.target.value)}></input>
                     </div>
                     
                     <div className='button-wrapper'>

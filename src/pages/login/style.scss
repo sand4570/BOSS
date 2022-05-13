@@ -1,66 +1,93 @@
 @import "/src/sass/base/colors";
-@import '/src/sass/base/buttons';
+@import "/src/sass/base/buttons";
 
-#back-button {
-    margin: 1rem;
-    width: fit-content;
+#back-button{
+	position: absolute;
+	margin-left: 10px;
+	top: 5px;
 }
 
-.content-wrapper {
-    padding: 0rem;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+ .content-wrapper {
+	 height: 100vh;
+	 padding-top: 40px;
+	 display: grid;
+	 grid-template-rows: 60% 40%;
 
-    h2 {
-        text-align: center;
-    }
+	h3 {
+		text-align: center;
+	}
 
-    p {
-        text-align: center;
-    }
+	p {
+		text-align: center;
+	}
 
-    .login-input {
-        width: 100%;
-        border: solid 1px $sunset;
-        border-radius: 24px;
-        font-size: 1rem;
-        padding: 0.5rem;
-    }
+	.login-input {
+		width: 100%;
+		border: solid 2px $sunset;
+		border-radius: 24px;
+		font-size: 0.9rem;
+		padding: 8px 1.2rem;
+	}
+	.login-input:focus {
+		outline: none;
+		border: 2px solid $nightsky;
+	}
+	.login-input:-webkit-autofill {
+		box-shadow: 0 0 0px 1000px rgb(255, 255, 255) inset;
+		-webkit-box-shadow: 0 0 0px 1000px rgb(255, 255, 255) inset;
+		transition: background-color 5000s ease-in-out 0s;
+	}
 
-    .login-label {
-        margin-left: 1.2rem;
-        margin-bottom: 0.5rem;
-    }
+	.login-label {
+		margin-left: 1.2rem;
+		margin-bottom: 0.5rem;
+		font-weight: bold;
+	}
 
-    .input-wrapper {
-        display: flex;
-        flex-direction: column;
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
+	.input-wrapper {
+		display: flex;
+		flex-direction: column;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
 
-    .button-wrapper {
-        padding-top: 10px;
-        padding-bottom: 10px;
-        display: flex;
-        justify-content: center;
-    }
+	.button-wrapper {
+		padding-top: 10px;
+		padding-bottom: 10px;
+		display: flex;
+		justify-content: center;
+	}
 
-    .login-section {
-        margin-bottom: 2rem;
-        padding: 1rem;
-    }
+	.login-section {
+		margin-bottom: 2rem;
+		padding: 1rem 2rem;
+	}
 
-    .blue-section {
-        background-color: $rain;
-        padding: 1rem;
-        height: 40%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-
-    }
+	.blue-section {
+		background-color: $rain;
+		padding: 1rem 2rem;
+		//height: 40vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
 }
+@media screen and (min-width: 760px){
+	.content-wrapper {
+		grid-template-columns: 60% 40%;
+		grid-template-rows: none;
+		padding-top: 0;
+		.login-section{
+			margin-top: auto;
+			margin-bottom: auto;
+			height: 50vh;
+			padding: 1rem 4rem;
+			form{
+				max-width: 500px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
+	}
+}
+
