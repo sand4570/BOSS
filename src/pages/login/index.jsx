@@ -42,8 +42,4 @@ const Login = () => {
     )
 }
 
-const handleLogin = async (data) => {
-
-}
-
 export default Login

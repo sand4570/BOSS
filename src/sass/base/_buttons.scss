@@ -27,22 +27,22 @@
 
 @keyframes in {
 	0% {
-		transform: translateY(0);
+		//transform: translateY(0);
 		border-radius: 10px;
 	}
 	100% {
-		transform: translateY(-8px);
+		//transform: translateY(-8px);
 		border-radius: 40px;
 	}
 }
 
 @keyframes out {
 	0% {
-		transform: translateY(-8px);
+		//transform: translateY(-8px);
 		border-radius: 40px;
 	}
 	100% {
-		transform: translateY(0);
+		//transform: translateY(0);
 		border-radius: 10px;
 	}
 }

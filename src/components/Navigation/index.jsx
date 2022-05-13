@@ -34,6 +34,14 @@ const Navbar = () => {
         }
     };
 
+    const closeMenu = () =>{
+        if (active) {
+            setActive(false)
+        } else {
+            setActive(true)
+        }
+    }
+
     useEffect(() => {
         if (search) {
             setLogin(true);
@@ -71,7 +79,7 @@ const Navbar = () => {
                         {NavLink(login).map((item, index) => {
                             const path = item.url === "/logout" ? "/" : item.url + search
                                 return (
-                                    <li key={index}><Link to={path} className={activeLink === item.url ? `${item.cName} activeLink` : item.cName}>
+                                    <li key={index}><Link onClick={closeMenu} to={path} className={activeLink === item.url ? `${item.cName} activeLink` : item.cName}>
                                     {item.title}   
                                     </Link></li>
                                 )
