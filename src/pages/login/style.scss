@@ -9,14 +9,10 @@
 
  .content-wrapper {
 	 height: 100vh;
-	 padding-top: 40px;
-	 display: grid;
-	 grid-template-rows: 60% 40%;
-
+	 
 	h3 {
 		text-align: center;
 	}
-
 	p {
 		text-align: center;
 	}
@@ -60,22 +56,53 @@
 
 	.login-section {
 		margin-bottom: 2rem;
-		padding: 1rem 2rem;
+		height: 300px;
+		padding: 0 2rem;
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+
+	.signup-section {
+		margin-bottom: 2rem;
+		height: 35vh;
+		padding: 0 2rem;
+		margin-top: auto;
+		margin-bottom: auto;
 	}
 
 	.blue-section {
 		background-color: $rain;
 		padding: 1rem 2rem;
-		//height: 40vh;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 	}
 }
-@media screen and (min-width: 760px){
+
+.content-wrapper.login{
+	display: grid;
+	grid-template-rows: 60% 40%;
+	.blue-section{
+		//animation: slide 1s 1 forwards ;
+	}
+}
+.content-wrapper.signup{
+	display: grid;
+	grid-template-rows: 40% 60%;
+}
+
+@keyframes slide {
+	0%{
+		transform: translateX(0) scaleX(1);
+	}
+	100%{
+		transform: translateX(-20vw) scaleX(0);
+	}
+}
+
+
+@media screen and (min-width: 900px){
 	.content-wrapper {
-		grid-template-columns: 60% 40%;
-		grid-template-rows: none;
 		padding-top: 0;
 		.login-section{
 			margin-top: auto;
@@ -88,6 +115,19 @@
 				margin-right: auto;
 			}
 		}
+		.signup-section form{
+			max-width: 500px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+	.content-wrapper.login{
+		grid-template-columns: 60% 40%;
+		grid-template-rows: none;
+	}
+	.content-wrapper.signup{
+		grid-template-columns: 40% 60%;
+		grid-template-rows: none;
 	}
 }
 
