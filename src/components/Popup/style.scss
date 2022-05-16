@@ -1,0 +1,107 @@
+@import '../../sass/base/colors';
+
+.modal_container{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 200;
+    .modal_background{
+        background-color: rgba(0, 0, 0, 0.262);
+        width: 100%;
+        height: 100%;
+        .modal{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); 
+            width: 95%;
+            height: 95%;
+            background-color: white;
+            border-radius: 20px;
+            padding: 5px 15px;
+            h2{
+                margin-bottom: 30px;
+            }
+            button{
+                float: right;
+            }
+            h3{
+                margin-top: 40px;
+            }
+            .form_wrapper{
+                max-width: 700px;
+                margin: 0 auto;
+            }
+            .input_wrapper{
+                margin-bottom: 25px;
+                display: flex;
+                flex-direction: column;
+                input, textarea{
+                    width: 100%;
+                    border: 1px solid $fog;
+                    border-radius: 20px;
+                    height: 35px;
+                    padding: 2px 13px;
+                    margin-top: 10px;
+                }
+                textarea{
+                    height: 7rem;
+                    padding: 8px 13px;
+                }
+                label{
+                    text-transform: initial;
+                    font-size: 1rem;
+                }
+                input:focus,
+                textarea:focus {
+                outline: none;
+                border: 1px solid $nightsky;
+		        }
+                
+            }
+            .info_txt {
+                color: $fog;
+            }
+            .cat_wrapper{
+                margin: 20px 0;
+                display: flex;
+                gap: 10px;
+                flex-wrap: wrap;
+            }
+            .opret_button{
+                float: unset;
+                display: block;
+                margin: 60px auto 10px;
+            }
+        }
+    }
+}
+
+.modal_container.hiding{
+    display: none;
+}
+.modal_container.showing{
+    display: inline;
+}
+
+@media only screen and (min-width: 760px) {
+    .modal{
+        width: 80% !important;
+        height: 95% !important;
+        padding: 10px 40px !important;
+    }
+}
+
+@media only screen and (min-height: 830px){
+    .modal{
+        height: 85% !important;
+    }
+}
+
+@media only screen and (min-height: 1020px){
+    .modal{
+        height: 70% !important;
+    }
+}

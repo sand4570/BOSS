@@ -82,22 +82,11 @@
 .content-wrapper.login{
 	display: grid;
 	grid-template-rows: 60% 40%;
-	.blue-section{
-		//animation: slide 1s 1 forwards ;
-	}
+	
 }
 .content-wrapper.signup{
 	display: grid;
 	grid-template-rows: 40% 60%;
-}
-
-@keyframes slide {
-	0%{
-		transform: translateX(0) scaleX(1);
-	}
-	100%{
-		transform: translateX(-20vw) scaleX(0);
-	}
 }
 
 
