@@ -35,6 +35,7 @@ const Forum = () => {
         return (
             <>
             <Popup modal={modal} setModal={setModal}/>
+            <div className='forum_container'>
             <div id='forum-content'>
                 <div id='top-section'>
                     <button onClick={toggleModal} className='primaryButton'>Nyt spørgsmål</button>
@@ -51,6 +52,7 @@ const Forum = () => {
                 </div>
     
                 <Question></Question>
+            </div>
             </div>
             </>
         )
