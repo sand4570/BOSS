@@ -30,6 +30,14 @@ p {
 	max-width: 600px;
 }
 
+span {
+	font-family: "Sarabun", sans-serif;
+	color: $eclipse;
+	margin: 0;
+	line-height: 28px;
+	max-width: 600px;
+}
+
 button {
 	font-size: 1rem;
 	font-weight: 600;
@@ -79,9 +87,11 @@ a {
 		font-size: 3.3rem;
 		margin-bottom: 30px;
 	}
+
 	h2 {
 		font-size: 2rem;
 	}
+
 	.citat {
 		font-size: 2rem;
 		line-height: 50px;
