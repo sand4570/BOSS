@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import {useLocation, Link} from 'react-router-dom';
 
 import Question from '../../components/Question'
+import Category from '../../components/categories';
 import './style.scss'
 
 const Forum = () => {
@@ -32,9 +33,7 @@ const Forum = () => {
                     <div id='categories'>
                         {categories.map((cat) => {
                             return (
-                                <div className='category'>
-                                    <span>{cat.category}</span>
-                                </div>
+                                <Category name={cat.category}></Category>
                             )
                         })}
                     </div>

@@ -63,9 +63,9 @@ const Navbar = () => {
                     <div className='rightWrapper'>
 
                     <div onClick={handleClick} id="btn" className={active ? 'active' : 'not-active'}>
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                        <span className='nav-span'></span>
+                        <span className='nav-span'></span>
+                        <span className='nav-span'></span>
                     </div>
 
                     <ul className={active ? 'nav-menu active' : 'nav-menu not-active'}>

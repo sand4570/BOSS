@@ -1,0 +1,42 @@
+@import "/src/sass/base/colors";
+
+.category-wrapper {
+
+
+
+
+    .category-checkbox {
+        position: absolute;
+        opacity: 1;
+
+        height: 0;
+        width: 0;
+    }
+
+    .category-label {
+        text-transform: none;
+        margin: 0;
+        color: $fog;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        line-height: 30px;
+        border: solid 1px $fog;
+        border-radius: 25px;
+        width: auto;
+
+    }
+
+    .category-checkbox:checked~label::before {
+        content: "✔️";
+        margin-right: 0.5rem;
+        color: $nightsky;
+    }
+
+    .category-checkbox:checked~label {
+        color: $nightsky;
+        border: solid 2px $nightsky;
+    }
+
+
+
+}

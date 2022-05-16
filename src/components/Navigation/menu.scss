@@ -1,6 +1,6 @@
 @import "/src/sass/base/colors";
 
-.hidden{
+.hidden {
 	display: none;
 }
 
@@ -13,7 +13,7 @@
 	cursor: pointer;
 }
 
-span {
+.nav-span {
 	display: block;
 	width: 100%;
 	border-radius: 5px;
@@ -23,31 +23,31 @@ span {
 	position: relative;
 }
 
-span + span {
+.nav-span+.nav-span {
 	margin-top: 8px;
 }
 
-.active span:nth-child(1) {
+.active .nav-span:nth-child(1) {
 	animation: ease 0.7s top forwards;
 }
 
-.not-active span:nth-child(1) {
+.not-active .nav-span:nth-child(1) {
 	animation: ease 0.7s top-2 forwards;
 }
 
-.active span:nth-child(2) {
+.active .nav-span:nth-child(2) {
 	animation: ease 0.7s scaled forwards;
 }
 
-.not-active span:nth-child(2) {
+.not-active .nav-span:nth-child(2) {
 	animation: ease 0.7s scaled-2 forwards;
 }
 
-.active span:nth-child(3) {
+.active .nav-span:nth-child(3) {
 	animation: ease 0.7s bottom forwards;
 }
 
-.not-active span:nth-child(3) {
+.not-active .nav-span:nth-child(3) {
 	animation: ease 0.7s bottom-2 forwards;
 }
 
@@ -56,10 +56,12 @@ span + span {
 		top: 0;
 		transform: rotate(0);
 	}
+
 	50% {
 		top: 13px;
 		transform: rotate(0);
 	}
+
 	100% {
 		top: 13px;
 		transform: rotate(45deg);
@@ -71,10 +73,12 @@ span + span {
 		top: 13px;
 		transform: rotate(45deg);
 	}
+
 	50% {
 		top: 13px;
 		transform: rotate(0deg);
 	}
+
 	100% {
 		top: 0;
 		transform: rotate(0deg);
@@ -86,10 +90,12 @@ span + span {
 		bottom: 0;
 		transform: rotate(0);
 	}
+
 	50% {
 		bottom: 12px;
 		transform: rotate(0);
 	}
+
 	100% {
 		bottom: 12px;
 		transform: rotate(135deg);
@@ -101,10 +107,12 @@ span + span {
 		bottom: 12px;
 		transform: rotate(135deg);
 	}
+
 	50% {
 		bottom: 12px;
 		transform: rotate(0);
 	}
+
 	100% {
 		bottom: 0;
 		transform: rotate(0);
@@ -115,6 +123,7 @@ span + span {
 	50% {
 		transform: scale(0);
 	}
+
 	100% {
 		transform: scale(0);
 	}
@@ -124,9 +133,11 @@ span + span {
 	0% {
 		transform: scale(0);
 	}
+
 	50% {
 		transform: scale(0);
 	}
+
 	100% {
 		transform: scale(1);
 	}
