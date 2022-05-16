@@ -1,15 +1,19 @@
 
-import { useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useState, useCallback } from 'react'
 
-import './style.scss'
+//import './style.scss'
 
-const LoginSection = ({state, data}) => {
+const LoginSection = ({state, data, onButtonClick}) => {
 
     const [mail, setMail] = useState('')
     const [password, setPassword] = useState('')
 
-    console.log('data1', data)
+    //console.log('data1', data)
+
+    const handleClick = useCallback(() => {
+        console.log("yes i should be false hello")
+        onButtonClick(state)
+      }, [onButtonClick])
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -26,9 +30,6 @@ const LoginSection = ({state, data}) => {
                
            }) 
         }
-
-        
-    
         console.log('data', data)
     }
 
@@ -37,12 +38,12 @@ const LoginSection = ({state, data}) => {
             <form onSubmit={handleSubmit}>
                     <div className='input-wrapper'>
                         <label htmlFor='email' className='login-label'> EMAIL</label>
-                        <input id='email' className='login-input' type='email' onChange={event => setMail(event.target.value)}></input>
+                        <input placeholder="Skriv din mail her" id='email' className='login-input' type='email' onChange={event => setMail(event.target.value)}></input>
                     </div>
                     
                     <div className='input-wrapper'>
                         <label htmlFor='password' className='login-label'>ADGANGSKODE</label>
-                        <input id='password' className='login-input' type='password' onChange={event => setPassword(event.target.value)}></input>
+                        <input placeholder="Skal indeholde mindst 6 tegn" id='password' className='login-input' type='password' onChange={event => setPassword(event.target.value)}></input>
                     </div>
                     
                     <div className='button-wrapper'>
@@ -56,7 +57,7 @@ const LoginSection = ({state, data}) => {
             <>
                 <p>Hvis du allerede har en bruger, så log ind nedenfor.</p>
                 <div className='button-wrapper'>
-                    <button className='secondaryButton'>LOG IND</button>
+                    <button onClick={handleClick} className='secondaryButton'>LOG IND</button>
                 </div>
                 
             </>

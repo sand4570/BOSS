@@ -3,10 +3,8 @@ import { useState } from 'react';
 import {useLocation, Link} from 'react-router-dom';
 
 import './style.scss';
-import logo from '../../../public/boss_logo.png'
+import './menu.scss'
 import NavLink from './NavLink';
-
-
 
 
 const Navbar = () => {
@@ -24,16 +22,6 @@ const Navbar = () => {
 
     const { search } = useLocation()
 
-    useEffect(() => {
-        if (search) {
-            setLogin(true);
-        } else (
-            setLogin(false)
-        )
-    })
-    
-
-    //Open and close the burger menu on mobile
     const handleClick = () => {
         if (active) {
             setActive(false)
@@ -41,6 +29,14 @@ const Navbar = () => {
             setActive(true)
         }
     };
+
+    useEffect(() => {
+        if (search) {
+            setLogin(true);
+        } else (
+            setLogin(false)
+        )
+    })
 
     //Change manu color on scroll
     const listenScrollEvent = e => {
@@ -53,36 +49,42 @@ const Navbar = () => {
 
     window.addEventListener('scroll', listenScrollEvent)
 
+    if(pathname === '/login'){
+        return (
+            <div></div>
+        )
+    } else{
         return (
             <div className='nav-wrapper' style={{backgroundColor: color, transition: '0.5s ease-in', }}>
                 <nav className="Navbar" >
                     <div className='logoContainer'>
-                        <img src={logo}></img>
+                        <img src="/boss_logo.png"></img>
+                    </div>
+                    <div className='rightWrapper'>
+
+                    <div onClick={handleClick} id="btn" className={active ? 'active' : 'not-active'}>
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </div>
 
-                    <div className='rightWrapper'>
-                        <div className='menu-icon' onClick={handleClick}>
-                            <span className={active ? 'close' : 'menu'}></span>
-                        </div>
-
-                        <ul className={active ? 'nav-menu active' : 'nav-menu'}>
-                            {NavLink(login).map((item, index) => {
-                                const path = item.url === "/logout" ? "/" : item.url + search
+                    <ul className={active ? 'nav-menu active' : 'nav-menu not-active'}>
+                        {NavLink(login).map((item, index) => {
+                            
+                            const path = item.url === "/logout" ? "/" : item.url + search
                                 return (
-                                    <li key={index}><Link to={path} className={activeLink === item.url ? `${item.cName} activeLink` : item.cName}>
+                                    <li key={index}><Link onClick={handleClick} to={path} className={activeLink === item.url ? `${item.cName} activeLink` : item.cName}>
                                     {item.title}   
                                     </Link></li>
                                 )
-                            })}
-                            <hr/>
-                        </ul>
-                        
+                        })}
+                    </ul>
                         <div className={login ? 'profilePic' : ''}></div>
                     </div>
                 </nav>
             </div>
         )
-    
+}
 }
 
 

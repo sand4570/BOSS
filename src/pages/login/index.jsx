@@ -2,7 +2,6 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import SliderText from './Slider';
 import LoginSection from './LoginSection'
 import SignupSection from './SignupSection';
 import { accountsFetch } from '../../services/accountsService'
@@ -26,24 +25,20 @@ const Login = () => {
 
     return (
         <>
-        <div className='content-wrapper'>
-            <button id='back-button' className='secondaryButton' onClick={() => history.back()}>TILBAGE</button>
+        <button id='back-button' className='secondaryButton' onClick={() => history.back()}>TILBAGE</button>
+        <div className={toLogin ? 'content-wrapper login' : 'content-wrapper signup'}>
             <section className={toLogin ? 'login-section' : 'blue-section'}>
-                <h2>LOG IND</h2>
-                <LoginSection state={toLogin} data={accountData}></LoginSection>
+                <h3>LOG IND</h3>
+                <LoginSection state={toLogin} data={accountData} onButtonClick={setToLogin}></LoginSection>
                 
             </section>
             <section className={!toLogin ? 'signup-section' : 'blue-section'}>
-            <h2>OPRET BRUGER</h2>
-                <SignupSection state={toLogin}></SignupSection>
+            <h3>OPRET BRUGER</h3>
+                <SignupSection state={toLogin} onButtonClick={setToLogin}></SignupSection>
             </section>
         </div>
         </>
     )
-}
-
-const handleLogin = async (data) => {
-
 }
 
 export default Login

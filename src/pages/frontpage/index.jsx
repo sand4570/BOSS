@@ -2,9 +2,7 @@ import React from 'react'
 import {useLocation, Link} from 'react-router-dom';
 
 import './style.scss'
-import PrimaryButton from '../../components/PrimaryButton'
 import SecondaryButton from '../../components/SecondaryButton'
-
 
 
 
@@ -14,10 +12,12 @@ const Frontpage = () => {
     return (
         <>
             <section id='splash_section'>
-                <img src='/splash.png'></img>
+                <img className="splashImg" src='/splash.png'></img>
                 <h1>Udlånsstyring af bøger, computere og mere</h1>
                 <p>BOSS er et specialiseret værktøj til styring af udlån af bøger, computere, iPads, kameraer, cykler og meget andet</p>
-                <button className='CTA'><Link to={`contact${search}`}>Kom i kontakt</Link></button>
+                <button className='CTA'>
+                    <Link className="ctaLink" to={`contact${search}`}>Kom i kontakt </Link>
+                </button>
             </section>
             <section id='icons_section'>
                 <div>

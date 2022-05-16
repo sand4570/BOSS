@@ -1,32 +1,35 @@
-const SignupSection = ({state}) => {
+import React, { useCallback, useState } from 'react'
 
-    console.log('state', state)
+const SignupSection = ({state, onButtonClick}) => {
+
+    const handleClick = useCallback(() => {
+        onButtonClick(!state)
+      }, [onButtonClick])
 
     if (state === false) {
         return (
             <form>
                     <div className='input-wrapper'>
                         <label htmlFor='email' className='login-label'> EMAIL</label>
-                        <input id='email' className='login-input' type='email'></input>
+                        <input placeholder="Skriv din mail her" id='email' className='login-input' type='email'></input>
                     </div>
                     
                     <div className='input-wrapper'>
                         <label htmlFor='password' className='login-label'>ADGANGSKODE</label>
-                        <input id='password' className='login-input' type='password'></input>
+                        <input placeholder="Skal indeholde mindst 6 tegn" id='password' className='login-input' type='password'></input>
                     </div>
 
                     <div className='button-wrapper'>
-                        <button className='primaryButton' type='submit'>LOG IND</button>
+                        <button  className='primaryButton' type='submit'>OPRET BRUGER</button>
                     </div>
-                    
                 </form>
         )
     } else {
         return (
             <>
-                <p>Hvis du allerede benytter Boss men ikke har en bruger, så opret din bruger nedenfor.</p>
+                <p>Hvis du allerede benytter BOSS men ikke har en bruger, så opret din bruger nedenfor.</p>
                 <div className="button-wrapper">
-                    <button className='secondaryButton'>OPRET BRUGER</button>
+                    <button onClick={handleClick} className='secondaryButton'>OPRET BRUGER</button>
                 </div>
                 
             </>

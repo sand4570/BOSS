@@ -9,6 +9,7 @@
 .nav-wrapper {
 	position: fixed;
 	display: flex;
+	top: 0;
 	justify-content: center;
 	width: 100%;
 	padding: 0;
@@ -27,19 +28,12 @@
 
 	.logoContainer {
 		height: 100%;
-		margin-left: 75px;
+		margin-left: 60px;
 		padding: 0;
 
 		img {
 			height: 100%;
 		}
-	}
-
-	.menu-icon {
-		height: 100%;
-		align-items: center;
-		display: none;
-		margin-right: 0.8rem;
 	}
 
 	.rightWrapper {
@@ -48,13 +42,11 @@
 		align-items: center;
 
 		.nav-menu {
-			height: 100%;
 			display: flex;
 			align-items: center;
 			gap: 1.5rem;
 			list-style: none;
-			margin-right: 1rem;
-
+			margin-right: 60px;
 			.nav-links {
 				text-decoration: none;
 				color: $nightsky;
@@ -72,15 +64,6 @@
 	}
 }
 
-
-
-.nav-button {
-	border: none;
-	background-color: transparent;
-	font-size: 1rem;
-	height: 100%;
-}
-
 .activeLink::after {
 	content: "";
 	display: block;
@@ -91,57 +74,56 @@
 	background-color: $nightsky;
 }
 
-.close {
-	height: 1.8rem;
-	width: 1.8rem;
-	background-color: red;
-	display: block;
-}
-
-.menu {
-	height: 1.8rem;
-	width: 1.8rem;
-	background-color: green;
-	display: block;
-}
-
 @media screen and (max-width: 760px) {
 	.Navbar {
 		position: fixed;
-		background-color: $moonlight  !important;
+		top: 0;
+		background-color: $moonlight !important;
+		.logoContainer {
+			margin-left: 10px;
+		}
 
-		.rightWrapper {
-			height: auto;
 
-			.menu-icon {
-				display: flex;
+		.nav-menu {
+			display: flex !important;
+			position: absolute !important;
+			flex-direction: column;
+			background-color: $moonlight;
+			width: 100vw;
+			height: 100vh;
+			position: fixed;
+			top: 3.5rem;
+			left: 0;
+			padding-top: 5vw;
+			.nav-links {
+				font-size: 2rem;
+				line-height: 70px;
 			}
-
-			.nav-menu {
-				flex-direction: column;
-				width: 100%;
-				height: auto;
-				position: fixed;
-				padding: 2rem;
-				top: 3rem;
-				left: -100%;
-				opacity: 1;
-				transition: all 0.5s ease;
-
-				.nav-links {
-					text-align: center;
-					width: 100%;
-					height: auto;
-				}
-			}
+		}
+		.nav-menu.not-active {
+			animation: menu-out 0.8s 1 forwards cubic-bezier(0.77, 0.56, 0.44, 0.99);
 		}
 
 		.nav-menu.active {
-			background-color: $moonlight;
-			left: 0;
-			opacity: 1;
-			transition: all 0.5s ease;
-			z-index: 100;
+			animation: menu-in 0.8s 1 forwards cubic-bezier(0.77, 0.56, 0.44, 0.99);
+		}
+
+		@keyframes menu-in {
+			0% {
+				transform: translateX(100vw);
+			}
+			100% {
+				transform: translateX(0);
+			}
+		}
+
+		@keyframes menu-out {
+			0% {
+				transform: translateX(0);
+			}
+			100% {
+				transform: translateX(100vw);
+			}
 		}
 
 		.activeLink::after {
