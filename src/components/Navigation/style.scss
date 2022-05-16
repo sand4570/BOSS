@@ -29,6 +29,7 @@
 		height: 100%;
 		margin-left: 75px;
 		padding: 0;
+
 		img {
 			height: 100%;
 		}
@@ -71,6 +72,8 @@
 	}
 }
 
+
+
 .nav-button {
 	border: none;
 	background-color: transparent;
@@ -105,7 +108,7 @@
 @media screen and (max-width: 760px) {
 	.Navbar {
 		position: fixed;
-		background-color: $moonlight !important;
+		background-color: $moonlight  !important;
 
 		.rightWrapper {
 			height: auto;

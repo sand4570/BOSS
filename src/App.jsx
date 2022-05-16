@@ -12,6 +12,7 @@ import Footer from './components/Footer/index'
 import Navigation from './components/Navigation'
 import About from './pages/About/index'
 import Forum from './pages/Forum/index'
+import Singleview from './pages/Forum/Singleview'
 
 
 function App () {
@@ -29,7 +30,9 @@ function App () {
           <Routes>
             <Route exact path='about' element={<About/>} />
             <Route exact path='contact' element={<Contact/>} />
-            <Route exact path='forum' element={<Forum/>} />
+            <Route exact path='forum' element={<Forum/>}>
+              <Route exact path=':questionId' element={<Singleview/>}/>
+            </Route>
             <Route exact path='/' element={<Frontpage/>} />
           </Routes>
         </main>
