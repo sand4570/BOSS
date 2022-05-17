@@ -26,9 +26,8 @@ function App () {
           <Routes>
             <Route exact path='about' element={<About/>} />
             <Route exact path='contact' element={<Contact/>} />
-            <Route exact path='forum' element={<Forum/>}>
-              <Route exact path=':questionId' element={<Singleview/>}/>
-            </Route>
+            <Route exact path='forum' element={<Forum/>} />
+            <Route exact path='forum/:questionId' element={<Singleview/>}/>
             <Route exact path='/' element={<Frontpage/>} />
           </Routes>
         </main>

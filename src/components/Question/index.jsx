@@ -1,8 +1,12 @@
 import { useState, useEffect } from 'react';
+import { useLocation, Link } from 'react-router-dom';
+
 import QuestionBox from './QuestionBox';
 
 
 const Question = () => {
+
+    const { search } = useLocation()
 
     const [questions, setQuestions] = useState(null)
 
@@ -42,10 +46,12 @@ const Question = () => {
       if (questions) {
 
             return (
+                
                 <div id='content'>
                     {questions.map((question) => {
                         console.log('one question', question)
                         return (
+                            <Link to={`/forum/${question._id + search}`}>
                             <div className='question-box'>
                                 <div className='profile-box'>
                                     <img src={question.user[0].picture ? `/profiles/${question.user[0].picture}.jpg` : '/profiles/profile-placeholder.png'}></img>
@@ -69,6 +75,7 @@ const Question = () => {
                                     </div>
                                 </div>
                             </div>
+                            </Link>
                         )
                     })}
                 </div>
