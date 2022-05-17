@@ -11,7 +11,7 @@ const Question = () => {
     const [questions, setQuestions] = useState(null)
 
     useEffect(() => {
-        fetch('https://bossinfo-f45f.restdb.io/rest/question?fetchmediadata=true', {
+        fetch('https://bossinfo-f45f.restdb.io/rest/question', {
         headers: {
             'x-api-key': '627a9d53e8128861fcf3d1d7',
         }})
