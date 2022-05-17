@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import {useLocation, Link} from 'react-router-dom';
 
+import SortSlider from '../../components/SortSlider';
 import Popup from '../../components/Popup'
 import Question from '../../components/Question'
 import Category from '../../components/categories';
@@ -38,6 +39,7 @@ const Forum = () => {
             <div className='forum_container'>
             <div id='forum-content'>
                 <div id='top-section'>
+                    <SortSlider/>
                     <button onClick={toggleModal} className='primaryButton'>Nyt spørgsmål</button>
                 </div>
                 
