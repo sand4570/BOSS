@@ -1,0 +1,69 @@
+@import "/src/sass/base/colors";
+
+.response-container {
+    background-color: $rain;
+    border-radius: 25px;
+    padding: 0.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+
+    .response-content {
+        margin-left: 3.5rem;
+    }
+}
+
+.line {
+    width: 1px;
+    height: 2rem;
+    background-color: $sunset;
+    margin-left: 4.6rem;
+}
+
+.comment-wrapper {
+    background-color: $rain;
+    border-radius: 25px;
+    padding: 0.5rem;
+    margin-left: 3rem;
+    margin-right: 2rem;
+
+    p {
+        margin-left: 3.5rem;
+    }
+}
+
+.padding {
+    margin-bottom: 0rem;
+}
+
+.comment-wrapper::before {
+    content: "";
+    background-color: $sunset;
+    border-radius: 50%;
+    display: block;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    margin-top: -1rem;
+    margin-left: 0.65rem;
+}
+
+.verified {
+    border: solid 2px green;
+}
+
+.verified::before {
+    content: "✔️";
+    display: block;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: green;
+    float: right;
+    margin-top: -1.8rem;
+
+}
