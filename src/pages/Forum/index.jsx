@@ -39,7 +39,7 @@ const Forum = () => {
             <div className='forum_container'>
             <div id='forum-content'>
                 <div id='top-section'>
-                    <SortSlider/>
+                    <SortSlider style={{display: 'none'}}/>
                     <button onClick={toggleModal} className='primaryButton'>Nyt spørgsmål</button>
                 </div>
                 

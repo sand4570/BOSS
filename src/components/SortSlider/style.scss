@@ -1,10 +1,12 @@
 @import '../../sass/base/colors';
 
 .sort_container{
+    display: block;
     border: 2px solid $nightsky;
     border-radius: 30px;
     padding: 1px 25px;
     width: 420px;
+    height: 37px;
     position: relative;
     .sort_wrapper{
         display: flex;
@@ -51,6 +53,11 @@
  }
 
 
+ @media only screen and (max-width: 760px){
 
+.sort_container{
+    display: none;
+}
+ }
 
 

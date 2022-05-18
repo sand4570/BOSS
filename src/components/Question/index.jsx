@@ -60,6 +60,10 @@ const Question = () => {
                                         <span className='time-stamp'>{changeTimeStamp(question.created)}</span>
                                     </div>
                                 </div>
+                                <div className='comment-container'>
+                                    <p>2 kommentarer</p>
+                                    <img src='/comment_icon.png'></img>
+                                </div>
                                 <div className='content-box'>
                                     <h3>{question.Title}</h3>
                                     <div className='text-content'>
