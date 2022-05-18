@@ -1,0 +1,69 @@
+@import "/src/sass/base/colors";
+
+#content {
+    max-width: 1000px;
+    margin: auto;
+
+    #profile-wrapper {
+        display: flex;
+        gap: 0.5rem;
+
+        img {
+            height: 3rem;
+            width: 3rem;
+            border-radius: 50%;
+            margin-top: 15px;
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+
+            .profile-name {
+                color: $eclipse;
+                font-size: 1.2rem;
+                font-family: "Sarabun", sans-serif;
+                margin: 10px 0 0px;
+            }
+
+            .time-stamp {
+                color: $fog;
+                font-weight: thin;
+
+            }
+        }
+    }
+
+    #question-content {
+        margin-top: 1rem;
+        max-width: 90%;
+    }
+
+    #category-wrapper {
+        display: flex;
+        gap: 0.5rem;
+        margin-top: 1rem;
+
+        .cat {
+            border: solid 1px $nightsky;
+            padding: 0.2rem 0.6rem;
+            border-radius: 10px;
+            color: $nightsky;
+        }
+    }
+
+    #flex-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-top: 1rem;
+
+        #comment-amount {
+            margin-bottom: 15px;
+        }
+    }
+
+    hr {
+        color: rgb(206, 206, 206);
+    }
+}
