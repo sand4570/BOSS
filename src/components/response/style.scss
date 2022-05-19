@@ -4,10 +4,7 @@
     background-color: $rain;
     border-radius: 25px;
     padding: 0.5rem;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    margin-left: 2rem;
-    margin-right: 2rem;
+    margin: 2rem 1rem;
 
     .response-content {
         margin-left: 3.5rem;
@@ -26,7 +23,7 @@
     border-radius: 25px;
     padding: 0.5rem;
     margin-left: 3rem;
-    margin-right: 2rem;
+    margin-right: 1rem;
 
     p {
         margin-left: 3.5rem;
@@ -54,7 +51,11 @@
 }
 
 .verified::before {
-    content: "✔️";
+    content: "";
+    background-image: url('/white-checkmark.svg');
+    background-size: 26px 26px;
+    background-repeat: no-repeat;
+    background-position: center;
     display: block;
     border-radius: 50%;
     width: 2.5rem;

@@ -25,8 +25,8 @@ const Singleview = () => {
 
     if(question) {
         return (
-            <>
-            <button className="secondaryButton" onClick={() => history.back()}>Tilbage</button>
+            <div id="single-view-container">
+            <button className="secondaryButton single" onClick={() => history.back()}>Tilbage</button>
             <div id="content">
                 <h1>{question[0].Title}</h1>
                 <div id="profile-wrapper">
@@ -59,12 +59,13 @@ const Singleview = () => {
                 </div>
                 <form id="respond-wrapper">
                     <input placeholder={`Skriv et svar til ${question[0].user[0].username}`} type="text" required></input>
-                    <button type="submit">►</button>
+                    <div id="input_border"></div>
+                    <button type="submit">➤</button>
                 </form>
                 
 
             </div>
-            </>
+            </div>
         )
     } else {
         return <p>loading</p>

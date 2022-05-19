@@ -11,6 +11,7 @@ import './style.scss'
 const Forum = () => {
 
     const [categories, setCategories] = useState(null)
+
     const [sort, setSort] = useState(null)
 
     const updateSort = (sorting) => {
@@ -18,6 +19,10 @@ const Forum = () => {
     } 
 
     
+
+    let [modal, setModal] = useState(false)
+    let [filter, setFilter] = useState(false)
+
     
 
     useEffect(() => {
@@ -28,16 +33,30 @@ const Forum = () => {
         .then((response) => response.json() )
         .then((data) => setCategories(data))
       },[])
-
-      console.log('categories', categories)
-
-      let [modal, setModal] = useState(false)
       
+      //toggle the modal
       const toggleModal = () => {
         setModal(modal = true)
-        console.log("now im true", modal)
+        
       }
 
+    useEffect(() => {
+        if(modal) {
+            document.body.classList.add('no-scroll');
+        } else{
+            document.body.classList.remove('no-scroll');
+        }
+     }, [modal]);
+
+
+     //toggle filter on mobile
+      const toggleFilter = () => {
+        if(filter == false) {
+        setFilter(filter = true)
+        } else{
+            setFilter(filter = false)
+        }
+      }
     
     if (categories) {
         return (
@@ -46,21 +65,29 @@ const Forum = () => {
             <div className='forum_container'>
             <div id='forum-content'>
                 <div id='top-section'>
-                    <SortSlider style={{display: 'none'}} updateSort={updateSort}/>
+                    <SortSlider updateSort={updateSort} />
+                    <img onClick={toggleFilter} id="filter_icon" src='/filter_icon-25.svg'></img>
+
                     <button onClick={toggleModal} className='primaryButton'>Nyt spørgsmål</button>
                 </div>
-                
-                <div id='side-menu'>
+            
+                <div className={filter == true ? 'side-menu active' : 'side-menu unactive'}>
+                    <button onClick={toggleFilter} className='secondaryButton'>Tilbage</button>
                     <div id='categories'>
+                        <h3>Filtrer</h3>
                         {categories.map((cat) => {
                             return (
-                                <Category cat={cat}></Category>
+                                <div className="category_wrapper">
+                                    <input type="checkbox" id={cat._id} className="category_checkbox" value={cat.category}/>
+                                    <label className="category_label" for={cat._id}>{cat.category}</label>
+                                </div>
+
                             )
                         })}
                     </div>
                 </div>
-    
                 <Question sort={sort}></Question>
+
             </div>
             </div>
             </>

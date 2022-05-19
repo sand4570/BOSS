@@ -27,6 +27,7 @@ const Popup = ({modal, setModal}) => {
         setModal(modal = false)
       }, [setModal])
 
+
     const handleSubmit = (event) => {
         event.preventDefault()
         console.log('time to post')
@@ -66,6 +67,7 @@ const Popup = ({modal, setModal}) => {
             .then((data) => console.log(data));
     }
     
+
     
     if(categories){
     return(
