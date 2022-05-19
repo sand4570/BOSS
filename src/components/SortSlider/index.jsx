@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import './style.scss'
 
-const SortSlider = () => {
+const SortSlider = ({updateSort}) => {
     const [active, setActive] = useState('newest');
 
       const sortQuestions = (category) =>{
         setActive(category)
+        updateSort(category)
     }
 
     return(
@@ -16,7 +17,7 @@ const SortSlider = () => {
                 <p onClick={() => sortQuestions('unanswered')} className={active == 'unanswered' ? 'unanswered active' : 'unanswered'}>ubesvaret</p>
                 <p onClick={() => sortQuestions('answered')} className={active == 'answered' ? 'answered active' : 'answered'} >besvaret</p>
                 <div className='active_sort'></div>
-            </div>
+            </div> 
         </div>
     )
 }

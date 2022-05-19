@@ -4,14 +4,18 @@ import { useLocation, Link } from 'react-router-dom';
 import QuestionBox from './QuestionBox';
 
 
-const Question = () => {
+const Question = ({sort}) => {
+    console.log('question sort', sort)
 
     const { search } = useLocation()
-
     const [questions, setQuestions] = useState(null)
 
+    const [url, setUrl] = useState('https://bossinfo-f45f.restdb.io/rest/question?')
+
+    
+
     useEffect(() => {
-        fetch('https://bossinfo-f45f.restdb.io/rest/question?fetchmediadata=true', {
+        fetch(url, {
         headers: {
             'x-api-key': '627a9d53e8128861fcf3d1d7',
         }})
@@ -39,6 +43,10 @@ const Question = () => {
 
                 return (
                     string.substring(0,100)
+                )
+            } else {
+                return (
+                    string
                 )
             }
       }

@@ -11,6 +11,13 @@ import './style.scss'
 const Forum = () => {
 
     const [categories, setCategories] = useState(null)
+    const [sort, setSort] = useState(null)
+
+    const updateSort = (sorting) => {
+        setSort(sorting)
+    } 
+
+    
     
 
     useEffect(() => {
@@ -39,7 +46,7 @@ const Forum = () => {
             <div className='forum_container'>
             <div id='forum-content'>
                 <div id='top-section'>
-                    <SortSlider style={{display: 'none'}}/>
+                    <SortSlider style={{display: 'none'}} updateSort={updateSort}/>
                     <button onClick={toggleModal} className='primaryButton'>Nyt spørgsmål</button>
                 </div>
                 
@@ -47,13 +54,13 @@ const Forum = () => {
                     <div id='categories'>
                         {categories.map((cat) => {
                             return (
-                                <Category name={cat.category}></Category>
+                                <Category cat={cat}></Category>
                             )
                         })}
                     </div>
                 </div>
     
-                <Question></Question>
+                <Question sort={sort}></Question>
             </div>
             </div>
             </>

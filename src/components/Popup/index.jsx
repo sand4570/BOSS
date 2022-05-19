@@ -1,12 +1,18 @@
 import React, {useState, useEffect, useCallback} from 'react';
 import './style.scss'
 import Category from '../Categories'
+import { useSearchParams } from 'react-router-dom';
 
 const Popup = ({modal, setModal}) => {
 
     const [categories, setCategories] = useState(null)
     const [title, setTitle] = useState("")
     const [content, setContent] = useState("")
+
+    const [searchParams, setSearchParams] = useSearchParams()
+    const [clickedCategoies, setClickedCategoies] = useState([])
+
+    console.log("What categories", clickedCategoies)
 
     useEffect(() => {
         fetch('https://bossinfo-f45f.restdb.io/rest/categories', {
@@ -24,29 +30,42 @@ const Popup = ({modal, setModal}) => {
     const handleSubmit = (event) => {
         event.preventDefault()
         console.log('time to post')
+        
+        const user = searchParams.get("id")
+        
+
+        console.log('the user', user)
 
         const question = {
             Title: title,
             content: content,
-            //created: new Date(),
+            created: new Date().toLocaleDateString('en-US', {
+                day: 'numeric',
+                month: 'numeric',
+                year: 'numeric',
+                hour: 'numeric',
+                minute: 'numeric',
+                second: "numeric"
+            }),
+            user: [user],
+            category: clickedCategoies,
         }
 
         console.log('my json', question)
 
         fetch("https://bossinfo-f45f.restdb.io/rest/question", {
             method: "post",
-            mode: 'no-cors',
             headers: {
               "Content-Type": "application/json; charset=utf-8",
               "x-apikey": "627a9d53e8128861fcf3d1d7",
-              "cache-control": "no-cache",
-              "Access-Control-Allow-Origin": "*",
+              "cache-control": "no-cache"
             },
             body: JSON.stringify(question),
           })
             .then((res) => res.json())
             .then((data) => console.log(data));
     }
+    
     
     if(categories){
     return(
@@ -67,13 +86,13 @@ const Popup = ({modal, setModal}) => {
                     </div>
                     <h3>Tilføj kategorier</h3>
                     <p className='info_txt'>Vælg en eller flere kategorier, som dit spørgsmål relaterer til.</p>
-                    <div className='cat_wrapper'>
+                    <legend className='cat_wrapper' >
                     {categories.map((cat) => {
                             return (
-                                <Category name={cat.category}></Category>
+                                <Category cat={cat} setClickedCategoies={setClickedCategoies} clickedCategoies={clickedCategoies} ></Category>
                             )
                         })}
-                    </div>
+                    </legend>
                     <button className='primaryButton opret_button'>Opret spørgsmål</button>
                 </form>
                 </div>
