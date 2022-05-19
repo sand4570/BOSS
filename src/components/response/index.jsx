@@ -56,9 +56,7 @@ const Response = ({id}) => {
                             <span className="time-stamp">{<ChangeTimestamp timestamp={answer[0].created}></ChangeTimestamp>}</span>
                         </div>
                     </div>
-                    <p className="response-content">{answer[0].content} <br></br>
-                    Mere tekst
-                    </p>
+                    <p className="response-content">{answer[0].content}</p>
                 </div>
         
                 </>
