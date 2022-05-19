@@ -11,8 +11,18 @@ import './style.scss'
 const Forum = () => {
 
     const [categories, setCategories] = useState(null)
+
+    const [sort, setSort] = useState(null)
+
+    const updateSort = (sorting) => {
+        setSort(sorting)
+    } 
+
+    
+
     let [modal, setModal] = useState(false)
     let [filter, setFilter] = useState(false)
+
     
 
     useEffect(() => {
@@ -55,8 +65,9 @@ const Forum = () => {
             <div className='forum_container'>
             <div id='forum-content'>
                 <div id='top-section'>
-                    <SortSlider/>
+                    <SortSlider updateSort={updateSort} />
                     <img onClick={toggleFilter} id="filter_icon" src='/filter_icon-25.svg'></img>
+
                     <button onClick={toggleModal} className='primaryButton'>Nyt spørgsmål</button>
                 </div>
             
@@ -70,13 +81,13 @@ const Forum = () => {
                                     <input type="checkbox" id={cat._id} className="category_checkbox" value={cat.category}/>
                                     <label className="category_label" for={cat._id}>{cat.category}</label>
                                 </div>
+
                             )
                         })}
                     </div>
                 </div>
-    
-                <Question></Question>
-                
+                <Question sort={sort}></Question>
+
             </div>
             </div>
             </>
