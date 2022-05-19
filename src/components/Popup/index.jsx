@@ -21,7 +21,6 @@ const Popup = ({modal, setModal}) => {
       const toggleModal = useCallback(() => {
         setModal(modal = false)
       }, [setModal])
-
     
     if(categories){
     return(
