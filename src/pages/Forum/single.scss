@@ -1,9 +1,14 @@
 @import "/src/sass/base/colors";
 
-#content {
-    max-width: 1000px;
-    margin: auto;
+.secondaryButton.single{
+    position: relative;
+    top: 60px;
+}
 
+#content {
+    max-width: 900px;
+    margin: 0 auto;
+    margin-top: 50px;
     #profile-wrapper {
         display: flex;
         gap: 0.5rem;
@@ -49,6 +54,8 @@
             padding: 0.2rem 0.6rem;
             border-radius: 10px;
             color: $nightsky;
+            width: 130px;
+            text-align: center;
         }
     }
 
@@ -69,17 +76,35 @@
 }
 
 #respond-wrapper {
-    margin: 2rem;
-    width: 100%;
+    margin: 2rem 1rem;
     border: 1px solid $sunset;
     border-radius: 20px;
-    height: 35px;
-    padding: 2px 13px;
+    height: 2.5rem;
+    padding: 3px 5px;
     margin-top: 10px;
     display: flex;
     justify-content: space-between;
+    position: relative;
 
-    input {}
+    input {
+        padding: 0 10px;
+        border: none;
+        border-radius: 20px;
+        width: 100%;
+    }
+    input:focus{
+        border: none !important;
+    }
+    input:focus ~ #input_border{
+        border: 1.5px solid $sunset;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        border-radius: 20px;
+    }
+
 
     button {
         border-radius: 50%;
