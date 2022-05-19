@@ -3,11 +3,10 @@ import './style.scss'
 import Category from '../Categories'
 
 const Popup = ({modal, setModal}) => {
-    console.log("modal is:", modal)
 
     const [categories, setCategories] = useState(null)
-
-    console.log("categories", categories)
+    const [title, setTitle] = useState("")
+    const [content, setContent] = useState("")
 
     useEffect(() => {
         fetch('https://bossinfo-f45f.restdb.io/rest/categories', {
@@ -22,6 +21,32 @@ const Popup = ({modal, setModal}) => {
         setModal(modal = false)
       }, [setModal])
 
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        console.log('time to post')
+
+        const question = {
+            Title: title,
+            content: content,
+            //created: new Date(),
+        }
+
+        console.log('my json', question)
+
+        fetch("https://bossinfo-f45f.restdb.io/rest/question", {
+            method: "post",
+            mode: 'no-cors',
+            headers: {
+              "Content-Type": "application/json; charset=utf-8",
+              "x-apikey": "627a9d53e8128861fcf3d1d7",
+              "cache-control": "no-cache",
+              "Access-Control-Allow-Origin": "*",
+            },
+            body: JSON.stringify(question),
+          })
+            .then((res) => res.json())
+            .then((data) => console.log(data));
+    }
     
     if(categories){
     return(
@@ -31,14 +56,14 @@ const Popup = ({modal, setModal}) => {
                 <button onClick={toggleModal} className='secondaryButton'>Luk</button>
                 <div className='form_wrapper'>
                 <h2>Opret spørgsmål</h2>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div className='input_wrapper'>
                         <label>Hvad omhandler dit spørgsmål?</label>
-                        <input placeholder="F.eks. ønske til system, fejl ved oprettelse osv." type="text" required></input>
+                        <input placeholder="F.eks. ønske til system, fejl ved oprettelse osv." type="text" required onChange={event => setTitle(event.target.value)}></input>
                     </div>
                     <div className='input_wrapper'>
                         <label>Hvad vil du gerne spørge om?</label>
-                        <textarea placeholder="Uddyb gerne dit spørgsmål" required></textarea>
+                        <textarea placeholder="Uddyb gerne dit spørgsmål" required onChange={event => setContent(event.target.value)}></textarea>
                     </div>
                     <h3>Tilføj kategorier</h3>
                     <p className='info_txt'>Vælg en eller flere kategorier, som dit spørgsmål relaterer til.</p>
