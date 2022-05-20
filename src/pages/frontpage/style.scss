@@ -32,10 +32,13 @@
 
 #forum_section {
 	background-color: $rain;
-	border-radius: 20px;
 	padding: 30px 20px;
+	width: 100vw;
+	position: relative;
+	left: -10px;
 	img {
 		width: 100%;
+		border-radius: 15px;
 	}
 }
 
@@ -44,6 +47,12 @@
 	img {
 		margin-top: 20px;
 		width: 100%;
+	}
+}
+
+@media only screen and (min-width: 760px){
+	#forum_section {
+		left: -50px;
 	}
 }
 
@@ -75,10 +84,13 @@
 	}
 
 	#forum_section {
+		left: -80px;
+		#forum_wrapper{
 		display: flex;
 		margin: 50px 0;
 		gap: 30px;
-		padding: 30px 55px;
+		padding: 10px 55px;
+		}
 		img {
 			width: 40vw;
 			height: 27vw;
