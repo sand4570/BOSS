@@ -33,8 +33,7 @@
 }
 
  .content-wrapper {
-	 height: 95vh;
-	 margin-top: 5vh;
+	 height: 100vh;
 	 display: grid;
 	 grid-template-rows: 50% 50%;
 	h3 {
@@ -73,6 +72,11 @@
 		padding-top: 10px;
 		padding-bottom: 10px;
 	}
+	.name-input-wrapper{
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 10px;
+	}
 
 	.button-wrapper {
 		padding-top: 10px;
@@ -94,7 +98,7 @@
 
 	.signup-section {
 		margin-bottom: 2rem;
-		height: 35vh;
+		height: 53vh;
 		padding: 0 2rem;
 		margin-top: auto;
 		margin-bottom: auto;
