@@ -38,7 +38,7 @@ const Contact = () => {
             </div>
             <div>
                 <img className='icon' src='/mail_ikon.svg'></img>
-                <h3>mail</h3>
+                <h3>send mail</h3>
                 <p>Torben@bossinfo.dk</p>
             </div>
             <div>
