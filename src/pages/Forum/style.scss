@@ -8,7 +8,6 @@
         justify-content: space-between;
         align-items: center;
         margin: 10px auto;
-        position: relative;
         button{
             margin: 10px 0;
         }
@@ -77,6 +76,7 @@
 
     #content {
         max-width: none;
+        margin-top: 20px;
         .question-box {
             display: grid;
             grid-template-columns: 55% 45%;
@@ -127,6 +127,7 @@
                         .time-stamp {
                             color: $fog;
                             font-weight: thin;
+                            font-size: 0.85rem;
     
                         }
                     }
@@ -160,9 +161,10 @@
 
     #forum-content{
         display: grid;
-        grid-template-columns: 145px 85%;
-        grid-template-rows: 10% 90%;
-        gap: 10px;
+        grid-template-columns: 145px auto;
+        grid-template-rows: 80px auto;
+        row-gap: 10px;
+        column-gap: 20px;
         #top-section{
             grid-column: 2 / span 1;
             width: 100%;
@@ -197,10 +199,13 @@
             grid-column: 2 / span 1;
             margin: 0 auto;
             .question-box{
-                grid-template-columns: 20% auto 150px !important;
+                grid-template-columns: 190px auto 150px !important;
                 grid-template-rows: 100% 0% !important;
                 row-gap: 0 !important;
                 column-gap: 10px;
+                .profile-box{
+                    margin-left: 20px;
+                }
                 .comment-container{
                     grid-column: 3 / span 1;
                     grid-row: 1 / span 1;

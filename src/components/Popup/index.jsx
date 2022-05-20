@@ -86,7 +86,7 @@ const Popup = ({modal, setModal}) => {
                         <label>Hvad vil du gerne spørge om?</label>
                         <textarea placeholder="Uddyb gerne dit spørgsmål" required onChange={event => setContent(event.target.value)}></textarea>
                     </div>
-                    <h3>Tilføj kategorier</h3>
+                    <h3>Tilføj kategori *</h3>
                     <p className='info_txt'>Vælg en eller flere kategorier, som dit spørgsmål relaterer til.</p>
                     <legend className='cat_wrapper' >
                     {categories.map((cat) => {
