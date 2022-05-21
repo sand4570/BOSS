@@ -50,6 +50,7 @@ const Popup = ({modal, setModal}) => {
             }),
             user: [user],
             category: clickedCategoies,
+            responses: ""
         }
 
         console.log('my json', question)
@@ -65,6 +66,8 @@ const Popup = ({modal, setModal}) => {
           })
             .then((res) => res.json())
             .then((data) => console.log(data));
+
+        toggleModal()
     }
     
 

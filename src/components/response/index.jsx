@@ -3,11 +3,16 @@ import { useState, useEffect } from "react";
 import './style.scss'
 import ChangeTimestamp from "../Timestamp";
 import Comment from "./comment";
+import AddComment from "./AddComment";
 
 const Response = ({id}) => {
     console.log('response id', id)
 
     const [answer, setAnswer] = useState(null)
+    const [commentInput, setCommentInput] = useState("null")
+    const [comment, setComment] = useState("")
+
+    
 
     useEffect(() => {
         fetch(`https://bossinfo-f45f.restdb.io/rest/response?q={"_id": "${id}"}`, {
@@ -16,9 +21,16 @@ const Response = ({id}) => {
         }})
         .then((response) => response.json() )
         .then((data) => setAnswer(data))
-      },[])
+    },[])
 
-      console.log('response comp', answer)
+    console.log('response comp', answer)
+
+    const handleAnswerClick = (accountnName, id) => {
+
+        setCommentInput([id])
+
+        document.querySelector(`#${id}`).value = (`@${accountnName}`)
+    }
 
       if (answer) {
         if (answer[0].comments.length > 0) {
@@ -33,14 +45,16 @@ const Response = ({id}) => {
                         </div>
                     </div>
                     <p className="response-content">{answer[0].content}</p>
+                    <button className="answer-button" onClick={() => {handleAnswerClick(answer[0].user[0].username, `A${answer[0]._id}`)}}>Svar</button>
                 </div>
 
                 {answer[0].comments.map((comment) => {
                     return (
-                        <Comment id={comment._id}></Comment>
+                        <Comment id={comment._id} answerId={answer[0]._id} handleAnswerClick={handleAnswerClick}></Comment>
                     )
                 })}
-        
+
+                <AddComment id={`A${answer[0]._id}`} setComment={setComment} commentInput={commentInput}></AddComment>
                 </>
               )
 
@@ -57,8 +71,10 @@ const Response = ({id}) => {
                         </div>
                     </div>
                     <p className="response-content">{answer[0].content}</p>
+                    <button className="answer-button" onClick={() => {handleAnswerClick(answer[0].user[0].username, `A${answer[0]._id}`)}}>Svar</button>
                 </div>
-        
+                
+                <AddComment id={`A${answer[0]._id}`} setComment={setComment} commentInput={commentInput}></AddComment>
                 </>
               )
 
