@@ -25,8 +25,8 @@ const Login = () => {
 
     return (
         <>
-        <button id='back-button' className='secondaryButton' onClick={() => history.back()}>TILBAGE</button>
-        <div className={toLogin ? 'content-wrapper login' : 'content-wrapper signup'}>
+        <button id='back-button' onClick={() => history.back()}></button>
+        <div className='content-wrapper'>
             <section className={toLogin ? 'login-section' : 'blue-section'}>
                 <h3>LOG IND</h3>
                 <LoginSection state={toLogin} data={accountData} onButtonClick={setToLogin}></LoginSection>

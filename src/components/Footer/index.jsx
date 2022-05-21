@@ -25,9 +25,10 @@ const Footer = () => {
                 <p> +45 30 14 15 49 <br/> Torben@bossinfo.dk <br/> Kornvænget 8 <br/> 3550 Slangerup <br/> CVR: 42242144 </p>
             </div>
             <div id='links'>
-                <Link to={`/${search}`}>FORSIDE</Link>
-                <Link to={`about${search}`}>OM BOSS</Link>
-                <Link to={`contact${search}`}>KONTAKT</Link>
+                <h4>OVERSIGT</h4>
+                <Link to={`/${search}`}>Forside</Link>
+                <Link to={`about${search}`}>Om BOSS</Link>
+                <Link to={`contact${search}`}>Kontakt</Link>
             </div>
             </div>
             <button onClick={goToTop}>
