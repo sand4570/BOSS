@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import ChangeTimestamp from "../Timestamp";
 
-const Comment = ({id}) => {
+const Comment = ({id, answerId, handleAnswerClick}) => {
     console.log('comment id', id)
 
     const [comment, setComment] = useState(null)
@@ -31,6 +31,7 @@ const Comment = ({id}) => {
                         </div>
                     </div>
                     <p>{comment[0].content}</p>
+                    <button className="answer-button" onClick={() => {handleAnswerClick(comment[0].user[0].username, `A${answerId}`)}}>Svar</button>
                 </div>
             </>
         )

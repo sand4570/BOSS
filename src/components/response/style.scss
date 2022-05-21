@@ -1,10 +1,11 @@
 @import "/src/sass/base/colors";
+@import "/src/sass/base/buttons";
 
 .response-container {
     background-color: $rain;
     border-radius: 25px;
     padding: 0.5rem;
-    margin: 2rem 1rem;
+    margin: 2rem 1rem 1rem;
 
     .response-content {
         margin-left: 3.5rem;
@@ -67,4 +68,52 @@
     float: right;
     margin-top: -1.8rem;
 
+}
+
+.add-comment-wrapper {
+    margin: 2rem 3rem;
+    border: 1px solid #c26137;
+    border-radius: 20px;
+    height: 2.5rem;
+    padding: 3px 5px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+
+    input {
+        padding: 0 10px;
+        border: none;
+        border-radius: 20px;
+        width: 100%;
+    }
+
+    input:focus {
+        outline: none;
+    }
+
+    button {
+        border-radius: 50%;
+        background-color: #c26137;
+        color: #fff;
+        width: 2rem;
+        height: 2rem;
+        border: none;
+    }
+}
+
+.add-comment-wrapper input:focus~#input_border {
+    border: 1.5px solid #c26137;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 20px;
+}
+
+
+
+.hide {
+    visibility: hidden;
 }
