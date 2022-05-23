@@ -7,7 +7,7 @@ const QuestionBox = ({question}) => {
 
             </div>
             <div className='content-box'>
-                <h3>{question.Title}</h3>
+                <h3>{question.title}</h3>
                 <p>{content}</p>
             </div>
             <div className='comment-box'></div>

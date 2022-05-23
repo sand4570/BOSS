@@ -5,25 +5,12 @@ import ChangeTimestamp from "../Timestamp";
 import Comment from "./comment";
 import AddComment from "./AddComment";
 
-const Response = ({id}) => {
-    console.log('response id', id)
+const Response = ({answer}) => {
+    console.log('response id', answer)
 
-    const [answer, setAnswer] = useState(null)
     const [commentInput, setCommentInput] = useState("null")
     const [comment, setComment] = useState("")
 
-    
-
-    useEffect(() => {
-        fetch(`https://bossinfo-f45f.restdb.io/rest/response?q={"_id": "${id}"}`, {
-        headers: {
-            'x-api-key': '627a9d53e8128861fcf3d1d7',
-        }})
-        .then((response) => response.json() )
-        .then((data) => setAnswer(data))
-    },[])
-
-    console.log('response comp', answer)
 
     const handleAnswerClick = (accountnName, id) => {
 
@@ -38,28 +25,28 @@ const Response = ({id}) => {
     }
 
       if (answer) {
-        if (answer[0].comments.length > 0) {
+        if (answer.comments.length > 0) {
             return (
                 <>
-                <div className={answer[0].verified === true ? "response-container verified padding" : "response-container padding"}>
+                <div className={answer.verified === 1 ? "response-container verified padding" : "response-container padding"}>
                     <div id="profile-wrapper">
-                        <img className="" src={answer[0].user[0].picture ? `/profiles/${answer[0].user[0].picture}.jpg` : '/profiles/profile-placeholder.png'}></img>
+                        {/* <img className="" src={answer.account.picture ? `/profiles/${answer[0].user[0].picture}.jpg` : '/profiles/profile-placeholder.png'}></img> */}
                         <div>
-                            <span className="profile-name">{answer[0].user[0].username}</span>
-                            <span className="time-stamp">{<ChangeTimestamp timestamp={answer[0].created}></ChangeTimestamp>}</span>
+                            <span className="profile-name">{`${answer.account.firstname} ${answer.account.lastname}`}</span>
+                            <span className="time-stamp">{<ChangeTimestamp timestamp={answer.createdAt}></ChangeTimestamp>}</span>
                         </div>
                     </div>
-                    <p className="response-content">{answer[0].content}</p>
-                    <button className="answer-button" onClick={() => {handleAnswerClick(answer[0].user[0].username, `A${answer[0]._id}`)}}>Skriv en kommentar</button>
+                    <p className="response-content">{answer.content}</p>
+                    <button className="answer-button" onClick={() => {handleAnswerClick(answer.account.firstname, `A${answer.id}`)}}>Skriv en kommentar</button>
                 </div>
 
-                {answer[0].comments.map((comment) => {
+                {answer.comments.map((comment) => {
                     return (
-                        <Comment id={comment._id} answerId={answer[0]._id} handleAnswerClick={handleAnswerClick}></Comment>
+                        <Comment comment={comment} answerId={answer.id} handleAnswerClick={handleAnswerClick}></Comment>
                     )
                 })}
 
-                <AddComment id={`A${answer[0]._id}`} setComment={setComment} commentInput={commentInput}></AddComment>
+                <AddComment id={`A${answer.id}`} setComment={setComment} commentInput={commentInput}></AddComment>
                 </>
               )
 
@@ -67,19 +54,19 @@ const Response = ({id}) => {
             
             return (
                 <>
-                <div className={answer[0].verified === true ? "response-container verified" : "response-container"}>
+                <div className={answer.verified === 1 ? "response-container verified padding" : "response-container padding"}>
                     <div id="profile-wrapper">
-                        <img className="" src={answer[0].user[0].picture ? `/profiles/${answer[0].user[0].picture}.jpg` : '/profiles/profile-placeholder.png'}></img>
+                        {/* <img className="" src={answer.account.picture ? `/profiles/${answer[0].user[0].picture}.jpg` : '/profiles/profile-placeholder.png'}></img> */}
                         <div>
-                            <span className="profile-name">{answer[0].user[0].username}</span>
-                            <span className="time-stamp">{<ChangeTimestamp timestamp={answer[0].created}></ChangeTimestamp>}</span>
+                            <span className="profile-name">{`${answer.account.firstname} ${answer.account.lastname}`}</span>
+                            <span className="time-stamp">{<ChangeTimestamp timestamp={answer.createdAt}></ChangeTimestamp>}</span>
                         </div>
                     </div>
-                    <p className="response-content">{answer[0].content}</p>
-                    <button className="answer-button" onClick={() => {handleAnswerClick(answer[0].user[0].username, `A${answer[0]._id}`)}}>Skriv en kommentar</button>
+                    <p className="response-content">{answer.content}</p>
+                    <button className="answer-button" onClick={() => {handleAnswerClick(answer.account.firstname, `A${answer.id}`)}}>Skriv en kommentar</button>
                 </div>
                 
-                <AddComment id={`A${answer[0]._id}`} setComment={setComment} commentInput={commentInput}></AddComment>
+                <AddComment id={`A${answer.id}`} setComment={setComment} commentInput={commentInput}></AddComment>
                 </>
               )
 
