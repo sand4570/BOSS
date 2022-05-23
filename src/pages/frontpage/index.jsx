@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import {useLocation, Link} from 'react-router-dom';
 
 import './style.scss'
@@ -8,6 +8,25 @@ import SecondaryButton from '../../components/SecondaryButton'
 
 const Frontpage = () => {
     const { search } = useLocation()
+
+    const [login, setLogin] = useState(false)
+
+    useEffect(() => {
+        if (search) {
+            setLogin(true);
+        } else (
+            setLogin(false)
+        )
+    })
+
+    const ForumLink = () =>{
+
+        if(login){
+            return <Link className="secondaryButton" to={`forum${search}`}>Gå til forum </Link>
+        } else{
+            return <Link className="secondaryButton" to={`login${search}`}>Gå til forum </Link>
+        }
+    }
 
     return (
         <>
@@ -46,8 +65,7 @@ const Frontpage = () => {
                     <p>Prøv Boss’ nye forum hvor du hurtigt og nemt kan få vejledning eller svar på dine spørgsmål, af Boss eller andre brugere. I forummet kan du finde svar på ofte stillede spørgsmål, stille et nyt spørgsmål, samt hjælpe andre med at finde en løsning. </p>
                     <p>Har du et ønske eller forespørgsel kan dette også gøres via. forummet.</p>
                     <p>Kom i gang og bliv en del af fællesskabet, ved at oprette en bruger i dag, og oplev den nye funktion.</p>
-                    
-                    <SecondaryButton text={"Gå til forum"}></SecondaryButton>
+                    <ForumLink/>
                 </div>
                 </div>
             </section>

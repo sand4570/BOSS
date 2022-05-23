@@ -35,7 +35,7 @@
  .content-wrapper {
 	 height: 100vh;
 	 display: grid;
-	 grid-template-rows: 50% 50%;
+	 grid-template-rows: 65% 35%;
 	h3 {
 		text-align: center;
 	}
@@ -87,7 +87,6 @@
 
 	.login-section {
 		margin-bottom: 2rem;
-		height: 300px;
 		padding: 0 2rem;
 		margin-top: auto;
 		margin-bottom: auto;
@@ -96,15 +95,7 @@
 		}
 	}
 
-	.signup-section {
-		margin-bottom: 2rem;
-		height: 53vh;
-		padding: 0 2rem;
-		margin-top: auto;
-		margin-bottom: auto;
-	}
-
-	.blue-section {
+	 .blue-section {
 		background-color: $rain;
 		padding: 1rem 2rem;
 		display: flex;

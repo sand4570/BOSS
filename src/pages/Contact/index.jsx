@@ -1,8 +1,30 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import {useLocation, Link} from 'react-router-dom';
 import PrimaryButton from '../../components/PrimaryButton'
 import './style.scss'
 
 const Contact = () => {
+    const { search } = useLocation()
+
+    const [login, setLogin] = useState(false)
+
+    useEffect(() => {
+        if (search) {
+            setLogin(true);
+        } else (
+            setLogin(false)
+        )
+    })
+
+    const ForumLink = () =>{
+
+        if(login){
+            return <Link to={`/forum${search}`}>Gå til forum </Link>
+        } else{
+            return <Link to={`/login${search}`}>Gå til forum </Link>
+        }
+    }
+
     return(
     <>
     <img id='form' src='/form6.svg'></img>
@@ -16,16 +38,16 @@ const Contact = () => {
             </div>
             <form>
                 <div className='input_wrapper'>
-                    <label for="fname">navn</label>
-                    <input type='text' required="true" id="fname" name="fname" placeholder='Skriv dit navn her'></input>
+                    <label htmlFor="fname">navn</label>
+                    <input type='text' required id="fname" name="fname" placeholder='Skriv dit navn her'></input>
                 </div>
                 <div className='input_wrapper'>
-                    <label for="mail">email</label>
-                    <input required="true" type='email' id="mail" name="mail" placeholder='F.eks. Hans@hansen.dk'></input>
+                    <label htmlFor="mail">email</label>
+                    <input required type='email' id="mail" name="mail" placeholder='F.eks. Hans@hansen.dk'></input>
                 </div>
                 <div className='input_wrapper'>
                     <label>besked</label>
-                    <textarea required="true" placeholder='Hvad ønsker du at skrive?'></textarea>
+                    <textarea  placeholder='Hvad ønsker du at skrive?'></textarea>
                 </div>
                 <PrimaryButton text='send'></PrimaryButton>
             </form>
@@ -44,7 +66,7 @@ const Contact = () => {
             <div>
                 <img className='icon' src='/forum_ikon.svg'></img>
                 <h3>besøg forum</h3>
-                <a href='#'>Gå til forum</a>
+                <ForumLink/>
             </div>
         </section>
     </>

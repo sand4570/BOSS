@@ -40,15 +40,17 @@
  }
 
 .oldest.active ~ .active_sort{
-    margin-left: 87px !important;
+    margin-left: 92px !important;
  }
 
  .unanswered.active ~ .active_sort{
-    margin-left: 194px !important;
+    margin-left: 196px !important;
+    width: 105px;
  }
 
  .answered.active ~ .active_sort{
-    margin-left: 317px !important;
+    margin-left: 307px !important;
+    width: 110px;
  }
 
 

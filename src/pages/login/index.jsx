@@ -25,14 +25,11 @@ const Login = () => {
         <>
         <button id='back-button' onClick={() => history.back()}></button>
         <div className='content-wrapper'>
-            <section className={toLogin ? 'login-section' : 'blue-section'}>
-                <h3>LOG IND</h3>
-                <LoginSection state={toLogin} data={accountData} onButtonClick={setToLogin}></LoginSection>
-                
+            <section className='login-section'>
+            <LoginSection state={toLogin} data={accountData} onButtonClick={setToLogin}></LoginSection>
             </section>
-            <section className={!toLogin ? 'signup-section' : 'blue-section'}>
-            <h3>OPRET BRUGER</h3>
-                <SignupSection state={toLogin} onButtonClick={setToLogin}></SignupSection>
+            <section className='blue-section'>
+            <SignupSection state={toLogin} onButtonClick={setToLogin}></SignupSection>
             </section>
         </div>
         </>
