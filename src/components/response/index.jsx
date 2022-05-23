@@ -13,10 +13,12 @@ const Response = ({answer}) => {
 
 
     const handleAnswerClick = (accountnName, id) => {
-
+        console.log('handeling click')
         setCommentInput([id])
+        console.log('setCommentInput')
         
         const input = document.querySelector(`#${id}`)
+        
 
         input.value = (`@${accountnName}`)
         input.focus({preventScroll: true})
@@ -30,7 +32,7 @@ const Response = ({answer}) => {
                 <>
                 <div className={answer.verified === 1 ? "response-container verified padding" : "response-container padding"}>
                     <div id="profile-wrapper">
-                        {/* <img className="" src={answer.account.picture ? `/profiles/${answer[0].user[0].picture}.jpg` : '/profiles/profile-placeholder.png'}></img> */}
+                    <div className='circle-name-white'> <span>{answer.account.firstname.substring(0,1) + answer.account.lastname.substring(0,1)}</span></div>
                         <div>
                             <span className="profile-name">{`${answer.account.firstname} ${answer.account.lastname}`}</span>
                             <span className="time-stamp">{<ChangeTimestamp timestamp={answer.createdAt}></ChangeTimestamp>}</span>
@@ -46,7 +48,7 @@ const Response = ({answer}) => {
                     )
                 })}
 
-                <AddComment id={`A${answer.id}`} setComment={setComment} commentInput={commentInput}></AddComment>
+                <AddComment id={`${answer.id}`} setComment={setComment} commentInput={commentInput}></AddComment>
                 </>
               )
 
@@ -56,7 +58,7 @@ const Response = ({answer}) => {
                 <>
                 <div className={answer.verified === 1 ? "response-container verified padding" : "response-container padding"}>
                     <div id="profile-wrapper">
-                        {/* <img className="" src={answer.account.picture ? `/profiles/${answer[0].user[0].picture}.jpg` : '/profiles/profile-placeholder.png'}></img> */}
+                    <div className='circle-name-white'> <span>{answer.account.firstname.substring(0,1) + answer.account.lastname.substring(0,1)}</span></div>
                         <div>
                             <span className="profile-name">{`${answer.account.firstname} ${answer.account.lastname}`}</span>
                             <span className="time-stamp">{<ChangeTimestamp timestamp={answer.createdAt}></ChangeTimestamp>}</span>
@@ -66,7 +68,7 @@ const Response = ({answer}) => {
                     <button className="answer-button" onClick={() => {handleAnswerClick(answer.account.firstname, `A${answer.id}`)}}>Skriv en kommentar</button>
                 </div>
                 
-                <AddComment id={`A${answer.id}`} setComment={setComment} commentInput={commentInput}></AddComment>
+                <AddComment id={`${answer.id}`} setComment={setComment} commentInput={commentInput}></AddComment>
                 </>
               )
 
