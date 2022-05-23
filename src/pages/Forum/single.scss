@@ -14,10 +14,15 @@
         display: flex;
         gap: 0.5rem;
 
-        img {
+        .circle-name {
             height: 3rem;
             width: 3rem;
+            background-color: $rain;
             border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1rem;
             margin-top: 15px;
         }
 

@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import './single.scss'
@@ -9,9 +9,39 @@ import ChangeTimestamp from "../../components/Timestamp";
 const Singleview = () => {
 
     const id = useParams().questionId
-    
 
     const [question, setQuestion] = useState(null)
+    const [searchParams, setSearchParams] = useSearchParams()
+    const [answerContent, setAnswerContent] = useState("")
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        console.log('time to post')
+        
+        const user = searchParams.get("id")
+
+        const answer = {
+            content: answerContent,
+            verified: 0,
+            question_id: id,
+            account_id: user
+        }
+
+        console.log('json answer', answer)
+
+        fetch("https://boss-info.herokuapp.com/api/answers", {
+            method: "post",
+            headers: {
+              "Content-Type": "application/json; charset=utf-8",
+              "api-key": "nSY1oe7pw05ViSEapg09D4gHG87yJCTX67uDa1OO",
+              "cache-control": "no-cache"
+            },
+            body: JSON.stringify(answer),
+          })
+            .then((res) => res.json())
+            .then((data) => console.log(data));
+
+    }
 
     useEffect(() => {
         fetch(`https://boss-info.herokuapp.com/api/questions/${id}`, {
@@ -36,7 +66,7 @@ const Singleview = () => {
             <div id="content">
                 <h1>{question.questions[0].title}</h1>
                 <div id="profile-wrapper">
-                    {/* <img className="" src={question[0].user[0].picture ? `/profiles/${question[0].user[0].picture}.jpg` : '/profiles/profile-placeholder.png'}></img> */}
+                <div className='circle-name'> <span>{question.questions[0].account.firstname.substring(0,1) + question.questions[0].account.lastname.substring(0,1)}</span></div>
                     <div>
                         <span className="profile-name">{`${question.questions[0].account.firstname} ${question.questions[0].account.lastname}`}</span>
                         <span className="time-stamp">{<ChangeTimestamp timestamp={question.questions[0].createdAt}></ChangeTimestamp>}</span>
@@ -64,8 +94,8 @@ const Singleview = () => {
                         )
                     })}
                 </div>
-                <form id="respond-wrapper">
-                    <input placeholder={`Skriv et svar til ${question.questions[0].account.firstname} ${question.questions[0].account.lastname}`} type="text" required></input>
+                <form id="respond-wrapper" onSubmit={handleSubmit}>
+                    <input placeholder={`Skriv et svar til ${question.questions[0].account.firstname} ${question.questions[0].account.lastname}`} type="text" required onChange={event => setAnswerContent(event.target.value)}></input>
                     <div id="input_border"></div>
                     <button type="submit">➤</button>
                 </form>

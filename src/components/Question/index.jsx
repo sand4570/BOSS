@@ -62,7 +62,7 @@ const Question = ({sort}) => {
                             <Link to={`/forum/${question.id + search}`}>
                             <div className='question-box'>
                                 <div className='profile-box'>
-                                    {/* <img src={question.user[0].picture ? `/profiles/${question.user[0].picture}.jpg` : '/profiles/profile-placeholder.png'}></img> */}
+                                    <div className='circle-name'> <span>{question.account.firstname.substring(0,1) + question.account.lastname.substring(0,1)}</span></div>
                                     <div className='text-box'>
                                         <span className='profile-name'>{`${question.account.firstname} ${question.account.lastname}`}</span>
                                         <span className='time-stamp'>{changeTimeStamp(question.createdAt)}</span>

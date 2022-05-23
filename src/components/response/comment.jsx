@@ -14,7 +14,7 @@ const Comment = ({comment, answerId, handleAnswerClick}) => {
                 <div className="line"></div>
                 <div className="comment-wrapper">
                     <div id="profile-wrapper">
-                        {/* <img className="" src={comment.account[0].picture ? `/profiles/${comment[0].user[0].picture}.jpg` : '/profiles/profile-placeholder.png'}></img> */}
+                    <div className='circle-name'> <span>{comment.account.firstname.substring(0,1) + comment.account.lastname.substring(0,1)}</span></div>
                         <div>
                             <span className="profile-name">{`${comment.account.firstname} ${comment.account.lastname}`}</span>
                             <span className="time-stamp">{<ChangeTimestamp timestamp={comment.createdAt}></ChangeTimestamp>}</span>

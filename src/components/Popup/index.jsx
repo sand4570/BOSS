@@ -38,28 +38,19 @@ const Popup = ({modal, setModal}) => {
         console.log('the user', user)
 
         const question = {
-            Title: title,
+            title: title,
             content: content,
-            created: new Date().toLocaleDateString('en-US', {
-                day: 'numeric',
-                month: 'numeric',
-                year: 'numeric',
-                hour: 'numeric',
-                minute: 'numeric',
-                second: "numeric"
-            }),
-            user: [user],
-            category: clickedCategoies,
-            responses: ""
+            account_id: user,
+            categories: clickedCategoies
         }
 
         console.log('my json', question)
 
-        fetch("https://bossinfo-f45f.restdb.io/rest/question", {
+        fetch("https://boss-info.herokuapp.com/api/questions", {
             method: "post",
             headers: {
               "Content-Type": "application/json; charset=utf-8",
-              "x-apikey": "627a9d53e8128861fcf3d1d7",
+              "api-key": "nSY1oe7pw05ViSEapg09D4gHG87yJCTX67uDa1OO",
               "cache-control": "no-cache"
             },
             body: JSON.stringify(question),
