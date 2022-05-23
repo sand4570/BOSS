@@ -72,7 +72,7 @@ const Forum = () => {
                 </div>
             
                 <div className={filter == true ? 'side-menu active' : 'side-menu unactive'}>
-                    <button onClick={toggleFilter} className='secondaryButton'>Tilbage</button>
+                    <button onClick={toggleFilter}></button>
                     <div id='categories'>
                         <h3>Filtrer</h3>
                         {categories.map((cat) => {

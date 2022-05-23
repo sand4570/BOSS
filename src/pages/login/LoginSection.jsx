@@ -47,7 +47,7 @@ const LoginSection = ({state, data, onButtonClick}) => {
                     </div>
                     
                     <div className='button-wrapper'>
-                        <button className='primaryButton' type='submit'>LOG IND</button>
+                        <button className='primaryButton' type='submit'>Log ind</button>
                     </div>
                     
                 </form>
@@ -57,7 +57,7 @@ const LoginSection = ({state, data, onButtonClick}) => {
             <>
                 <p>Hvis du allerede har en bruger, så log ind nedenfor.</p>
                 <div className='button-wrapper'>
-                    <button onClick={handleClick} className='secondaryButton'>LOG IND</button>
+                    <button onClick={handleClick} className='secondaryButton'>Log ind</button>
                 </div>
                 
             </>

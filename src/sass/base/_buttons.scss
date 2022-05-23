@@ -10,10 +10,11 @@
 	margin: 15px 0;
 	width: 200px;
 	font-size: 1.3rem;
-	font-weight: 400;
+	font-weight: 500;
 	box-shadow: 2px 2px 5px rgb(179, 179, 179);
 	animation: out 0.3s 1 forwards ease-in-out;
 	align-items: center;
+	letter-spacing: 0.5px;
 }
 
 .CTA .ctaLink {
@@ -55,19 +56,22 @@
 	border-radius: 30px;
 	padding: 10px 20px;
 	color: $moonlight;
-	text-transform: uppercase;
 	margin: 15px 0;
 	min-width: 130px;
+	font-weight: 400;
+	letter-spacing: 0.5px;
 }
 
 .secondaryButton {
 	border: 2px solid $sunset;
-	background-color: transparent;
+	background-color: $moonlight;
 	border-radius: 30px;
 	padding: 10px 20px;
 	color: $sunset;
 	margin: 15px 0;
 	min-width: 140px;
+	font-weight: 600;
+	letter-spacing: 0.5px;
 }
 
 .secondaryButton:hover {

@@ -14,8 +14,8 @@ const SortSlider = ({updateSort}) => {
             <div className='sort_wrapper'>
                 <p onClick={() => sortQuestions('newest')} className={active == 'newest' ? 'newest active' : 'newest'}>Nyest</p>
                 <p onClick={() => sortQuestions('oldest')} className={active == 'oldest' ? 'oldest active' : 'oldest'}>Ældst</p>
-                <p onClick={() => sortQuestions('unanswered')} className={active == 'unanswered' ? 'unanswered active' : 'unanswered'}>ubesvaret</p>
-                <p onClick={() => sortQuestions('answered')} className={active == 'answered' ? 'answered active' : 'answered'} >besvaret</p>
+                <p onClick={() => sortQuestions('unanswered')} className={active == 'unanswered' ? 'unanswered active' : 'unanswered'}>Ubesvaret</p>
+                <p onClick={() => sortQuestions('answered')} className={active == 'answered' ? 'answered active' : 'answered'} >Besvaret</p>
                 <div className='active_sort'></div>
             </div> 
         </div>
