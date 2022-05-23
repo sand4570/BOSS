@@ -1,6 +1,6 @@
 @import "/src/sass/base/colors";
 
-.secondaryButton.single{
+.secondaryButton.single {
     position: relative;
     top: 60px;
 }
@@ -9,6 +9,7 @@
     max-width: 900px;
     margin: 0 auto;
     margin-top: 50px;
+
     #profile-wrapper {
         display: flex;
         gap: 0.5rem;
@@ -50,12 +51,11 @@
         margin-top: 1rem;
 
         .cat {
-            border: solid 1px $nightsky;
-            padding: 0.2rem 0.6rem;
-            border-radius: 10px;
-            color: $nightsky;
-            width: 130px;
             text-align: center;
+            border: solid 1px $fog;
+            padding: 0 15px;
+            border-radius: 5px;
+            color: $fog;
         }
     }
 
@@ -92,10 +92,12 @@
         border-radius: 20px;
         width: 100%;
     }
-    input:focus{
+
+    input:focus {
         border: none !important;
     }
-    input:focus ~ #input_border{
+
+    input:focus~#input_border {
         border: 1.5px solid $sunset;
         height: 100%;
         width: 100%;

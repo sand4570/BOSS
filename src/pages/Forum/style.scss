@@ -3,21 +3,25 @@
 
 #forum-content {
     margin: 75px auto 0;
-    #top-section{ 
+
+    #top-section {
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin: 10px auto;
         position: relative;
-        button{
+
+        button {
             margin: 10px 0;
         }
-        #filter_icon{
+
+        #filter_icon {
             width: 45px;
             margin-left: 5px;
             cursor: pointer;
         }
     }
+
     .side-menu {
         background-color: $moonlight;
         width: 100%;
@@ -26,50 +30,57 @@
         top: 0;
         right: 0;
         z-index: 5;
-        #categories{
+
+        #categories {
             display: flex;
             flex-direction: column;
             gap: 15px;
-            .category_wrapper{
+
+            .category_wrapper {
                 width: 100%;
             }
-            .category_label{
+
+            .category_label {
                 display: block;
-                user-select:none;
+                user-select: none;
                 text-transform: none;
                 //margin: 0 auto;
-                color: $fog;
+                color: $eclipse;
                 padding: 4px 1rem;
                 cursor: pointer;
                 line-height: 30px;
-                border: solid 1px $fog;
+                border: solid 1px $eclipse;
                 border-radius: 25px;
                 text-align: center;
                 width: 140px;
             }
-            .category_checkbox{
+
+            .category_checkbox {
                 position: absolute;
                 opacity: 1;
                 height: 0;
                 width: 0;
             }
+
             .category_checkbox:checked~.category_label::before {
                 background-image: url('/checkmark.svg');
                 background-size: 40px 47px;
                 background-repeat: no-repeat;
                 display: inline-block;
-                width: 20px; 
+                width: 20px;
                 height: 20px;
-                content:"";
+                content: "";
                 margin-right: 7px;
                 color: $nightsky;
             }
-            .category_checkbox:checked ~ .category_label {
+
+            .category_checkbox:checked~.category_label {
                 color: $nightsky;
                 border: solid 2px $nightsky;
             }
         }
-        &.active{
+
+        &.active {
             display: block;
         }
     }
@@ -77,6 +88,7 @@
 
     #content {
         max-width: none;
+
         .question-box {
             display: grid;
             grid-template-columns: 55% 45%;
@@ -86,69 +98,75 @@
             padding: 1rem;
             border-radius: 24px;
             margin-bottom: 1rem;
-                .comment-container{
+
+            .comment-container {
+                display: flex;
+                gap: 7px;
+                justify-self: end;
+
+                p {
+                    font-weight: 200;
+                    color: $fog;
+                    font-size: 0.9rem;
+                }
+
+                img {
+                    width: 30px;
+                    height: 30px;
+                }
+
+            }
+
+            .profile-box {
+                display: flex;
+                gap: 1rem;
+
+                img {
+                    border-radius: 50%;
+                    height: 3rem;
+                    width: 3rem;
+                    margin-top: 15px;
+                }
+
+                .text-box {
                     display: flex;
-                    gap: 7px;
-                    justify-self: end;
-                    p{
-                        font-weight: 200;
-                        color: $fog;
-                        font-size: 0.9rem;
-                    }
-                    img{
-                        width: 30px;
-                        height: 30px;
+                    flex-direction: column;
+
+
+                    .profile-name {
+                        color: $eclipse;
+                        font-size: 1.2rem;
+                        font-family: "Sarabun", sans-serif;
+                        margin: 10px 0 0px;
                     }
 
-                }
-                .profile-box {
-                    display: flex;
-                    gap: 1rem;
-    
-                    img {
-                        border-radius: 50%;
-                        height: 3rem;
-                        width: 3rem;
-                        margin-top: 15px;
-                    }
-    
-                    .text-box {
-                        display: flex;
-                        flex-direction: column;
-    
-    
-                        .profile-name {
-                            color: $eclipse;
-                            font-size: 1.2rem;
-                            font-family: "Sarabun", sans-serif;
-                            margin: 10px 0 0px;
-                        }
-    
-                        .time-stamp {
-                            color: $fog;
-                            font-weight: thin;
-    
-                        }
+                    .time-stamp {
+                        color: $fog;
+                        font-weight: thin;
+
                     }
                 }
-            
+            }
+
             .content-box {
                 grid-column: 1 / span 2;
+
                 .read-more {
                     color: $sunset;
                 }
+
                 .cats {
                     display: flex;
                     gap: 0.5rem;
                     margin-top: 1rem;
+
                     .cat {
-                        width: 130px;
                         text-align: center;
                         font-size: 0.85rem;
-                        border: solid 1px $nightsky;
-                        padding: 0 10px;
-                        border-radius: 8px;
-                        color: $nightsky;
+                        border: solid 1px $fog;
+                        padding: 0 15px;
+                        border-radius: 5px;
+                        color: $fog;
                     }
                 }
             }
@@ -158,19 +176,22 @@
 
 @media only screen and (min-width: 800px) {
 
-    #forum-content{
+    #forum-content {
         display: grid;
         grid-template-columns: 145px 85%;
         grid-template-rows: 10% 90%;
         gap: 10px;
-        #top-section{
+
+        #top-section {
             grid-column: 2 / span 1;
             width: 100%;
-            #filter_icon{
+
+            #filter_icon {
                 display: none;
             }
         }
-        .side-menu{
+
+        .side-menu {
             grid-column: 1 / span 1;
             display: block !important;
             background-color: none;
@@ -179,33 +200,40 @@
             position: unset;
             width: auto;
             height: auto;
-            button{
+
+            button {
                 display: none;
             }
-            #categories{
-                h3{
+
+            #categories {
+                h3 {
                     margin-bottom: 0;
                     font-size: 1rem;
                 }
-                .category_label{
+
+                .category_label {
                     margin: 0;
                 }
             }
-            
+
         }
-        #content{
+
+        #content {
             grid-column: 2 / span 1;
             margin: 0 auto;
-            .question-box{
+
+            .question-box {
                 grid-template-columns: 20% auto 150px !important;
                 grid-template-rows: 100% 0% !important;
                 row-gap: 0 !important;
                 column-gap: 10px;
-                .comment-container{
+
+                .comment-container {
                     grid-column: 3 / span 1;
                     grid-row: 1 / span 1;
                 }
-                .content-box{
+
+                .content-box {
                     grid-column: 2 / span 1 !important;
                 }
             }
@@ -214,37 +242,39 @@
 }
 
 //effects
-.no-scroll{
+.no-scroll {
     overflow: hidden;
 }
 
 //animations
 
-@media only screen and (max-width: 800px){
+@media only screen and (max-width: 800px) {
 
-.side-menu.unactive {
-    animation: filter-out 0.5s 1 forwards cubic-bezier(0.77, 0.56, 0.44, 0.99);
-}
+    .side-menu.unactive {
+        animation: filter-out 0.5s 1 forwards cubic-bezier(0.77, 0.56, 0.44, 0.99);
+    }
 
-.side-menu.active {
-    animation: filter-in 0.5s 1 forwards cubic-bezier(0.77, 0.56, 0.44, 0.99);
-}
+    .side-menu.active {
+        animation: filter-in 0.5s 1 forwards cubic-bezier(0.77, 0.56, 0.44, 0.99);
+    }
 
-@keyframes filter-in {
-    0% {
-        transform: translateX(-100vw);
-    }
-    100% {
-        transform: translateX(0);
-    }
-}
+    @keyframes filter-in {
+        0% {
+            transform: translateX(-100vw);
+        }
 
-@keyframes filter-out {
-    0% {
-        transform: translateX(0);
+        100% {
+            transform: translateX(0);
+        }
     }
-    100% {
-        transform: translateX(-100vw);
+
+    @keyframes filter-out {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-100vw);
+        }
     }
-}
 }
