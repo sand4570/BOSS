@@ -9,13 +9,14 @@ import ChangeTimestamp from "../../components/Timestamp";
 const Singleview = () => {
 
     const id = useParams().questionId
+    
 
     const [question, setQuestion] = useState(null)
 
     useEffect(() => {
-        fetch(`https://bossinfo-f45f.restdb.io/rest/question?q={"_id": "${id}"}`, {
+        fetch(`https://boss-info.herokuapp.com/api/questions/${id}`, {
         headers: {
-            'x-api-key': '627a9d53e8128861fcf3d1d7',
+            'api-key': 'nSY1oe7pw05ViSEapg09D4gHG87yJCTX67uDa1OO',
         }})
         .then((response) => response.json() )
         .then((data) => setQuestion(data))
@@ -33,37 +34,38 @@ const Singleview = () => {
             <div id="single-view-container">
             <button className="secondaryButton single" onClick={() => history.back()}>Tilbage</button>
             <div id="content">
-                <h1>{question[0].Title}</h1>
+                <h1>{question.questions[0].title}</h1>
                 <div id="profile-wrapper">
-                    <img className="" src={question[0].user[0].picture ? `/profiles/${question[0].user[0].picture}.jpg` : '/profiles/profile-placeholder.png'}></img>
+                    {/* <img className="" src={question[0].user[0].picture ? `/profiles/${question[0].user[0].picture}.jpg` : '/profiles/profile-placeholder.png'}></img> */}
                     <div>
-                        <span className="profile-name">{question[0].user[0].username}</span>
-                        <span className="time-stamp">{<ChangeTimestamp timestamp={question[0].created}></ChangeTimestamp>}</span>
+                        <span className="profile-name">{`${question.questions[0].account.firstname} ${question.questions[0].account.lastname}`}</span>
+                        <span className="time-stamp">{<ChangeTimestamp timestamp={question.questions[0].createdAt}></ChangeTimestamp>}</span>
                     </div>
                 </div>
-                <p id="question-content">{question[0].content}</p>
+                <p id="question-content">{question.questions[0].content}</p>
                 <div id="category-wrapper">
-                    {question[0].category.map((cat) => {
+                    {question.questions[0].categories.map((cat) => {
                         return (
                             <span className='cat'>{cat.category}</span>
                         )
                     })}
                 </div>
                 <div id="flex-wrapper">
-                    <span id="comment-amount">{question[0].responses.length} svar</span>
+                    <span id="comment-amount">{question.questions[0].answers.length} svar</span>
                     <button className="secondaryButton" onClick={scrollToInput}>Besvar spørgsmål</button>
                 </div>
                 <hr className="devider"></hr>
                 
                 <div id="response-wrapper">
-                    {question[0].responses.map((response) => {
+                    {question.questions[0].answers.map((answer) => {
+                        console.log('what is answer', answer)
                         return (
-                            <Response id={response._id}></Response>
+                            <Response answer={answer}></Response>
                         )
                     })}
                 </div>
                 <form id="respond-wrapper">
-                    <input placeholder={`Skriv et svar til ${question[0].user[0].username}`} type="text" required></input>
+                    <input placeholder={`Skriv et svar til ${question.questions[0].account.firstname} ${question.questions[0].account.lastname}`} type="text" required></input>
                     <div id="input_border"></div>
                     <button type="submit">➤</button>
                 </form>

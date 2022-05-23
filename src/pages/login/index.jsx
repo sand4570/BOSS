@@ -13,15 +13,13 @@ const Login = () => {
     const [accountData, setAccountData] = useState(null)
 
     useEffect(() => {
-        fetch('https://bossinfo-f45f.restdb.io/rest/accounts', {
+        fetch('https://boss-info.herokuapp.com/api/accounts', {
         headers: {
-            'x-api-key': '627a9d53e8128861fcf3d1d7',
+            'api-key': 'nSY1oe7pw05ViSEapg09D4gHG87yJCTX67uDa1OO',
         }})
         .then((response) => response.json() )
         .then((data) => setAccountData(data))
       },[])
-
-      console.log('account effect', accountData)
 
     return (
         <>

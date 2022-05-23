@@ -26,9 +26,9 @@ const Forum = () => {
     
 
     useEffect(() => {
-        fetch('https://bossinfo-f45f.restdb.io/rest/categories', {
+        fetch('https://boss-info.herokuapp.com/api/categories', {
         headers: {
-            'x-api-key': '627a9d53e8128861fcf3d1d7',
+            'api-key': 'nSY1oe7pw05ViSEapg09D4gHG87yJCTX67uDa1OO',
         }})
         .then((response) => response.json() )
         .then((data) => setCategories(data))
@@ -75,7 +75,7 @@ const Forum = () => {
                     <button onClick={toggleFilter}></button>
                     <div id='categories'>
                         <h3>Filtrer</h3>
-                        {categories.map((cat) => {
+                        {categories.categories.map((cat) => {
                             return (
                                 <div className="category_wrapper">
                                     <input type="checkbox" id={cat._id} className="category_checkbox" value={cat.category}/>

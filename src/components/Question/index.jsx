@@ -10,14 +10,14 @@ const Question = ({sort}) => {
     const { search } = useLocation()
     const [questions, setQuestions] = useState(null)
 
-    const [url, setUrl] = useState('https://bossinfo-f45f.restdb.io/rest/question?')
+    
 
     
 
     useEffect(() => {
-        fetch(url, {
+        fetch('https://boss-info.herokuapp.com/api/questions', {
         headers: {
-            'x-api-key': '627a9d53e8128861fcf3d1d7',
+            'api-key': 'nSY1oe7pw05ViSEapg09D4gHG87yJCTX67uDa1OO',
         }})
         .then((response) => response.json() )
         .then((data) => setQuestions(data))
@@ -42,7 +42,7 @@ const Question = ({sort}) => {
             if(string.length > 100) {
 
                 return (
-                    string.substring(0,100)
+                    string.substring(0,100) + "..."
                 )
             } else {
                 return (
@@ -56,16 +56,16 @@ const Question = ({sort}) => {
             return (
                 
                 <div id='content'>
-                    {questions.map((question) => {
+                    {questions.questions.map((question) => {
                         console.log('one question', question)
                         return (
-                            <Link to={`/forum/${question._id + search}`}>
+                            <Link to={`/forum/${question.id + search}`}>
                             <div className='question-box'>
                                 <div className='profile-box'>
-                                    <img src={question.user[0].picture ? `/profiles/${question.user[0].picture}.jpg` : '/profiles/profile-placeholder.png'}></img>
+                                    {/* <img src={question.user[0].picture ? `/profiles/${question.user[0].picture}.jpg` : '/profiles/profile-placeholder.png'}></img> */}
                                     <div className='text-box'>
-                                        <span className='profile-name'>{question.user[0].username}</span>
-                                        <span className='time-stamp'>{changeTimeStamp(question.created)}</span>
+                                        <span className='profile-name'>{`${question.account.firstname} ${question.account.lastname}`}</span>
+                                        <span className='time-stamp'>{changeTimeStamp(question.createdAt)}</span>
                                     </div>
                                 </div>
                                 <div className='comment-container'>
@@ -73,13 +73,13 @@ const Question = ({sort}) => {
                                     <img src='/comment_icon.png'></img>
                                 </div>
                                 <div className='content-box'>
-                                    <h3>{question.Title}</h3>
+                                    <h3>{question.title}</h3>
                                     <div className='text-content'>
-                                        <span>{`${cutString(question.content)}... `}</span>
+                                        <span>{`${cutString(question.content)} `}</span>
                                         <span className='read-more'>Læs mere</span>
                                     </div>
                                     <div className='cats'>
-                                        {question.category.map((cat) => {
+                                        {question.categories.map((cat) => {
                                             return (
                                                 <span className='cat'>{cat.category}</span>
                                             )

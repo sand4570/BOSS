@@ -8,8 +8,6 @@ const LoginSection = ({state, data, onButtonClick}) => {
     const [mail, setMail] = useState('')
     const [password, setPassword] = useState('')
 
-    //console.log('data1', data)
-
     const handleClick = useCallback(() => {
         console.log("yes i should be false hello")
         onButtonClick(state)
@@ -19,10 +17,10 @@ const LoginSection = ({state, data, onButtonClick}) => {
         event.preventDefault()
 
         if (data) {
-           data.map((account) => {
+           data.accounts.map((account) => {
                if (mail === account.email) {
                    if (password === account.password) {
-                       window.location.href=`/?id=${account._id}`;
+                       window.location.href=`/?id=${account.id}`;
                    } else {console.log('wrong password')}
                } else {
                    console.log('false')
@@ -30,7 +28,6 @@ const LoginSection = ({state, data, onButtonClick}) => {
                
            }) 
         }
-        console.log('data', data)
     }
 
     if (state === true) {
