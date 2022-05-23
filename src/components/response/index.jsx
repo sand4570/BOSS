@@ -28,8 +28,13 @@ const Response = ({id}) => {
     const handleAnswerClick = (accountnName, id) => {
 
         setCommentInput([id])
+        
+        const input = document.querySelector(`#${id}`)
 
-        document.querySelector(`#${id}`).value = (`@${accountnName}`)
+        input.value = (`@${accountnName}`)
+        input.focus({preventScroll: true})
+        input.scrollTo({ behavior: 'smooth' })
+
     }
 
       if (answer) {
@@ -45,7 +50,7 @@ const Response = ({id}) => {
                         </div>
                     </div>
                     <p className="response-content">{answer[0].content}</p>
-                    <button className="answer-button" onClick={() => {handleAnswerClick(answer[0].user[0].username, `A${answer[0]._id}`)}}>Svar</button>
+                    <button className="answer-button" onClick={() => {handleAnswerClick(answer[0].user[0].username, `A${answer[0]._id}`)}}>Skriv en kommentar</button>
                 </div>
 
                 {answer[0].comments.map((comment) => {
@@ -71,7 +76,7 @@ const Response = ({id}) => {
                         </div>
                     </div>
                     <p className="response-content">{answer[0].content}</p>
-                    <button className="answer-button" onClick={() => {handleAnswerClick(answer[0].user[0].username, `A${answer[0]._id}`)}}>Svar</button>
+                    <button className="answer-button" onClick={() => {handleAnswerClick(answer[0].user[0].username, `A${answer[0]._id}`)}}>Skriv en kommentar</button>
                 </div>
                 
                 <AddComment id={`A${answer[0]._id}`} setComment={setComment} commentInput={commentInput}></AddComment>

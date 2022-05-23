@@ -16,11 +16,11 @@
     width: 1px;
     height: 2rem;
     background-color: $sunset;
-    margin-left: 4.6rem;
+    margin-left: 4.74rem;
 }
 
 .comment-wrapper {
-    background-color: $rain;
+    border: solid 2px $rain;
     border-radius: 25px;
     padding: 0.5rem;
     margin-left: 3rem;

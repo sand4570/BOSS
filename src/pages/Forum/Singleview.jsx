@@ -23,6 +23,11 @@ const Singleview = () => {
 
       console.log('single view question', question)
 
+      const scrollToInput = () => {
+          document.querySelector("#respond-wrapper").scrollIntoView({ behavior: 'smooth' })
+          document.querySelector("#respond-wrapper input").focus({preventScroll: true})
+      }
+
     if(question) {
         return (
             <div id="single-view-container">
@@ -46,7 +51,7 @@ const Singleview = () => {
                 </div>
                 <div id="flex-wrapper">
                     <span id="comment-amount">{question[0].responses.length} svar</span>
-                    <button className="secondaryButton">Besvar spørgsmål</button>
+                    <button className="secondaryButton" onClick={scrollToInput}>Besvar spørgsmål</button>
                 </div>
                 <hr className="devider"></hr>
                 
