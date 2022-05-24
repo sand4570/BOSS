@@ -41,18 +41,24 @@ const Singleview = () => {
             .then((res) => res.json())
             .then((data) => console.log(data));
 
+            getData()
+
     }
 
-    useEffect(() => {
+    async function getData() {
         fetch(`https://boss-info.herokuapp.com/api/questions/${id}`, {
         headers: {
             'api-key': 'nSY1oe7pw05ViSEapg09D4gHG87yJCTX67uDa1OO',
         }})
         .then((response) => response.json() )
         .then((data) => setQuestion(data))
+    }
+
+    useEffect(() => {
+        getData()
       },[])
 
-      console.log('single view question', question)
+      //console.log('single view question', question)
 
       const scrollToInput = () => {
           document.querySelector("#respond-wrapper").scrollIntoView({ behavior: 'smooth' })
@@ -90,7 +96,7 @@ const Singleview = () => {
                     {question.questions[0].answers.map((answer) => {
                         console.log('what is answer', answer)
                         return (
-                            <Response answer={answer}></Response>
+                            <Response answer={answer} getData={getData}></Response>
                         )
                     })}
                 </div>
