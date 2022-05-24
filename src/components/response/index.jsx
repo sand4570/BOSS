@@ -19,12 +19,12 @@ const Response = ({answer, getData}) => {
         //console.log('setCommentInput')
         
         const input = document.querySelector(`#${id}`)
-        
+        const inputDiv = document.querySelector(`#${id} ~ div`)
+        console.log(inputDiv)
 
         input.value = (`@${accountnName}`)
+        inputDiv.scrollIntoView({ behavior: 'smooth' })
         input.focus({preventScroll: true})
-        input.scrollTo({ behavior: 'smooth' })
-
     }
 
       if (answer) {

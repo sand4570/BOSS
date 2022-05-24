@@ -10,6 +10,7 @@ const Question = ({sort, filterQuestions}) => {
     const { search } = useLocation()
     const [questions, setQuestions] = useState(null)
 
+    //const [sortedQuestions, setSortedQuestions] = useState(null)
 
     useEffect(() => {
         fetch('https://boss-info.herokuapp.com/api/questions', {
@@ -19,7 +20,7 @@ const Question = ({sort, filterQuestions}) => {
         .then((response) => response.json() )
         .then((data) => setQuestions(data))
       },[])
-
+  
     const changeTimeStamp = (timestamp) => {
 
         const date = new Date(timestamp);
@@ -31,6 +32,10 @@ const Question = ({sort, filterQuestions}) => {
             minute: 'numeric',
         }))
       }
+
+
+      
+
 
       const cutString = (string) => {
             if(string.length > 100) {
@@ -58,11 +63,39 @@ const Question = ({sort, filterQuestions}) => {
             }
         })
 
+        let sortedArray = [] 
+
+        if (sort == 'newest') {
+        
+            sortedArray = Array.from(questions.questions)
+            console.log('newest sort', sortedArray)
+    
+        } else if (sort == 'oldest') {
+    
+            sortedArray = Array.from(questions.questions).reverse()
+            console.log('oldest sort', sortedArray)
+
+        } else if (sort == 'unanswered') {
+
+            sortedArray = Array.from(questions.questions)
+            sortedArray = sortedArray.sort((a, b) => parseInt(a.answers) - parseInt(b.answers));
+
+        }  else if (sort == 'answered') {
+
+            sortedArray = Array.from(questions.questions)
+            sortedArray = sortedArray.sort((a, b) => parseInt(b.answers) - parseInt(a.answers));
+        }
+
             return (
                 
                 <div id='content'>
-                    {filtered_data.map((question) => {
+
+                    {sortedArray.map((question) => {
+                        //console.log('one question', question)
+
+                    //{filtered_data.map((question) => {
                         // console.log('one question', question)
+
                         return (
                             <Link to={`/forum/${question.id + search}`}>
                             <div className='question-box'>
@@ -74,7 +107,7 @@ const Question = ({sort, filterQuestions}) => {
                                     </div>
                                 </div>
                                 <div className='comment-container'>
-                                    <p>2 kommentarer</p>
+                                    <p>{question.answers} kommentarer</p>
                                     <img src='/comment_icon.png'></img>
                                 </div>
                                 <div className='content-box'>

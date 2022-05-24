@@ -12,12 +12,10 @@ const Forum = () => {
 
     const [categories, setCategories] = useState(null)
 
-    const [sort, setSort] = useState(null)
 
 
-    const updateSort = (sorting) => {
-        setSort(sorting)
-    } 
+    const [sort, setSort] = useState("newest")
+
 
     let [filterQuestions, setFilteredQuestions] = useState([])
     let [modal, setModal] = useState(false)
@@ -82,7 +80,7 @@ const Forum = () => {
             <div className='forum_container'>
             <div id='forum-content'>
                 <div id='top-section'>
-                    <SortSlider updateSort={updateSort} />
+                    <SortSlider setSort={setSort}/>
                     <img onClick={toggleFilter} id="filter_icon" src='/filter_icon-25.svg'></img>
 
                     <button onClick={toggleModal} className='primaryButton'>Nyt spørgsmål</button>

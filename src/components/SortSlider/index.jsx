@@ -1,12 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import './style.scss'
 
-const SortSlider = ({updateSort}) => {
+const SortSlider = ({setSort}) => {
     const [active, setActive] = useState('newest');
 
       const sortQuestions = (category) =>{
+
         setActive(category)
-        updateSort(category)
+        setSort(category)
+        
     }
 
     return(
