@@ -13,16 +13,32 @@ const Forum = () => {
     const [categories, setCategories] = useState(null)
 
 
+
     const [sort, setSort] = useState("newest")
 
-   
 
-    
-
+    let [filterQuestions, setFilteredQuestions] = useState([])
     let [modal, setModal] = useState(false)
     let [filter, setFilter] = useState(false)
 
     
+    const showFilter = (cat, fil_q) => {
+        if(cat.category === "Technical") {
+            showTechnical(fil_q, "Technical")
+        } else if (cat.category == "Personal") {
+            showTechnical(fil_q, "Personal")
+        } else{
+            showTechnical(fil_q, "Error")
+        }
+    }
+    
+    const showTechnical = (fil_q, filter) => {
+        if (fil_q.includes(filter)) {
+            setFilteredQuestions(fil_q.filter(item => item !== filter))
+        } else {
+            setFilteredQuestions([...fil_q, filter]);
+        }
+    }
 
     useEffect(() => {
         fetch('https://boss-info.herokuapp.com/api/categories', {
@@ -49,14 +65,14 @@ const Forum = () => {
 
 
      //toggle filter on mobile
-      const toggleFilter = () => {
+    const toggleFilter = () => {
         if(filter == false) {
-        setFilter(filter = true)
+        setFilter(true)
         } else{
-            setFilter(filter = false)
+            setFilter(false)
         }
-      }
-    
+    }
+
     if (categories) {
         return (
             <>
@@ -75,17 +91,18 @@ const Forum = () => {
                     <div id='categories'>
                         <h3>Filtrer</h3>
                         {categories.categories.map((cat) => {
+                            // console.log("categories here", categories)
                             return (
                                 <div className="category_wrapper">
-                                    <input type="checkbox" id={cat._id} className="category_checkbox" value={cat.category}/>
-                                    <label className="category_label" for={cat._id}>{cat.category}</label>
+                                    <input type="checkbox"  onClick={() => showFilter(cat, filterQuestions)} id={cat.id} className="category_checkbox" value={cat.category}/>
+                                    <label className="category_label" for={cat.id}>{cat.category}</label>
                                 </div>
 
                             )
                         })}
                     </div>
                 </div>
-                <Question sort={sort}></Question>
+                <Question sort={sort} filterQuestions={filterQuestions}></Question>
 
             </div>
             </div>

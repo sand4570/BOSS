@@ -4,14 +4,13 @@ import { useLocation, Link } from 'react-router-dom';
 import QuestionBox from './QuestionBox';
 
 
-const Question = ({sort}) => {
-    console.log('question sort', sort)
+const Question = ({sort, filterQuestions}) => {
+    //console.log('question sort', sort)
 
     const { search } = useLocation()
     const [questions, setQuestions] = useState(null)
-    //const [sortedQuestions, setSortedQuestions] = useState(null)
 
-    
+    //const [sortedQuestions, setSortedQuestions] = useState(null)
 
     useEffect(() => {
         fetch('https://boss-info.herokuapp.com/api/questions', {
@@ -21,11 +20,8 @@ const Question = ({sort}) => {
         .then((response) => response.json() )
         .then((data) => setQuestions(data))
       },[])
-
-      //console.log('Questions', questions)
-
-      const changeTimeStamp = (timestamp) => {
-        //console.log(timestamp)
+  
+    const changeTimeStamp = (timestamp) => {
 
         const date = new Date(timestamp);
         return ('date',date.toLocaleDateString('da-DK', {
@@ -55,6 +51,17 @@ const Question = ({sort}) => {
       }
 
       if (questions) {
+          console.log("questions", questions)
+
+        let filtered_data = questions.questions.filter(question => {
+            if (filterQuestions.length > 0) {
+                //console.log("question filters: ", filterQuestions)
+                //console.log("Question categories: ", question.categories)
+                return question.categories.some(r => filterQuestions.includes(r.category))
+            } else {
+                return true
+            }
+        })
 
         let sortedArray = [] 
 
@@ -82,8 +89,13 @@ const Question = ({sort}) => {
             return (
                 
                 <div id='content'>
+
                     {sortedArray.map((question) => {
                         //console.log('one question', question)
+
+                    //{filtered_data.map((question) => {
+                        // console.log('one question', question)
+
                         return (
                             <Link to={`/forum/${question.id + search}`}>
                             <div className='question-box'>
