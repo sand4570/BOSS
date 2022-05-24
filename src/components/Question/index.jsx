@@ -67,22 +67,22 @@ const Question = ({sort, filterQuestions}) => {
 
         if (sort == 'newest') {
         
-            sortedArray = Array.from(questions.questions)
+            sortedArray = Array.from(filtered_data)
             console.log('newest sort', sortedArray)
     
         } else if (sort == 'oldest') {
     
-            sortedArray = Array.from(questions.questions).reverse()
+            sortedArray = Array.from(filtered_data).reverse()
             console.log('oldest sort', sortedArray)
 
         } else if (sort == 'unanswered') {
 
-            sortedArray = Array.from(questions.questions)
+            sortedArray = Array.from(filtered_data)
             sortedArray = sortedArray.sort((a, b) => parseInt(a.answers) - parseInt(b.answers));
 
         }  else if (sort == 'answered') {
 
-            sortedArray = Array.from(questions.questions)
+            sortedArray = Array.from(filtered_data)
             sortedArray = sortedArray.sort((a, b) => parseInt(b.answers) - parseInt(a.answers));
         }
 
