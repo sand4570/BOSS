@@ -9,8 +9,7 @@ const Question = ({sort}) => {
 
     const { search } = useLocation()
     const [questions, setQuestions] = useState(null)
-
-    
+    //const [sortedQuestions, setSortedQuestions] = useState(null)
 
     
 
@@ -23,10 +22,10 @@ const Question = ({sort}) => {
         .then((data) => setQuestions(data))
       },[])
 
-      console.log('Questions', questions)
+      //console.log('Questions', questions)
 
       const changeTimeStamp = (timestamp) => {
-        console.log(timestamp)
+        //console.log(timestamp)
 
         const date = new Date(timestamp);
         return ('date',date.toLocaleDateString('da-DK', {
@@ -37,6 +36,10 @@ const Question = ({sort}) => {
             minute: 'numeric',
         }))
       }
+
+
+      
+
 
       const cutString = (string) => {
             if(string.length > 100) {
@@ -53,11 +56,34 @@ const Question = ({sort}) => {
 
       if (questions) {
 
+        let sortedArray = [] 
+
+        if (sort == 'newest') {
+        
+            sortedArray = Array.from(questions.questions)
+            console.log('newest sort', sortedArray)
+    
+        } else if (sort == 'oldest') {
+    
+            sortedArray = Array.from(questions.questions).reverse()
+            console.log('oldest sort', sortedArray)
+
+        } else if (sort == 'unanswered') {
+
+            sortedArray = Array.from(questions.questions)
+            sortedArray = sortedArray.sort((a, b) => parseInt(a.answers) - parseInt(b.answers));
+
+        }  else if (sort == 'answered') {
+
+            sortedArray = Array.from(questions.questions)
+            sortedArray = sortedArray.sort((a, b) => parseInt(b.answers) - parseInt(a.answers));
+        }
+
             return (
                 
                 <div id='content'>
-                    {questions.questions.map((question) => {
-                        console.log('one question', question)
+                    {sortedArray.map((question) => {
+                        //console.log('one question', question)
                         return (
                             <Link to={`/forum/${question.id + search}`}>
                             <div className='question-box'>
@@ -69,7 +95,7 @@ const Question = ({sort}) => {
                                     </div>
                                 </div>
                                 <div className='comment-container'>
-                                    <p>2 kommentarer</p>
+                                    <p>{question.answers} kommentarer</p>
                                     <img src='/comment_icon.png'></img>
                                 </div>
                                 <div className='content-box'>
