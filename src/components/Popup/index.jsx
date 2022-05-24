@@ -15,9 +15,9 @@ const Popup = ({modal, setModal}) => {
     console.log("What categories", clickedCategoies)
 
     useEffect(() => {
-        fetch('https://bossinfo-f45f.restdb.io/rest/categories', {
+        fetch('https://boss-info.herokuapp.com/api/categories', {
         headers: {
-            'x-api-key': '627a9d53e8128861fcf3d1d7',
+            'api-key': 'nSY1oe7pw05ViSEapg09D4gHG87yJCTX67uDa1OO',
         }})
         .then((response) => response.json() )
         .then((data) => setCategories(data))
@@ -83,7 +83,7 @@ const Popup = ({modal, setModal}) => {
                     <h3>Tilføj kategori *</h3>
                     <p className='info_txt'>Vælg en eller flere kategorier, som dit spørgsmål relaterer til.</p>
                     <legend className='cat_wrapper' >
-                    {categories.map((cat) => {
+                    {categories.categories.map((cat) => {
                             return (
                                 <Category cat={cat} setClickedCategoies={setClickedCategoies} clickedCategoies={clickedCategoies} ></Category>
                             )

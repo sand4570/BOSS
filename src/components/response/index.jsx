@@ -5,17 +5,18 @@ import ChangeTimestamp from "../Timestamp";
 import Comment from "./comment";
 import AddComment from "./AddComment";
 
-const Response = ({answer}) => {
-    console.log('response id', answer)
+const Response = ({answer, getData}) => {
+    
 
     const [commentInput, setCommentInput] = useState("null")
     const [comment, setComment] = useState("")
+   
 
 
     const handleAnswerClick = (accountnName, id) => {
-        console.log('handeling click')
+        //console.log('handeling click')
         setCommentInput([id])
-        console.log('setCommentInput')
+        //console.log('setCommentInput')
         
         const input = document.querySelector(`#${id}`)
         
@@ -48,7 +49,7 @@ const Response = ({answer}) => {
                     )
                 })}
 
-                <AddComment id={`${answer.id}`} setComment={setComment} commentInput={commentInput}></AddComment>
+                <AddComment id={`${answer.id}`} setComment={setComment} commentInput={commentInput} getData={getData}></AddComment>
                 </>
               )
 
@@ -68,7 +69,7 @@ const Response = ({answer}) => {
                     <button className="answer-button" onClick={() => {handleAnswerClick(answer.account.firstname, `A${answer.id}`)}}>Skriv en kommentar</button>
                 </div>
                 
-                <AddComment id={`${answer.id}`} setComment={setComment} commentInput={commentInput}></AddComment>
+                <AddComment id={`${answer.id}`} setComment={setComment} commentInput={commentInput} getData={getData}></AddComment>
                 </>
               )
 

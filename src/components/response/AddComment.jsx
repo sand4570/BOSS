@@ -3,19 +3,19 @@ import { useSearchParams } from "react-router-dom";
 
 import './style.scss'
 
-const AddComment = ({id, setComment, commentInput}) => {
+const AddComment = ({id, setComment, commentInput, getData}) => {
 
     
 
     const [searchParams, setSearchParams] = useSearchParams()
     const [commentContent, setCommentContent] = useState("")
 
-    console.log('id', id, 'commentInput', commentInput)
+    //console.log('id', id, 'commentInput', commentInput)
     const isVisible = commentInput[0] == 'A' + id.toString();
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        console.log('time to post')
+        //console.log('time to post')
         
         const user = searchParams.get("id")
 
@@ -39,6 +39,8 @@ const AddComment = ({id, setComment, commentInput}) => {
           })
             .then((res) => res.json())
             .then((data) => console.log(data));
+
+        getData()
     }
 
     return (
