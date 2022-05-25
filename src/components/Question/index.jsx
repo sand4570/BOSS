@@ -4,22 +4,15 @@ import { useLocation, Link } from 'react-router-dom';
 import QuestionBox from './QuestionBox';
 
 
-const Question = ({sort, filterQuestions}) => {
+const Question = ({questions, sort, filterQuestions}) => {
     //console.log('question sort', sort)
 
     const { search } = useLocation()
-    const [questions, setQuestions] = useState(null)
+    
 
     //const [sortedQuestions, setSortedQuestions] = useState(null)
 
-    useEffect(() => {
-        fetch('https://boss-info.herokuapp.com/api/questions', {
-        headers: {
-            'api-key': 'nSY1oe7pw05ViSEapg09D4gHG87yJCTX67uDa1OO',
-        }})
-        .then((response) => response.json() )
-        .then((data) => setQuestions(data))
-      },[])
+    
   
     const changeTimeStamp = (timestamp) => {
 
@@ -51,7 +44,7 @@ const Question = ({sort, filterQuestions}) => {
       }
 
       if (questions) {
-          console.log("questions", questions)
+          //console.log("questions", questions)
 
         let filtered_data = questions.questions.filter(question => {
             if (filterQuestions.length > 0) {
@@ -68,12 +61,12 @@ const Question = ({sort, filterQuestions}) => {
         if (sort == 'newest') {
         
             sortedArray = Array.from(filtered_data)
-            console.log('newest sort', sortedArray)
+            //console.log('newest sort', sortedArray)
     
         } else if (sort == 'oldest') {
     
             sortedArray = Array.from(filtered_data).reverse()
-            console.log('oldest sort', sortedArray)
+            //console.log('oldest sort', sortedArray)
 
         } else if (sort == 'unanswered') {
 

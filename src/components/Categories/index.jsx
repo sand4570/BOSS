@@ -3,6 +3,7 @@ import React from 'react'
 import './style.scss'
 
 const Category = ({cat, setClickedCategoies, clickedCategoies}) => {
+    console.log("the clicked", clickedCategoies)
 
     const handleChange = (event) => {
         if (event.target.checked) {
@@ -16,7 +17,7 @@ const Category = ({cat, setClickedCategoies, clickedCategoies}) => {
 
     return (
         <div className="category-wrapper">
-            <input type="checkbox" id={cat.category} className="category-checkbox" name='category' value={cat._id} onChange={handleChange}/>
+            <input type="checkbox" id={cat.category} className="category-checkbox" name='category' value={cat.id} onChange={handleChange}/>
             <label className="category-label" for={cat.category}>{cat.category}</label>
         </div>
     )

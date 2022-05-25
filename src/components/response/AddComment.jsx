@@ -3,15 +3,15 @@ import { useSearchParams } from "react-router-dom";
 
 import './style.scss'
 
-const AddComment = ({id, setComment, commentInput, getData}) => {
+const AddComment = ({id, setComment, commentInput, setCommentInput, getData}) => {
 
     
 
     const [searchParams, setSearchParams] = useSearchParams()
     const [commentContent, setCommentContent] = useState("")
 
-    //console.log('id', id, 'commentInput', commentInput)
-    const isVisible = commentInput[0] == 'A' + id.toString();
+    console.log('commentInput', commentInput)
+    const isVisible = commentInput == 'A' + id.toString();
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -41,6 +41,7 @@ const AddComment = ({id, setComment, commentInput, getData}) => {
             .then((data) => console.log(data));
 
         getData()
+        setCommentInput(null)
     }
 
     return (
