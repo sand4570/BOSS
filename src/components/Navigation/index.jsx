@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
-import {useLocation, Link} from 'react-router-dom';
+import {useLocation, Link, useSearchParams} from 'react-router-dom';
 
 import './style.scss';
 import './menu.scss'
@@ -15,12 +15,15 @@ const Navbar = () => {
     const [color, setColor] = useState('transparent')
     const [activeLink, setActiveLink] = useState('/')
     const [login, setLogin] = useState(false)
+    const [searchParams, setSearchParams] = useSearchParams()
+    const [accounts, setAccounts] = useState(null)
 
     useEffect(() => {
         setActiveLink(pathname)
     })
 
     const { search } = useLocation()
+    
 
     const handleClick = () => {
         if (active) {
@@ -37,6 +40,27 @@ const Navbar = () => {
             setLogin(false)
         )
     })
+
+    const user = searchParams.get("id") 
+
+    if (user) {
+
+        useEffect(() => {
+            fetch('https://boss-info.herokuapp.com/api/accounts/' + user, {
+            headers: {
+                'api-key': 'nSY1oe7pw05ViSEapg09D4gHG87yJCTX67uDa1OO',
+            }})
+            .then((response) => response.json() )
+            .then((data) => setAccounts(data.accounts[0].firstname.substring(0,1) + data.accounts[0].lastname.substring(0,1)))
+        },[])
+    } else {
+        useEffect(() => {
+            setAccounts("")
+        })
+        
+    }
+
+    
 
     //Change manu color on scroll
     const listenScrollEvent = e => {
@@ -79,7 +103,9 @@ const Navbar = () => {
                                 )
                         })}
                     </ul>
-                        <div className={login ? 'profilePic' : ''}></div>
+                        <div className={login ? 'profilePic' : ''}>
+                            <span>{accounts}</span>
+                        </div>
                     </div>
                 </nav>
             </div>

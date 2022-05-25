@@ -31,7 +31,7 @@ const Frontpage = () => {
     return (
         <>
             <section id='splash_section'>
-                <img className="splashImg" src='/splash.png'></img>
+                <img className="splashImg" src='/splash1.3.png'></img>
                 <h1>Udlånsstyring af bøger, computere og mere</h1>
                 <p>BOSS er et specialiseret værktøj til styring af udlån af bøger, computere, iPads, kameraer, cykler og meget andet</p>
                 <button className='CTA'>

@@ -1,6 +1,6 @@
 @import '../../sass/base/colors';
 
-.sort_container{
+.sort_container {
     display: block;
     border: 2px solid $nightsky;
     border-radius: 30px;
@@ -8,15 +8,24 @@
     width: 420px;
     height: 40px;
     position: relative;
-    .sort_wrapper{
+
+    .sort_wrapper {
         display: flex;
         justify-content: space-between;
         height: 34px;
-        p{
+
+        p {
             cursor: pointer;
         }
     }
-    .active_sort{
+
+    p {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .active_sort {
         background-color: $nightsky;
         width: 100px;
         height: 100%;
@@ -30,35 +39,33 @@
     }
 }
 
-.active{
+.active {
     color: $moonlight;
     transition: .3s ease-in-out;
 }
 
-.newest.active ~ .active_sort{
+.newest.active~.active_sort {
     margin-left: -1px !important;
- }
+}
 
-.oldest.active ~ .active_sort{
+.oldest.active~.active_sort {
     margin-left: 92px !important;
- }
+}
 
- .unanswered.active ~ .active_sort{
+.unanswered.active~.active_sort {
     margin-left: 196px !important;
     width: 105px;
- }
+}
 
- .answered.active ~ .active_sort{
+.answered.active~.active_sort {
     margin-left: 307px !important;
     width: 110px;
- }
-
-
- @media only screen and (max-width: 800px){
-
-.sort_container{
-    display: none;
 }
- }
 
 
+@media only screen and (max-width: 800px) {
+
+    .sort_container {
+        display: none;
+    }
+}

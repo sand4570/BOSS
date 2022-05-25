@@ -17,8 +17,8 @@ const Category = ({cat, setClickedCategoies, clickedCategoies}) => {
 
     return (
         <div className="category-wrapper">
-            <input type="checkbox" id={cat.category} className="category-checkbox" name='category' value={cat.id} onChange={handleChange}/>
-            <label className="category-label" for={cat.category}>{cat.category}</label>
+            <input type="checkbox" id={cat.category} className="pop-category-checkbox" name='category' value={cat.id} onChange={handleChange}/>
+            <label className="pop-category-label" for={cat.category}>{cat.category}</label>
         </div>
     )
 }

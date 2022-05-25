@@ -5,7 +5,7 @@
 
 
 
-    .category-checkbox {
+    .pop-category-checkbox {
         position: absolute;
         opacity: 1;
 
@@ -13,28 +13,38 @@
         width: 0;
     }
 
-    .category-label {
+    .pop-category-label {
         text-transform: none;
         margin: 0;
-        color: $fog;
+        color: $eclipse;
         padding: 0.5rem 1rem;
         cursor: pointer;
         line-height: 30px;
         border: solid 1px $fog;
         border-radius: 25px;
         width: auto;
+
+        &:hover {
+            color: $nightsky;
+            border: solid 2px $nightsky;
+            padding: 0.5rem calc(1rem - 1px);
+        }
     }
 
-    .category-checkbox:checked~label::before {
+
+
+    .pop-category-checkbox:checked~label::before {
         content: "✔️";
         margin-right: 0.5rem;
         color: $nightsky;
     }
 
-    .category-checkbox:checked~label {
+    .pop-category-checkbox:checked~label {
         color: $nightsky;
         border: solid 2px $nightsky;
     }
+
+
 
 
 

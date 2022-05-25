@@ -21,15 +21,22 @@ const Popup = ({modal, setModal, getQuestionData}) => {
         }})
         .then((response) => response.json() )
         .then((data) => setCategories(data))
-      },[])
+    },[])
 
-      const toggleModal = useCallback(() => {
+    const toggleModal = useCallback(() => {
         
         setClickedCategoies([])
         document.querySelector('#title-input').value = ""
         document.querySelector('#content-input').value = ""
+        document.querySelectorAll('.pop-category-checkbox').forEach((checkbox) => {
+            if (checkbox.checked) {
+                checkbox.checked = false
+            }
+        })
+
+
         setModal(modal = false)
-      }, [setModal])
+    }, [setModal])
 
 
     const handleSubmit = (event) => {
