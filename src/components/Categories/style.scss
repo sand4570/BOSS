@@ -1,51 +1,48 @@
 @import "/src/sass/base/colors";
 
-.category-wrapper {
 
-
-
-
-    .pop-category-checkbox {
-        position: absolute;
-        opacity: 1;
-
-        height: 0;
-        width: 0;
-    }
-
+.category-wrapper{
     .pop-category-label {
-        text-transform: none;
-        margin: 0;
-        color: $eclipse;
-        padding: 0.5rem 1rem;
-        cursor: pointer;
-        line-height: 30px;
-        border: solid 1px $fog;
-        border-radius: 25px;
-        width: auto;
-
-        &:hover {
-            color: $nightsky;
-            border: solid 2px $nightsky;
-            padding: 0.5rem calc(1rem - 1px);
-        }
-    }
-
-
-
-    .pop-category-checkbox:checked~label::before {
-        content: "✔️";
-        margin-right: 0.5rem;
-        color: $nightsky;
-    }
-
-    .pop-category-checkbox:checked~label {
+    display: block;
+    user-select: none;
+    text-transform: none;
+    color: $eclipse;
+    padding: 4px 1rem;
+    cursor: pointer;
+    line-height: 30px;
+    border: solid 1px $eclipse;
+    border-radius: 25px;
+    text-align: center;
+    width: 140px;
+    height: 40px;
+    &:hover {
         color: $nightsky;
         border: solid 2px $nightsky;
+        padding: 3px 1rem;
     }
+}
 
+.pop-category-checkbox {
+    position: absolute;
+    opacity: 1;
+    height: 0;
+    width: 0;
+}
 
+.pop-category-checkbox:checked~.pop-category-label::before {
+    background-image: url('/checkmark.svg');
+    background-size: 40px 47px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    content: "";
+    margin-right: 7px;
+    color: $nightsky;
+}
 
-
-
+.pop-category-checkbox:checked~.pop-category-label {
+    color: $nightsky;
+    border: solid 2px $nightsky;
+}
 }

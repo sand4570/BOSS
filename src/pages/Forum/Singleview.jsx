@@ -67,10 +67,11 @@ const Singleview = () => {
           document.querySelector("#respond-wrapper input").focus({preventScroll: true})
       }
 
+      //className="secondaryButton single" id='back-button' 
     if(question) {
         return (
             <div id="single-view-container">
-            <button className="secondaryButton single" onClick={() => history.back()}>Tilbage</button>
+            <button className="go_back_single"  onClick={() => history.back()}></button>
             <div id="content">
                 <h1>{question.questions[0].title}</h1>
                 <div id="profile-wrapper">
