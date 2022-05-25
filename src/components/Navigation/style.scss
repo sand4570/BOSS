@@ -26,6 +26,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+
 	.logoContainer {
 		height: 100%;
 		margin-left: 60px;
@@ -47,9 +48,32 @@
 			gap: 1.5rem;
 			list-style: none;
 			margin-right: 60px;
+
 			.nav-links {
 				text-decoration: none;
 				color: $nightsky;
+				//margin-left: 1px;
+				//margin-right: 1px;
+
+				&:hover {
+					font-weight: bold;
+					//margin-left: 0;
+					//margin-right: 0;
+				}
+			}
+
+			.fill {
+				border: solid 1px $nightsky;
+				padding: 0.5rem !important;
+				border-radius: 5px;
+				//margin-left: 0;
+				//margin-right: 0;
+
+				&:hover {
+					background-color: $nightsky;
+					font-weight: normal;
+					color: $moonlight;
+				}
 			}
 		}
 
@@ -57,9 +81,17 @@
 			height: 1.8rem;
 			width: 1.8rem;
 			border-radius: 50%;
-			background-color: black;
+			background-color: $rain;
 			margin-right: 1rem;
 			float: right;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			span {
+				color: $nightsky;
+				font-weight: bold;
+			}
 		}
 	}
 }
@@ -78,7 +110,8 @@
 	.Navbar {
 		position: fixed;
 		top: 0;
-		background-color: $moonlight !important;
+		background-color: $moonlight  !important;
+
 		.logoContainer {
 			margin-left: 10px;
 		}
@@ -94,11 +127,13 @@
 			top: 3.5rem;
 			left: 0;
 			padding-top: 5vw;
+
 			.nav-links {
 				font-size: 2rem;
 				line-height: 70px;
 			}
 		}
+
 		.nav-menu.not-active {
 			animation: menu-out 0.8s 1 forwards cubic-bezier(0.77, 0.56, 0.44, 0.99);
 		}
@@ -111,6 +146,7 @@
 			0% {
 				transform: translateX(100vw);
 			}
+
 			100% {
 				transform: translateX(0);
 			}
@@ -120,6 +156,7 @@
 			0% {
 				transform: translateX(0);
 			}
+
 			100% {
 				transform: translateX(100vw);
 			}

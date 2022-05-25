@@ -75,6 +75,12 @@
                 border-radius: 25px;
                 text-align: center;
                 width: 140px;
+
+                &:hover {
+                    color: $nightsky;
+                    border: solid 2px $nightsky;
+                    padding: 3px 1rem;
+                }
             }
 
             .category_checkbox {
@@ -168,34 +174,33 @@
                         margin: 10px 0 0px;
                     }
 
-                    .text-box {
-                        display: flex;
-                        flex-direction: column;
-
-
-                        .profile-name {
-                            color: $eclipse;
-                            font-size: 1.2rem;
-                            font-family: "Sarabun", sans-serif;
-                            margin: 10px 0 0px;
-                        }
-
-                        .time-stamp {
-                            color: $fog;
-                            font-weight: thin;
-                            font-size: 0.85rem;
-
-                        }
+                    .time-stamp {
+                        color: $fog;
+                        font-weight: thin;
+                        font-size: 0.85rem;
 
                     }
+
+
                 }
             }
 
             .content-box {
                 grid-column: 1 / span 2;
+                margin-left: 3.8rem;
+
+                h3 {
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
 
                 .read-more {
                     color: $sunset;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
                 }
 
                 .cats {
@@ -226,6 +231,7 @@
         grid-template-rows: 80px auto;
         row-gap: 10px;
         column-gap: 20px;
+
 
         #top-section {
 
@@ -272,10 +278,10 @@
             margin: 0 auto;
 
             .question-box {
-                grid-template-columns: 190px auto 150px !important;
+                grid-template-columns: 200px auto 150px !important;
                 grid-template-rows: 100% 0% !important;
                 row-gap: 0 !important;
-                column-gap: 10px;
+                column-gap: 15px;
 
                 .profile-box {
                     margin-left: 20px;
@@ -289,6 +295,7 @@
 
                 .content-box {
                     grid-column: 2 / span 1 !important;
+                    margin: 0;
                 }
             }
         }

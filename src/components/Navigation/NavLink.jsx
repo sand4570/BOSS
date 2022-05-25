@@ -33,7 +33,7 @@ const NavLink = (login) => {
         {
           title: 'LOG UD',
           url: '/logout',
-          cName: 'nav-links'
+          cName: 'nav-links fill'
         }
       ]
     )
@@ -58,7 +58,7 @@ const NavLink = (login) => {
         {
           title: 'LOG IND',
           url: '/login',
-          cName: 'nav-links'
+          cName: 'nav-links fill'
         }
       ]
     )
