@@ -14,13 +14,13 @@ const Response = ({answer, getData}) => {
 
 
     const handleAnswerClick = (accountnName, id) => {
-        //console.log('handeling click')
+        console.log('handeling click')
         setCommentInput([id])
-        //console.log('setCommentInput')
+        //console.log('setCommentInput', commentInput)
         
         const input = document.querySelector(`#${id}`)
         const inputDiv = document.querySelector(`#${id} ~ div`)
-        console.log(inputDiv)
+        //console.log(inputDiv)
 
         input.value = (`@${accountnName}`)
         inputDiv.scrollIntoView({ behavior: 'smooth' })
@@ -49,7 +49,7 @@ const Response = ({answer, getData}) => {
                     )
                 })}
 
-                <AddComment id={`${answer.id}`} setComment={setComment} commentInput={commentInput} getData={getData}></AddComment>
+                <AddComment id={`${answer.id}`} setComment={setComment} commentInput={commentInput} setCommentInput={setCommentInput} getData={getData}></AddComment>
                 </>
               )
 
@@ -69,7 +69,7 @@ const Response = ({answer, getData}) => {
                     <button className="answer-button" onClick={() => {handleAnswerClick(answer.account.firstname, `A${answer.id}`)}}>Skriv en kommentar</button>
                 </div>
                 
-                <AddComment id={`${answer.id}`} setComment={setComment} commentInput={commentInput} getData={getData}></AddComment>
+                <AddComment id={`${answer.id}`} setComment={setComment} commentInput={commentInput} setCommentInput={setCommentInput} getData={getData}></AddComment>
                 </>
               )
 

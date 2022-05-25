@@ -41,6 +41,8 @@ const Singleview = () => {
             .then((res) => res.json())
             .then((data) => console.log(data));
 
+            setAnswerContent("")
+            document.querySelector('#answer-input').value = ""
             getData()
 
     }
@@ -101,7 +103,7 @@ const Singleview = () => {
                     })}
                 </div>
                 <form id="respond-wrapper" onSubmit={handleSubmit}>
-                    <input placeholder={`Skriv et svar til ${question.questions[0].account.firstname} ${question.questions[0].account.lastname}`} type="text" required onChange={event => setAnswerContent(event.target.value)}></input>
+                    <input id="answer-input" placeholder={`Skriv et svar til ${question.questions[0].account.firstname} ${question.questions[0].account.lastname}`} type="text" required onChange={event => setAnswerContent(event.target.value)}></input>
                     <div id="input_border"></div>
                     <button type="submit">➤</button>
                 </form>

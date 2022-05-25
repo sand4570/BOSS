@@ -11,10 +11,22 @@ import './style.scss'
 const Forum = () => {
 
     const [categories, setCategories] = useState(null)
-
-
-
     const [sort, setSort] = useState("newest")
+    const [questions, setQuestions] = useState(null)
+
+    async function getQuestionData(messege) {
+        console.log(messege)
+        fetch('https://boss-info.herokuapp.com/api/questions', {
+        headers: {
+            'api-key': 'nSY1oe7pw05ViSEapg09D4gHG87yJCTX67uDa1OO',
+        }})
+        .then((response) => response.json() )
+        .then((data) => setQuestions(data))
+    }
+
+    useEffect(() => {
+        getQuestionData('from Forum')
+    },[])
 
 
     let [filterQuestions, setFilteredQuestions] = useState([])
@@ -47,13 +59,15 @@ const Forum = () => {
         }})
         .then((response) => response.json() )
         .then((data) => setCategories(data))
-      },[])
+    },[])
+
       
-      //toggle the modal
-      const toggleModal = () => {
+      
+    //toggle the modal
+    const toggleModal = () => {
         setModal(modal = true)
         
-      }
+    }
 
     useEffect(() => {
         if(modal) {
@@ -61,10 +75,10 @@ const Forum = () => {
         } else{
             document.body.classList.remove('no-scroll');
         }
-     }, [modal]);
+    }, [modal]);
 
 
-     //toggle filter on mobile
+    //toggle filter on mobile
     const toggleFilter = () => {
         if(filter == false) {
         setFilter(true)
@@ -76,7 +90,7 @@ const Forum = () => {
     if (categories) {
         return (
             <>
-            <Popup modal={modal} setModal={setModal}/>
+            <Popup modal={modal} setModal={setModal} getQuestionData={getQuestionData}/>
             <div className='forum_container'>
             <div id='forum-content'>
                 <div id='top-section'>
@@ -102,7 +116,7 @@ const Forum = () => {
                         })}
                     </div>
                 </div>
-                <Question sort={sort} filterQuestions={filterQuestions}></Question>
+                <Question questions={questions} sort={sort} filterQuestions={filterQuestions}></Question>
 
             </div>
             </div>

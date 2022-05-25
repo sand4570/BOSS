@@ -3,7 +3,7 @@ import './style.scss'
 import Category from '../Categories'
 import { useSearchParams } from 'react-router-dom';
 
-const Popup = ({modal, setModal}) => {
+const Popup = ({modal, setModal, getQuestionData}) => {
 
     const [categories, setCategories] = useState(null)
     const [title, setTitle] = useState("")
@@ -12,7 +12,7 @@ const Popup = ({modal, setModal}) => {
     const [searchParams, setSearchParams] = useSearchParams()
     const [clickedCategoies, setClickedCategoies] = useState([])
 
-    console.log("What categories", clickedCategoies)
+    //console.log("What categories", clickedCategoies)
 
     useEffect(() => {
         fetch('https://boss-info.herokuapp.com/api/categories', {
@@ -24,18 +24,22 @@ const Popup = ({modal, setModal}) => {
       },[])
 
       const toggleModal = useCallback(() => {
+        
+        setClickedCategoies([])
+        document.querySelector('#title-input').value = ""
+        document.querySelector('#content-input').value = ""
         setModal(modal = false)
       }, [setModal])
 
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        console.log('time to post')
+        //console.log('time to post')
         
         const user = searchParams.get("id")
         
 
-        console.log('the user', user)
+        //console.log('the user', user)
 
         const question = {
             title: title,
@@ -59,6 +63,8 @@ const Popup = ({modal, setModal}) => {
             .then((data) => console.log(data));
 
         toggleModal()
+        getQuestionData('from popup')
+        
     }
     
 
@@ -74,11 +80,11 @@ const Popup = ({modal, setModal}) => {
                 <form onSubmit={handleSubmit}>
                     <div className='input_wrapper'>
                         <label>Hvad omhandler dit spørgsmål?</label>
-                        <input placeholder="F.eks. ønske til system, fejl ved oprettelse osv." type="text" required onChange={event => setTitle(event.target.value)}></input>
+                        <input id='title-input' placeholder="F.eks. ønske til system, fejl ved oprettelse osv." type="text" required onChange={event => setTitle(event.target.value)}></input>
                     </div>
                     <div className='input_wrapper'>
                         <label>Hvad vil du gerne spørge om?</label>
-                        <textarea placeholder="Uddyb gerne dit spørgsmål" required onChange={event => setContent(event.target.value)}></textarea>
+                        <textarea id='content-input' placeholder="Uddyb gerne dit spørgsmål" required onChange={event => setContent(event.target.value)}></textarea>
                     </div>
                     <h3>Tilføj kategori *</h3>
                     <p className='info_txt'>Vælg en eller flere kategorier, som dit spørgsmål relaterer til.</p>
