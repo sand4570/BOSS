@@ -57,7 +57,7 @@ const Frontpage = () => {
             </section>
             <section id='forum_section'>
                 <div id='forum_wrapper'>
-                <img src='/kvinde_ved_computer1.png'></img>
+                <img src='/kvinde_ved_computer1.jpg'></img>
                 <div>
                     <h3>Få hurtig og nem vejledning</h3>
 
@@ -78,7 +78,7 @@ const Frontpage = () => {
                     <p>Boss er tæt integreret med Ludus, Lectio, Uddata+ og Tabulex og har en række ekstra værktøjer, der gør det endnu nemmere at bruge bl.a WebBoss, der giver undervisere mulighed for at bestille og hjemkalde bøger til deres hold. </p>
 
                 </div>
-                <img src='/students.png'></img>
+                <img src='/students.jpg'></img>
             </section>
             <section id='review_section'>
                 <p className='citat'>“ Med BOSS er der altid styr på vores bøger. Det er nemt og hurtigt og jeg er bare så glad for at bruge det ”</p>
