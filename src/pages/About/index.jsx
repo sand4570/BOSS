@@ -39,7 +39,7 @@ const About = () => {
                 <img src='/vision_grafik.png'></img>
             </section>
         </>
-        <img id='form2' src='form2.svg'></img>
+        <img id='form2' src='form7.svg'></img>
         </>
     )
 }
