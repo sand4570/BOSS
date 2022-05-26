@@ -52,14 +52,36 @@
 			.nav-links {
 				text-decoration: none;
 				color: $nightsky;
-				//margin-left: 1px;
-				//margin-right: 1px;
 
 				&:hover {
 					font-weight: bold;
-					//margin-left: 0;
-					//margin-right: 0;
+					margin-left: 0;
+					margin-right: 0;
 				}
+			}
+
+			.home {
+				margin-left: 1px;
+				margin-right: 1px;
+			}
+
+			.about {
+				margin-left: 1px;
+				margin-right: 1px;
+			}
+
+			.contact {
+				margin-left: 2px;
+				margin-right: 2px;
+			}
+
+			.forum {
+				margin-left: 0.8px;
+				margin-right: 0.8px;
+			}
+
+			.activeLink {
+				display: block;
 			}
 
 			.fill {
@@ -161,6 +183,8 @@
 				transform: translateX(100vw);
 			}
 		}
+
+
 
 		.activeLink::after {
 			display: none;
