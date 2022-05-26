@@ -1,7 +1,7 @@
 @import "/src/sass/base/colors";
 @import "/src/sass/base/buttons";
 
-#back-button{
+#back-button {
 	position: absolute;
 	left: 2rem;
 	top: 10px;
@@ -15,18 +15,21 @@
 	background-size: 20px 20px;
 	background-repeat: no-repeat;
 	background-position: center;
-	&:hover{
+
+	&:hover {
 		border: 3px solid $nightsky;
 	}
 }
 
- .content-wrapper {
-	 height: 100vh;
-	 display: grid;
-	 grid-template-rows: 65% 35%;
+.content-wrapper {
+	height: 100vh;
+	display: grid;
+	grid-template-rows: 65% 35%;
+
 	h3 {
 		text-align: center;
 	}
+
 	p {
 		text-align: center;
 	}
@@ -38,10 +41,12 @@
 		font-size: 0.9rem;
 		padding: 8px 1.2rem;
 	}
+
 	.login-input:focus {
 		outline: none;
 		border: 2px solid $nightsky;
 	}
+
 	.login-input:-webkit-autofill {
 		box-shadow: 0 0 0px 1000px rgb(255, 255, 255) inset;
 		-webkit-box-shadow: 0 0 0px 1000px rgb(255, 255, 255) inset;
@@ -60,7 +65,8 @@
 		padding-top: 10px;
 		padding-bottom: 10px;
 	}
-	.name-input-wrapper{
+
+	.name-input-wrapper {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: 10px;
@@ -78,55 +84,81 @@
 		padding: 0 2rem;
 		margin-top: auto;
 		margin-bottom: auto;
-		h3{
+
+		h3 {
 			margin-bottom: 0px;
 		}
 	}
 
-	 .blue-section {
+	.blue-section {
 		background-color: $rain;
 		padding: 1rem 2rem;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		p{
+
+		p {
 			max-width: 450px;
 			margin: 0 auto;
 		}
 	}
+
+	.error-wrapper {
+		width: 100%;
+
+		.error {
+			color: red;
+			width: 100%;
+			text-align: center;
+		}
+	}
+
+	.showError {
+		display: block;
+	}
+
+	.hideError {
+		display: none;
+	}
+
+
 }
 
 
-@media screen and (min-width: 900px){
-	#back-button{
+@media screen and (min-width: 900px) {
+	#back-button {
 		left: unset;
 		right: 90vw;
 	}
+
 	.content-wrapper {
 		height: 100vh;
 		margin-top: 0vh;
 		padding-top: 0;
 		grid-template-rows: 1fr;
 		grid-template-columns: 50% 50%;
-		.login-section{
+
+		.login-section {
 			margin-top: auto;
 			margin-bottom: auto;
 			height: 50vh;
 			padding: 1rem 4rem;
-			form{
+
+			form {
 				max-width: 500px;
 				margin-left: auto;
 				margin-right: auto;
 			}
-			p{
+
+			p {
 				margin-bottom: 0px;
 			}
 		}
-		.signup-section form{
+
+		.signup-section form {
 			max-width: 500px;
 			margin-left: auto;
 			margin-right: auto;
 		}
 	}
 }
-
