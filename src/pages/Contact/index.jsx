@@ -19,9 +19,9 @@ const Contact = () => {
     const ForumLink = () =>{
 
         if(login){
-            return <Link to={`/forum${search}`}>Gå til forum </Link>
+            return <Link to={`/forum${search}`} className='forum-link'>Gå til forum </Link>
         } else{
-            return <Link to={`/login${search}`}>Gå til forum </Link>
+            return <Link to={`/login${search}`} className='forum-link'>Gå til forum </Link>
         }
     }
 
@@ -36,7 +36,7 @@ const Contact = () => {
                 <p>Kontakt BOSS via formularen eller ring til os. Er vi ikke til stede så læg en besked, så vender vi tilbage hurtigst muligt. </p>
                 <p>Er du allerede kunde så prøv vores nye forum og få hurtigt svar fra os eller andre brugere. </p>  
             </div>
-            <form>
+            <form className='contact-form'>
                 <div className='input_wrapper'>
                     <label htmlFor="fname">navn</label>
                     <input type='text' required id="fname" name="fname" placeholder='Skriv dit navn her'></input>
@@ -49,7 +49,7 @@ const Contact = () => {
                     <label>besked</label>
                     <textarea  placeholder='Hvad ønsker du at skrive?'></textarea>
                 </div>
-                <PrimaryButton text='send'></PrimaryButton>
+                <button className='secondaryButton contact-button'>Send</button>
             </form>
         </section>
         <section id='contact_section'>

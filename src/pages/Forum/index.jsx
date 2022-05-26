@@ -97,7 +97,7 @@ const Forum = () => {
                     <SortSlider setSort={setSort}/>
                     <img onClick={toggleFilter} id="filter_icon" src='/filter_icon-25.svg'></img>
 
-                    <button onClick={toggleModal} className='primaryButton'>Nyt spørgsmål</button>
+                    <button onClick={toggleModal} className='new-question-button'>Nyt spørgsmål</button>
                 </div>
             
                 <div className={filter == true ? 'side-menu active' : 'side-menu unactive'}>
