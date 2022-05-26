@@ -5,6 +5,8 @@ const LoginSection = ({state, data}) => {
 
     const [mail, setMail] = useState('')
     const [password, setPassword] = useState('')
+    const [loginError, setLoginError] = useState(false)
+    console.log('error', loginError)
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -12,12 +14,15 @@ const LoginSection = ({state, data}) => {
         if (data) {
            data.accounts.map((account) => {
                if (mail === account.email) {
-                   if (password === account.password) {
+                    if (password === account.password) {
                        window.location.href=`/forum?id=${account.id}`;
-                   } else {console.log('wrong password')}
-               } else {
-                   console.log('false')
-               }
+                       setLoginError(false)
+                    }  else {
+                        setLoginError(true)
+                    }
+                } else {
+                    setLoginError(true)
+                }
                
            }) 
         }
@@ -61,6 +66,10 @@ const LoginSection = ({state, data}) => {
                     <div className='input-wrapper'>
                         <label htmlFor='password' className='login-label'>ADGANGSKODE</label>
                         <input placeholder="Skal indeholde mindst 6 tegn" id='password' className='login-input' type='password' onChange={event => setPassword(event.target.value)}></input>
+                    </div>
+
+                    <div className='error-wrapper'>
+                        <span className={loginError == true ? 'error showError' : 'error hideError'}>Forkert brugernavn eller adgangskode</span>
                     </div>
                     
                     <div className='button-wrapper'>
