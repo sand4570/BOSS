@@ -8,7 +8,8 @@
     width: 420px;
     height: 40px;
     position: relative;
-
+    left: 160px;
+    top: 50px;
     .sort_wrapper {
         display: flex;
         justify-content: space-between;
@@ -63,7 +64,7 @@
 }
 
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 900px) {
 
     .sort_container {
         display: none;

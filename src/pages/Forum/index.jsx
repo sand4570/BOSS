@@ -91,14 +91,14 @@ const Forum = () => {
         return (
             <>
             <Popup modal={modal} setModal={setModal} getQuestionData={getQuestionData}/>
-            <div className='forum_container'>
-            <div id='forum-content'>
+            
                 <div id='top-section'>
                     <SortSlider setSort={setSort}/>
                     <img onClick={toggleFilter} id="filter_icon" src='/filter_icon-25.svg'></img>
 
                     <button onClick={toggleModal} className='primaryButton'>Nyt spørgsmål</button>
                 </div>
+                
             
                 <div className={filter == true ? 'side-menu active' : 'side-menu unactive'}>
                     <button onClick={toggleFilter}></button>
@@ -117,9 +117,6 @@ const Forum = () => {
                     </div>
                 </div>
                 <Question questions={questions} sort={sort} filterQuestions={filterQuestions}></Question>
-
-            </div>
-            </div>
             </>
         )
     } else {
