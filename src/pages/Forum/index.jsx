@@ -36,15 +36,15 @@ const Forum = () => {
     
     const showFilter = (cat, fil_q) => {
         if(cat.category === "Technical") {
-            showTechnical(fil_q, "Technical")
+            filterQuestion(fil_q, "Technical")
         } else if (cat.category == "Personal") {
-            showTechnical(fil_q, "Personal")
+            filterQuestion(fil_q, "Personal")
         } else{
-            showTechnical(fil_q, "Error")
+            filterQuestion(fil_q, "Error")
         }
     }
     
-    const showTechnical = (fil_q, filter) => {
+    const filterQuestion = (fil_q, filter) => {
         if (fil_q.includes(filter)) {
             setFilteredQuestions(fil_q.filter(item => item !== filter))
         } else {
@@ -62,6 +62,12 @@ const Forum = () => {
     },[])
 
       
+    const resetCategories = () => {
+        setFilteredQuestions([])
+        document.querySelectorAll(".category_checkbox").forEach(checkbox =>{
+            checkbox.checked = false;
+        })
+    }
       
     //toggle the modal
     const toggleModal = () => {
@@ -102,12 +108,13 @@ const Forum = () => {
                             // console.log("categories here", categories)
                             return (
                                 <div className="category_wrapper">
-                                    <input type="checkbox"  onClick={() => showFilter(cat, filterQuestions)} id={cat.id} className="category_checkbox" value={cat.category}/>
+                                    <input type="checkbox" onClick={() => showFilter(cat, filterQuestions)} id={cat.id} className="category_checkbox" value={cat.category}/>
                                     <label className="category_label" for={cat.id}>{cat.category}</label>
                                 </div>
 
                             )
                         })}
+                        <p onClick={resetCategories} id='reset_button'>Nulstil</p>
                     </div>
                 </div>
                 <Question questions={questions} sort={sort} filterQuestions={filterQuestions}></Question>

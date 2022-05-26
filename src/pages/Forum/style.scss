@@ -78,7 +78,7 @@
         transition: none;
     }
     h3{
-        margin-left: 10px;
+        margin-left: 15px;
     }
     button {
         position: relative;
@@ -106,6 +106,15 @@
         gap: 15px;
         margin-top: 70px;
         padding: 0 25px;
+        #reset_button{
+            margin-left: 15px;
+            cursor: pointer;
+            font-weight: 400;
+            text-decoration: underline;
+        }
+        #reset_button:hover{
+           color: rgb(108, 108, 108);
+        }
         .category_wrapper {
             width: 100%;
         }
@@ -312,6 +321,7 @@
         }
         #categories{
             padding: 0;
+            margin-top: 95px;
             .sort_container {
                 display: none;
              }
