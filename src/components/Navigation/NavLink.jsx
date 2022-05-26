@@ -13,22 +13,22 @@ const NavLink = (login) => {
         {
           title: 'FORSIDE',
           url: '/',
-          cName: 'nav-links'
+          cName: 'nav-links home',
         },
         {
           title: 'OM BOSS',
           url: '/about',
-          cName: 'nav-links'
+          cName: 'nav-links about',
         },
         {
           title: 'KONTAKT',
           url: '/contact',
-          cName: 'nav-links'
+          cName: 'nav-links contact',
         },
         {
           title: 'FORUM',
           url: '/forum',
-          cName: 'nav-links'
+          cName: 'nav-links forum',
         },
         {
           title: 'LOG UD',
@@ -43,17 +43,17 @@ const NavLink = (login) => {
         {
           title: 'FORSIDE',
           url: '/',
-          cName: 'nav-links'
+          cName: 'nav-links home'
         },
         {
           title: 'OM BOSS',
           url: '/about',
-          cName: 'nav-links'
+          cName: 'nav-links about'
         },
         {
           title: 'KONTAKT',
           url: '/contact',
-          cName: 'nav-links'
+          cName: 'nav-links contact'
         },
         {
           title: 'LOG IND',
