@@ -23,13 +23,24 @@
             padding: 5px 15px;
             h2{
                 margin: 30px auto;
-                font-size: 2.2rem;
+                font-size: 2rem;
+                margin-bottom: 15px;
             }
-            button{
+            #close-popup-button{
                 float: right;
+                width: 45px;
+                height: 45px;
+                border-radius: 30px;
+                background-color: $moonlight;
+                border: 2px solid $nightsky;
+                color: $nightsky;
+                margin-top: 10px;
+                &:hover{
+                  border: 3px solid $nightsky;
+                }
             }
             h3{
-                margin-top: 40px;
+                margin-top: 20px;
             }
             .form_wrapper{
                 max-width: 700px;
@@ -64,17 +75,18 @@
             }
             .info_txt {
                 color: $fog;
+                margin-bottom: 10px;
             }
             .cat_wrapper{
-                margin: 20px 0;
+                margin: 10px 0;
                 display: flex;
                 gap: 10px;
-                //flex-wrap: wrap;
+                flex-wrap: wrap;
             }
             .opret_button{
-                float: unset;
+                float: bottom;
                 display: block;
-                margin: 60px auto 10px;
+                margin: 30px auto 10px;
             }
         }
     }

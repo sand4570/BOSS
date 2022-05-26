@@ -35,7 +35,8 @@ const Popup = ({modal, setModal, getQuestionData}) => {
         })
 
 
-        setModal(modal = false)
+        setModal(false)
+        document.body.classList.remove('no-scroll');
     }, [setModal])
 
 
@@ -81,7 +82,7 @@ const Popup = ({modal, setModal, getQuestionData}) => {
     <div className={modal ? 'modal_container showing' : 'modal_container hiding'}>
         <div className='modal_background'>
             <div className='modal'>
-                <button onClick={toggleModal} className='secondaryButton'>Luk</button>
+                <button onClick={toggleModal} id='close-popup-button'>✕</button>
                 <div className='form_wrapper'>
                 <h2>Opret spørgsmål</h2>
                 <form onSubmit={handleSubmit}>

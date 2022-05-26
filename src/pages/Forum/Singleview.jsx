@@ -72,7 +72,7 @@ const Singleview = () => {
         return (
             <div id="single-view-container">
             <button className="go_back_single"  onClick={() => history.back()}></button>
-            <div id="content">
+            <div id="single-content">
                 <h1>{question.questions[0].title}</h1>
                 <div id="profile-wrapper">
                 <div className='circle-name'> <span>{question.questions[0].account.firstname.substring(0,1) + question.questions[0].account.lastname.substring(0,1)}</span></div>

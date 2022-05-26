@@ -65,25 +65,18 @@ const Forum = () => {
       
     //toggle the modal
     const toggleModal = () => {
-        setModal(modal = true)
-        
+        document.body.classList.add('no-scroll');
+        setModal(true)
     }
-
-    useEffect(() => {
-        if(modal) {
-            document.body.classList.add('no-scroll');
-        } else{
-            document.body.classList.remove('no-scroll');
-        }
-    }, [modal]);
-
 
     //toggle filter on mobile
     const toggleFilter = () => {
         if(filter == false) {
         setFilter(true)
+        document.body.classList.add('no-scroll');
         } else{
             setFilter(false)
+            document.body.classList.remove('no-scroll');
         }
     }
 
@@ -103,6 +96,7 @@ const Forum = () => {
                 <div className={filter == true ? 'side-menu active' : 'side-menu unactive'}>
                     <button onClick={toggleFilter}></button>
                     <div id='categories'>
+                        <SortSlider setSort={setSort}/>
                         <h3>Filtrer</h3>
                         {categories.categories.map((cat) => {
                             // console.log("categories here", categories)

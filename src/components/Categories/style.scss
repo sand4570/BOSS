@@ -45,5 +45,6 @@
     .pop-category-checkbox:checked~.pop-category-label {
         color: $nightsky;
         border: solid 2px $nightsky;
+        padding: 3px 10px;
     }
 }
