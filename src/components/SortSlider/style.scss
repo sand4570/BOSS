@@ -18,11 +18,25 @@
         p {
             cursor: pointer;
         }
+
+        .newest,
+        .oldest {
+            margin-left: 1.2px;
+            margin-right: 1.2px;
+        }
+
+        .unanswered,
+        .answered {
+            margin-left: 2px;
+            margin-right: 2px;
+        }
     }
 
     p {
         &:hover {
-            text-decoration: underline;
+            font-weight: bold;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
         }
     }
 
@@ -43,6 +57,9 @@
 .active {
     color: $moonlight;
     transition: .3s ease-in-out;
+    font-weight: bold;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .newest.active~.active_sort {

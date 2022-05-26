@@ -82,7 +82,10 @@ const Navbar = () => {
             <div className='nav-wrapper' style={{backgroundColor: color, transition: '0.5s ease-in', }}>
                 <nav className="Navbar" >
                     <div className='logoContainer'>
-                        <img src="/boss_logo.png"></img>
+                        <Link onClick={handleClick} to={'/' + search}>
+                            <img src="/boss_logo.png"></img>
+                        </Link>
+                        
                     </div>
                     <div className='rightWrapper'>
 
