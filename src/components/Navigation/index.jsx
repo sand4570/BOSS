@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { useState } from 'react';
 import {useLocation, Link, useSearchParams} from 'react-router-dom';
 
@@ -10,6 +10,8 @@ import NavLink from './NavLink';
 const Navbar = () => {
 
     const pathname = window.location.pathname
+
+    //const screenWidth = window.innerWidth
 
     const [ active, setActive ] = useState(false)
     const [color, setColor] = useState('transparent')
@@ -35,13 +37,12 @@ const Navbar = () => {
     const handleNavClick = () => {
         if (active) {
             setActive(false)
-            document.body.classList.remove('no-scroll');
+            //document.body.classList.remove('no-scroll');
         } else {
             setActive(true)
-            if(active){
+            /* if(screenWidth < 900){
                 document.body.classList.add('no-scroll');
-            }
-            
+            } */
         }
     };
 
