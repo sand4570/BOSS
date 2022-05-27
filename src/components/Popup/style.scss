@@ -17,7 +17,7 @@
             left: 50%;
             transform: translate(-50%, -50%); 
             width: 95%;
-            height: 95%;
+            height: 98%;
             background-color: white;
             border-radius: 20px;
             padding: 5px 15px;
@@ -86,11 +86,30 @@
             .opret_button{
                 float: bottom;
                 display: block;
-                margin: 30px auto 10px;
+                margin: 50px auto 10px;
             }
         }
     }
 }
+
+.error_message{
+  font-size: 0.9rem;
+  margin: 0;
+  color: red;
+  position: absolute;
+  left: 15px;
+  &.subject{
+   top: 155px;
+  }
+  &.content{
+    top: 323px;
+  }
+  &.error_hide{
+    display: none;
+  }
+}
+
+
 
 .modal_container.hiding{
     display: none;
