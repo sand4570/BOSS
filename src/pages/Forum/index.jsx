@@ -14,8 +14,7 @@ const Forum = () => {
     const [sort, setSort] = useState("newest")
     const [questions, setQuestions] = useState(null)
 
-    async function getQuestionData(messege) {
-        console.log(messege)
+    async function getQuestionData() {
         fetch('https://boss-info.herokuapp.com/api/questions', {
         headers: {
             'api-key': 'nSY1oe7pw05ViSEapg09D4gHG87yJCTX67uDa1OO',
@@ -25,7 +24,16 @@ const Forum = () => {
     }
 
     useEffect(() => {
-        getQuestionData('from Forum')
+        getQuestionData()
+    },[])
+
+    useEffect(() => {
+        fetch('https://boss-info.herokuapp.com/api/categories', {
+        headers: {
+            'api-key': 'nSY1oe7pw05ViSEapg09D4gHG87yJCTX67uDa1OO',
+        }})
+        .then((response) => response.json() )
+        .then((data) => setCategories(data))
     },[])
 
 
@@ -33,15 +41,16 @@ const Forum = () => {
     let [modal, setModal] = useState(false)
     let [filter, setFilter] = useState(false)
 
-    
+    console.log('categories', categories)
     const showFilter = (cat, fil_q) => {
-        if(cat.category === "Technical") {
-            filterQuestion(fil_q, "Technical")
-        } else if (cat.category == "Personal") {
-            filterQuestion(fil_q, "Personal")
-        } else{
-            filterQuestion(fil_q, "Error")
-        }
+        filterQuestion(fil_q, cat.category);
+        // if(cat.category === "Technical") {
+        //     filterQuestion(fil_q, "Technical")
+        // } else if (cat.category == "Personal") {
+        //     filterQuestion(fil_q, "Personal")
+        // } else{
+        //     filterQuestion(fil_q, "Error")
+        // }
     }
     
     const filterQuestion = (fil_q, filter) => {
@@ -52,14 +61,7 @@ const Forum = () => {
         }
     }
 
-    useEffect(() => {
-        fetch('https://boss-info.herokuapp.com/api/categories', {
-        headers: {
-            'api-key': 'nSY1oe7pw05ViSEapg09D4gHG87yJCTX67uDa1OO',
-        }})
-        .then((response) => response.json() )
-        .then((data) => setCategories(data))
-    },[])
+   
 
       
     const resetCategories = () => {

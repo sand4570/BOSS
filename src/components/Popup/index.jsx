@@ -89,7 +89,7 @@ const Popup = ({modal, setModal, getQuestionData}) => {
             .then((data) => {
                 console.log(data)
                 toggleModal()
-                getQuestionData('from popup')
+                getQuestionData()
             });
 
 
