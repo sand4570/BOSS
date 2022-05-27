@@ -6,7 +6,15 @@ import './style.scss'
 const Contact = () => {
     const { search } = useLocation()
 
+    const [submitButtonClicked, setSubmitButtonClicked] = useState(false)
     const [login, setLogin] = useState(false)
+    const [nameInput, setNameInput] = useState("")
+    const [mailInput, setMailInput] = useState("")
+    const [messageInput, setMessageInput] = useState("")
+
+    const [nameError, setNameError] = useState(false)
+    const [mailError, setMailError] = useState(false)
+    const [messageError, setMessageError] = useState(false)
 
     useEffect(() => {
         if (search) {
@@ -17,13 +25,59 @@ const Contact = () => {
     })
 
     const ForumLink = () =>{
-
+        //go to forum if you are logged in otherwise go to login
         if(login){
             return <Link to={`/forum${search}`} className='forum-link'>Gå til forum </Link>
         } else{
             return <Link to={`/login${search}`} className='forum-link'>Gå til forum </Link>
         }
     }
+
+    const inputNameChange = (event) =>{
+        setNameInput(event.target.value)
+        if(submitButtonClicked == true) {
+            setNameError(false)
+        }
+    }
+
+    const inputMailChange = (event) =>{
+        setMailInput(event.target.value)
+        if(submitButtonClicked == true) {
+            setMailError(false)
+        }
+    }
+
+    const inputMessageChange = (event) =>{
+        setMessageInput(event.target.value)
+        if(submitButtonClicked == true) {
+            setMessageError(false)
+        }
+    }
+
+    const handleSubmit = (e) =>{
+        e.preventDefault()
+        if(nameInput === "" || mailInput === "" || messageInput === ""){
+        console.log("not submitted")
+        console.log("name: ", nameInput, "mail: ", mailInput, "message: ", messageInput)
+        if(nameInput == ""){
+        setNameError(true)
+        }
+        if(mailInput == ""){
+            setMailError(true)
+        }
+        if(messageInput == ""){
+            setMessageError(true)
+        }
+        } else{
+            console.log("submitted")
+            setNameError(false)
+            setMailError(false)
+            setMessageError(false)
+            window.location.reload(true);
+        }
+    }
+
+
 
     return(
     <>
@@ -36,20 +90,23 @@ const Contact = () => {
                 <p>Kontakt BOSS via formularen eller ring til os. Er vi ikke til stede så læg en besked, så vender vi tilbage hurtigst muligt. </p>
                 <p>Er du allerede kunde så prøv vores nye forum og få hurtigt svar fra os eller andre brugere. </p>  
             </div>
-            <form className='contact-form'>
+            <form onSubmit={handleSubmit} className='contact-form'>
                 <div className='input_wrapper'>
                     <label htmlFor="fname">navn</label>
-                    <input type='text' required id="fname" name="fname" placeholder='Skriv dit navn her'></input>
+                    <input type='text' id="fname" name="fname" placeholder='Skriv dit navn her' onInput={(event) => inputNameChange(event)}></input>
+                    <p className={nameError ? 'error_message_contact name' :  'error_message_contact name error_hide_contact'}>Skal udfyldes</p>
                 </div>
                 <div className='input_wrapper'>
                     <label htmlFor="mail">email</label>
-                    <input required type='email' id="mail" name="mail" placeholder='F.eks. Hans@hansen.dk'></input>
+                    <input type='email' id="mail" name="mail" placeholder='F.eks. Hans@hansen.dk' onInput={(event) => inputMailChange(event)}></input>
+                    <p className={mailError ? 'error_message_contact mail' :  'error_message_contact mail error_hide_contact'}>Skal udfyldes</p>
                 </div>
                 <div className='input_wrapper'>
                     <label>besked</label>
-                    <textarea  placeholder='Hvad ønsker du at skrive?'></textarea>
+                    <textarea  placeholder='Hvad ønsker du at skrive?' onInput={(event) => inputMessageChange(event)}></textarea>
+                    <p className={messageError ? 'error_message_contact message' :  'error_message_contact message error_hide_contact'}>Skal udfyldes</p>
                 </div>
-                <button className='secondaryButton contact-button'>Send</button>
+                <button onClick={() => setSubmitButtonClicked(true)} className='secondaryButton contact-button'>Send</button>
             </form>
         </section>
         <section id='contact_section'>

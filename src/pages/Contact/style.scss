@@ -84,6 +84,17 @@
 	}
 }
 
+.error_message_contact{
+	font-size: 1rem;
+	margin: 0 !important;
+	color: red;
+	position: relative;
+	left: 10px;
+	&.error_hide_contact{
+		display: none;
+	}
+  }
+
 @media only screen and (min-width: 760px) {
 	#form {
 		display: inline-block;
