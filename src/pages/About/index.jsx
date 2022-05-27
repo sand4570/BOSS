@@ -10,8 +10,8 @@ const About = () => {
             <section id='about_section'>
             <div>
             <h3>Hvem er Boss</h3>
-            <p>BOSS Informatik blev startet i 1992 og har i alle årene været det mest anvendte system til VUC’er, Gymnasier og Erhvervsskoler…</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est.</p>
+            <p>BOSS Informatik blev startet i 1992 og har i alle årene været det mest anvendte system til VUC’er, Gymnasier og Erhvervsskoler.</p>
+            <p>BOSS er et system til udlånsstyring af bøger computere, ipads og mere. BOSS er windowsbaseret og afvikles lokalt, i net-miljøer eller i f.eks. Citrix-miljøer. BOSS er BDE-baseret. BOSS indeholder en række faciliteter, som går langt udover et almindeligt bogdepots funktioner, men som kan hjælpe en skole med mange vigtige funktioner. Alle faciliteter er gratis, når man har BOSS.</p>
             </div>
             <img src='/bog_scan2.jpg' alt='bog bliver scannet'></img>
             </section>
