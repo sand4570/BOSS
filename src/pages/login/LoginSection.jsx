@@ -4,9 +4,22 @@ import { useState} from 'react'
 const LoginSection = ({state, data}) => {
 
     const [mail, setMail] = useState('')
-    const [password, setPassword] = useState('')
+    const [passwordLogin, setPasswordLogin] = useState('')
     const [loginError, setLoginError] = useState(false)
-    console.log('error', loginError)
+
+    const [firstname, setFirstname] = useState("")
+    const [lastname, setLastname] = useState("")
+    const [email, setEmail] = useState("")
+    const [passwordSignup, setPasswordSignup] = useState("")
+
+    const [firstnameError, setFirstnameError] = useState(false)
+    const [lastnameError, setLastnameError] = useState(false)
+    const [mailError, setMailError] = useState(false)
+    const [passwordError, setPasswordError] = useState(false)
+    const [signupError, setSignupError] = useState(false)
+
+    
+    
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -14,7 +27,7 @@ const LoginSection = ({state, data}) => {
         if (data) {
            data.accounts.map((account) => {
                if (mail === account.email) {
-                    if (password === account.password) {
+                    if (passwordLogin === account.password) {
                        window.location.href=`/forum?id=${account.id}`;
                        setLoginError(false)
                     }  else {
@@ -28,29 +41,97 @@ const LoginSection = ({state, data}) => {
         }
     }
 
-    const handleSignup = (event) => {
-        console.log('default prevented')
+    const validateInputs = (event) => {
         event.preventDefault()
+
+        console.log('time to validate')
+
+        let isValid = true
+
+        if (firstname == '') {
+            setFirstnameError(true)
+            isValid = false
+        } else {
+            if (firstnameError == true) {
+                setFirstnameError(false)
+            }
+        }
+
+        if (lastname == '') {
+            setLastnameError(true)
+            isValid = false
+        } else {
+            if (lastnameError == true) {
+                setLastnameError(false)
+            }
+        }
+
+        if (!email.includes('@') ) {
+            setMailError(true)
+            isValid = false
+        } else if (email == '') {
+            setMailError(true)
+            isValid = false
+        } else {
+            if (mailError == true) {
+                setMailError(false)
+            }
+        }
+
+        console.log('the word', passwordSignup)
+        const validPassword = new RegExp('^(?=.*?[A-Za-z])(?=.*?[0-9]).{8,}$')
+        console.log(validPassword)
+
+        if (!validPassword.test(passwordSignup)) {
+            console.log('invalid')
+            setPasswordError(true)
+            isValid = false
+        } else {
+            console.log('valid')
+            if (passwordError == true) {
+                console.log('remove')
+                setPasswordError(false)
+            }
+        }
+        if (isValid) {
+            handleSignup()
+        }
+        
+    }
+
+    const handleSignup = () => {
+
+        console.log('firstname', firstnameError)
+        console.log('lastname', lastnameError)
+        console.log('mail', mailError)
+        console.log('password', passwordError)
+
+
+        
+        console.log('account posting')
 
         const account = {
             firstname: firstname,
             lastname: lastname,
             email: email,
-            password: password
+            password: passwordSignup
         }
-
+    
         fetch("https://boss-info.herokuapp.com/api/accounts", {
             method: "post",
             headers: {
-              "Content-Type": "application/json; charset=utf-8",
-              "api-key": "nSY1oe7pw05ViSEapg09D4gHG87yJCTX67uDa1OO",
-              "cache-control": "no-cache"
+                "Content-Type": "application/json; charset=utf-8",
+                "api-key": "nSY1oe7pw05ViSEapg09D4gHG87yJCTX67uDa1OO",
+                "cache-control": "no-cache"
             },
-            body: JSON.stringify(account),
-          })
+                body: JSON.stringify(account),
+            })
             .then((res) => res.json())
-            .then((data) => console.log(data));
-
+            .then((data) => {
+                console.log(data)
+                window.location.href=`/forum?id=${data.id}`
+            });
+        
     }
 
     if (state === true) {
@@ -60,16 +141,16 @@ const LoginSection = ({state, data}) => {
             <form onSubmit={handleSubmit}>
                     <div className='input-wrapper'>
                         <label htmlFor='email' className='login-label'> EMAIL</label>
-                        <input placeholder="Skriv din mail her" id='email' className='login-input' type='email' onChange={event => setMail(event.target.value)}></input>
+                        <input placeholder="Skriv din mail her" id='email' className={loginError == true ? 'login-input error-border' : 'login-input'} type='email' onChange={event => setMail(event.target.value)}></input>
                     </div>
                     
                     <div className='input-wrapper'>
-                        <label htmlFor='password' className='login-label'>ADGANGSKODE</label>
-                        <input placeholder="Skal indeholde mindst 6 tegn" id='password' className='login-input' type='password' onChange={event => setPassword(event.target.value)}></input>
+                        <label htmlFor='password' className='loginlabel'>ADGANGSKODE</label>
+                        <input placeholder="Skal indeholde mindst 6 tegn" id='password' className={loginError == true ? 'login-input error-border' : 'login-input'} type='password' onChange={event => setPasswordLogin(event.target.value)}></input>
                     </div>
 
                     <div className='error-wrapper'>
-                        <span className={loginError == true ? 'error showError' : 'error hideError'}>Forkert brugernavn eller adgangskode</span>
+                        <span className={loginError == true ? 'error-center showError' : 'error hideError'}>Forkert email eller adgangskode</span>
                     </div>
                     
                     <div className='button-wrapper'>
@@ -83,25 +164,37 @@ const LoginSection = ({state, data}) => {
         return (
                 <>
                 <h3>Opret bruger</h3>
-                <form onSubmit={handleSignup}>
+                <form onSubmit={validateInputs} noValidate>
                     <div className='name-input-wrapper'>
                     <div className='input-wrapper'>
                         <label htmlFor="fname" className='login-label'>Fornavn</label>
-                        <input placeholder="Skriv dit fornavn her" id='fname' type='text' className='login-input' onChange={event => setFirstname(event.target.value)}></input>
+                        <input placeholder="Skriv dit fornavn her" id='fname' type='text' className={firstnameError == true ? 'error-border login-input' : 'login-input'} onChange={event => setFirstname(event.target.value)}></input>
+                        <div className='error-wrapper'>
+                            <span className={firstnameError == true ? 'error showError' : 'error hideError'}>Skal udfyldes</span>
+                        </div>
                     </div>
                     <div className='input-wrapper'>
                         <label htmlFor="lname" className='login-label'>Efternavn</label>
-                        <input placeholder="Skriv dit efternavn her" id='lname' type='text' className='login-input' onChange={event => setLastname(event.target.value)}></input>
+                        <input placeholder="Skriv dit efternavn her" id='lname' type='text' className={lastnameError == true ? 'error-border login-input' : 'login-input'} onChange={event => setLastname(event.target.value)}></input>
+                        <div className='error-wrapper'>
+                            <span className={lastnameError == true ? 'error showError' : 'error hideError'}>Skal udfyldes</span>
+                        </div>
                     </div>
                     </div>
                     
                     <div className='input-wrapper'>
                         <label htmlFor='email' className='login-label'> EMAIL</label>
-                        <input placeholder="Skriv din mail her" id='email' className='login-input' type='email' onChange={event => setEmail(event.target.value)}></input>
+                        <input placeholder="Skriv din mail her" id='email' className={mailError == true ? 'error-border login-input' : 'login-input'} type='email' onChange={event => setEmail(event.target.value)}></input>
+                        <div className='error-wrapper'>
+                            <span className={mailError == true ? 'error showError' : 'error hideError'}>Benyt en gyldig E-mail</span>
+                        </div>
                     </div>
                     <div className='input-wrapper'>
                         <label htmlFor='password' className='login-label'>ADGANGSKODE</label>
-                        <input placeholder="Skal indeholde mindst 6 tegn" id='password' className='login-input' type='password' onChange={event => setPassword(event.target.value)}></input>
+                        <input placeholder="Skal indeholde 8 tegn, 1 tal og 1 bogstav" id='password' className={passwordError == true ? 'error-border login-input' : 'login-input'} type='password' onChange={event => setPasswordSignup(event.target.value)}></input>
+                        <div className='error-wrapper'>
+                            <span className={passwordError == true ? 'error showError' : 'error hideError'}>Adgangskoden skal 8 tegn og indeholde min 1 tal og 1 bogstav</span>
+                        </div>
                     </div>
 
                     <div className='button-wrapper'>

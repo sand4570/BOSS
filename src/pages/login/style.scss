@@ -42,6 +42,8 @@
 		padding: 8px 1.2rem;
 	}
 
+
+
 	.login-input:focus {
 		outline: none;
 		border: 2px solid $nightsky;
@@ -106,10 +108,16 @@
 	.error-wrapper {
 		width: 100%;
 
-		.error {
+		.error-center {
 			color: red;
 			width: 100%;
 			text-align: center;
+		}
+
+		.error {
+			color: red;
+			width: 100%;
+			margin-left: 1rem;
 		}
 	}
 
@@ -121,6 +129,9 @@
 		display: none;
 	}
 
+	.error-border {
+		border: solid 2px red;
+	}
 
 }
 

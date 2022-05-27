@@ -86,7 +86,12 @@ const Popup = ({modal, setModal, getQuestionData}) => {
             body: JSON.stringify(question),
           })
             .then((res) => res.json())
-            .then((data) => console.log(data));
+            .then((data) => {
+                console.log(data)
+                toggleModal()
+                getQuestionData('from popup')
+            });
+
 
         setSubjectError(false)
         setQuestionError(false)
@@ -104,6 +109,7 @@ const Popup = ({modal, setModal, getQuestionData}) => {
                 setQuestionError(true)
             }
         }
+
         
     }
     
