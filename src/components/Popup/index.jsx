@@ -8,6 +8,7 @@ const Popup = ({modal, setModal, getQuestionData}) => {
     const [categories, setCategories] = useState(null)
     const [title, setTitle] = useState("")
     const [content, setContent] = useState("")
+    const [submitClicked, setSubmitClicked] = useState(false)
 
     //states for validation
     //counts selected categories
@@ -47,6 +48,19 @@ const Popup = ({modal, setModal, getQuestionData}) => {
         document.body.classList.remove('no-scroll');
     }, [setModal])
 
+    const inputTitleChange = (event) =>{
+        setTitle(event.target.value)
+        if(submitClicked == true) {
+            setSubjectError(false)
+        }
+    }
+    const inputContentChange = (event) =>{
+        setContent(event.target.value)
+        if(submitClicked == true) {
+            setQuestionError(false)
+        }
+    }
+
     const handleSubmit = (event) => {
         event.preventDefault()
         
@@ -79,6 +93,7 @@ const Popup = ({modal, setModal, getQuestionData}) => {
         toggleModal()
         getQuestionData('from popup')
         }else{
+            setSubmitClicked(true)
             console.log("invalid")
             if(counter < 1)
             setHideError(false)
@@ -105,12 +120,12 @@ const Popup = ({modal, setModal, getQuestionData}) => {
                 <form onSubmit={handleSubmit}>
                     <div className='input_wrapper'>
                         <label>Hvad omhandler dit spørgsmål?</label>
-                        <input id='title-input' placeholder="F.eks. ønske til system, fejl ved oprettelse osv." type="text" onChange={event => setTitle(event.target.value)}></input>
+                        <input id='title-input' placeholder="F.eks. ønske til system, fejl ved oprettelse osv." type="text" onChange={event => inputTitleChange(event)}></input>
                         <p className={subjectError ? 'error_message subject' :  'error_message subject error_hide'}>Skal udfyldes</p>
                     </div>
                     <div className='input_wrapper'>
                         <label>Hvad vil du gerne spørge om?</label>
-                        <textarea id='content-input' placeholder="Uddyb gerne dit spørgsmål" onChange={event => setContent(event.target.value)}></textarea>
+                        <textarea id='content-input' placeholder="Uddyb gerne dit spørgsmål" onChange={event => inputContentChange(event)}></textarea>
                         <p className={questionError ? 'error_message content' :  'error_message content error_hide'}>Skal udfyldes</p>
                     </div>
                     <h3>Tilføj kategori *</h3>
