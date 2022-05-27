@@ -38,7 +38,10 @@ const Navbar = () => {
             document.body.classList.remove('no-scroll');
         } else {
             setActive(true)
-            document.body.classList.add('no-scroll');
+            if(active){
+                document.body.classList.add('no-scroll');
+            }
+            
         }
     };
 
