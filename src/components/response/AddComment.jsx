@@ -38,10 +38,13 @@ const AddComment = ({id, setComment, commentInput, setCommentInput, getData}) =>
             body: JSON.stringify(comment),
           })
             .then((res) => res.json())
-            .then((data) => console.log(data));
+            .then((data) => {
+                console.log(data)
+                getData()
+                setCommentInput(null)
+            });
 
-        getData()
-        setCommentInput(null)
+       
     }
 
     return (

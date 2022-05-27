@@ -2,10 +2,7 @@ import React, { useCallback, useState } from 'react'
 
 const SignupSection = ({state, onButtonClick}) => {
 
-    const [firstname, setFirstname] = useState("")
-    const [lastname, setLastname] = useState("")
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
+    
 
     const handleClick = useCallback(() => {
         if(state == true){

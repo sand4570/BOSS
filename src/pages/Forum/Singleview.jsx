@@ -39,11 +39,14 @@ const Singleview = () => {
             body: JSON.stringify(answer),
           })
             .then((res) => res.json())
-            .then((data) => console.log(data));
+            .then((data) => {
+                console.log(data)
+                setAnswerContent("")
+                document.querySelector('#answer-input').value = ""
+                getData()
+            });
 
-            setAnswerContent("")
-            document.querySelector('#answer-input').value = ""
-            getData()
+            
 
     }
 

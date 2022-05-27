@@ -68,10 +68,13 @@ const Popup = ({modal, setModal, getQuestionData}) => {
             body: JSON.stringify(question),
           })
             .then((res) => res.json())
-            .then((data) => console.log(data));
+            .then((data) => {
+                console.log(data)
+                toggleModal()
+                getQuestionData('from popup')
+            });
 
-        toggleModal()
-        getQuestionData('from popup')
+        
         
     }
     
