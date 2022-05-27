@@ -48,7 +48,7 @@
 }
 
 .verified {
-    border: solid 2px green;
+    border: solid 2px #5da35d;
 }
 
 .verified::before {
@@ -64,7 +64,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: green;
+    background-color: #5da35d;
     float: right;
     margin-top: -1.8rem;
 

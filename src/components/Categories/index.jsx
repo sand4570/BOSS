@@ -2,16 +2,22 @@ import React from 'react'
 
 import './style.scss'
 
-const Category = ({cat, setClickedCategoies, clickedCategoies}) => {
-    console.log("the clicked", clickedCategoies)
+const Category = ({cat, setClickedCategoies, clickedCategoies, setCounter, setHideError, counter}) => {
 
     const handleChange = (event) => {
         if (event.target.checked) {
             setClickedCategoies([...clickedCategoies, event.target.value])
+            setCounter(count => count + 1)
+            setHideError(true)
+
         } else {
             setClickedCategoies(
                 clickedCategoies.filter((category) => category !== event.target.value),
               );
+              setCounter(count => count - 1)
+              if(counter === 0){
+              setHideError(false)
+              }
         }
     }
 

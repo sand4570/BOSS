@@ -32,6 +32,15 @@ const Navbar = () => {
             setActive(true)
         }
     };
+    const handleNavClick = () => {
+        if (active) {
+            setActive(false)
+            document.body.classList.remove('no-scroll');
+        } else {
+            setActive(true)
+            document.body.classList.add('no-scroll');
+        }
+    };
 
     useEffect(() => {
         if (search) {
@@ -89,7 +98,7 @@ const Navbar = () => {
                     </div>
                     <div className='rightWrapper'>
 
-                    <div onClick={handleClick} id={login ? "btn-login" : "btn"} className={active ? 'active' : 'not-active'}>
+                    <div onClick={handleNavClick} id={login ? "btn-login" : "btn"} className={active ? 'active' : 'not-active'}>
                         <span className='nav-span'></span>
                         <span className='nav-span'></span>
                         <span className='nav-span'></span>
@@ -100,7 +109,7 @@ const Navbar = () => {
                             
                             const path = item.url === "/logout" ? "/" : item.url + search
                                 return (
-                                    <li key={index}><Link onClick={handleClick} to={path} className={activeLink === item.url ? `${item.cName} activeLink` : item.cName}>
+                                    <li key={index}><Link onClick={handleNavClick} to={path} className={activeLink === item.url ? `${item.cName} activeLink` : item.cName}>
                                     {item.title}   
                                     </Link></li>
                                 )

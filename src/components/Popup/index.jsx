@@ -8,6 +8,15 @@ const Popup = ({modal, setModal, getQuestionData}) => {
     const [categories, setCategories] = useState(null)
     const [title, setTitle] = useState("")
     const [content, setContent] = useState("")
+    const [submitClicked, setSubmitClicked] = useState(false)
+
+    //states for validation
+    //counts selected categories
+    const [counter, setCounter] = useState(0)
+    const [hideError, setHideError] = useState(true)
+    const [subjectError, setSubjectError] = useState(false)
+    const [questionError, setQuestionError] = useState(false)
+
 
     const [searchParams, setSearchParams] = useSearchParams()
     const [clickedCategoies, setClickedCategoies] = useState([])
@@ -24,30 +33,41 @@ const Popup = ({modal, setModal, getQuestionData}) => {
     },[])
 
     const toggleModal = useCallback(() => {
-        
         setClickedCategoies([])
         document.querySelector('#title-input').value = ""
         document.querySelector('#content-input').value = ""
+        setTitle("")
+        setContent("")
+        setCounter(0)
         document.querySelectorAll('.pop-category-checkbox').forEach((checkbox) => {
             if (checkbox.checked) {
                 checkbox.checked = false
             }
         })
-
-
         setModal(false)
         document.body.classList.remove('no-scroll');
     }, [setModal])
 
+    const inputTitleChange = (event) =>{
+        setTitle(event.target.value)
+        if(submitClicked == true) {
+            setSubjectError(false)
+        }
+    }
+    const inputContentChange = (event) =>{
+        setContent(event.target.value)
+        if(submitClicked == true) {
+            setQuestionError(false)
+        }
+    }
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        //console.log('time to post')
+        
+        if(counter > 0 && title !== "" && content !== "") {
+            console.log("post it")
         
         const user = searchParams.get("id")
-        
-
-        //console.log('the user', user)
 
         const question = {
             title: title,
@@ -56,9 +76,7 @@ const Popup = ({modal, setModal, getQuestionData}) => {
             categories: clickedCategoies
         }
 
-        console.log('my json', question)
-
-        fetch("https://boss-info.herokuapp.com/api/questions", {
+       fetch("https://boss-info.herokuapp.com/api/questions", {
             method: "post",
             headers: {
               "Content-Type": "application/json; charset=utf-8",
@@ -74,7 +92,24 @@ const Popup = ({modal, setModal, getQuestionData}) => {
                 getQuestionData()
             });
 
-        
+
+        setSubjectError(false)
+        setQuestionError(false)
+        toggleModal()
+        getQuestionData('from popup')
+        }else{
+            setSubmitClicked(true)
+            console.log("invalid")
+            if(counter < 1)
+            setHideError(false)
+            if(title === ""){
+                setSubjectError(true)
+            }
+            if(content === ""){
+                setQuestionError(true)
+            }
+        }
+
         
     }
     
@@ -91,21 +126,24 @@ const Popup = ({modal, setModal, getQuestionData}) => {
                 <form onSubmit={handleSubmit}>
                     <div className='input_wrapper'>
                         <label>Hvad omhandler dit spørgsmål?</label>
-                        <input id='title-input' placeholder="F.eks. ønske til system, fejl ved oprettelse osv." type="text" required onChange={event => setTitle(event.target.value)}></input>
+                        <input id='title-input' placeholder="F.eks. ønske til system, fejl ved oprettelse osv." type="text" onChange={event => inputTitleChange(event)}></input>
+                        <p className={subjectError ? 'error_message subject' :  'error_message subject error_hide'}>Skal udfyldes</p>
                     </div>
                     <div className='input_wrapper'>
                         <label>Hvad vil du gerne spørge om?</label>
-                        <textarea id='content-input' placeholder="Uddyb gerne dit spørgsmål" required onChange={event => setContent(event.target.value)}></textarea>
+                        <textarea id='content-input' placeholder="Uddyb gerne dit spørgsmål" onChange={event => inputContentChange(event)}></textarea>
+                        <p className={questionError ? 'error_message content' :  'error_message content error_hide'}>Skal udfyldes</p>
                     </div>
                     <h3>Tilføj kategori *</h3>
                     <p className='info_txt'>Vælg en eller flere kategorier, som dit spørgsmål relaterer til.</p>
                     <legend className='cat_wrapper' >
-                    {categories.categories.map((cat) => {
+                    {categories.categories.map((cat, i) => {
                             return (
-                                <Category cat={cat} setClickedCategoies={setClickedCategoies} clickedCategoies={clickedCategoies} ></Category>
+                                <Category key={i} cat={cat} setHideError={setHideError} counter={counter} setCounter={setCounter} setClickedCategoies={setClickedCategoies} clickedCategoies={clickedCategoies} ></Category>
                             )
                         })}
                     </legend>
+                    <p className={hideError ? 'error_message error_hide': 'error_message'}>Vælg mindst en kategori dit spørgsmål hører under</p>
                     <button className='primaryButton opret_button'>Opret spørgsmål</button>
                 </form>
                 </div>
