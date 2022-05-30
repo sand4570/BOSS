@@ -17,27 +17,28 @@ const LoginSection = ({state, data}) => {
     const [mailError, setMailError] = useState(false)
     const [passwordError, setPasswordError] = useState(false)
     const [signupError, setSignupError] = useState(false)
-
-    
-    
+        
 
     const handleSubmit = (event) => {
         event.preventDefault()
 
         if (data) {
-           data.accounts.map((account) => {
-               if (mail === account.email) {
-                    if (passwordLogin === account.password) {
-                       window.location.href=`/forum?id=${account.id}`;
-                       setLoginError(false)
+            
+            const filteredAccounts = data.accounts.filter(account => account.email == mail)
+            
+            if (filteredAccounts.length > 0) {
+
+                if (passwordLogin.toLocaleLowerCase() === filteredAccounts[0].password) {
+                    window.location.href=`/forum?id=${filteredAccounts[0].id}`;
+                    setLoginError(false)
+
                     }  else {
                         setLoginError(true)
                     }
-                } else {
-                    setLoginError(true)
-                }
-               
-           }) 
+                
+            } else {
+                setLoginError(true)
+            }
         }
     }
 
@@ -101,21 +102,19 @@ const LoginSection = ({state, data}) => {
 
     const handleSignup = () => {
 
-        console.log('firstname', firstnameError)
-        console.log('lastname', lastnameError)
-        console.log('mail', mailError)
-        console.log('password', passwordError)
-
-
         
         console.log('account posting')
 
+        
+
         const account = {
-            firstname: firstname,
-            lastname: lastname,
-            email: email,
+            firstname: firstname.substring(0,1).toUpperCase() + firstname.substring(1).toLocaleLowerCase(),
+            lastname: lastname.substring(0,1).toUpperCase() + lastname.substring(1).toLocaleLowerCase(),
+            email: email.toLocaleLowerCase(),
             password: passwordSignup
         }
+
+        console.log('my json', account)
     
         fetch("https://boss-info.herokuapp.com/api/accounts", {
             method: "post",
