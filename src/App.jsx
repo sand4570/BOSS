@@ -18,7 +18,7 @@ import Singleview from './pages/Forum/Singleview'
 function App () {
  return (
     <>
-      <BrowserRouter>
+      <BrowserRouter basename='/kea/hovedopgave/test14'>
         <ScrollToTop />
 
         <Navigation/>
@@ -28,12 +28,13 @@ function App () {
             <Route exact path='contact' element={<Contact/>} />
             <Route exact path='forum' element={<Forum/>} />
             <Route exact path='forum/:questionId' element={<Singleview/>}/>
-            <Route exact path='/' element={<Frontpage/>} />
+            <Route exact path='' element={<Frontpage/>} />
           </Routes>
         </main>
 
         <Routes>
             <Route exact path='login' element={<Login/>} />
+            
          </Routes>
         
         <Footer/>

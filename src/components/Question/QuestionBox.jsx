@@ -1,5 +1,5 @@
 const QuestionBox = ({question}) => {
-    console.log('in box', question)
+    //console.log('in box', question)
 
     return (
         <div className='question-box'>
