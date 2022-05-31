@@ -31,7 +31,7 @@ const Frontpage = () => {
     return (
         <>
             <section id='splash_section'>
-                <img className="splashImg" src='./splash1.3.png'></img>
+                <img className="splashImg" src='./splash1.3.webp' width='3500' height='3000' alt='hånd der tager en bog ud af bogreol på bibliotek'></img>
                 <h1>Udlånsstyring af bøger, computere og mere</h1>
                 <p>BOSS er et specialiseret værktøj til styring af udlån af bøger, computere, iPads, kameraer, cykler og meget andet</p>
                 <button className='CTA'>
@@ -40,24 +40,24 @@ const Frontpage = () => {
             </section>
             <section id='icons_section'>
                 <div>
-                    <img src='./puzzle_ikon.svg' className='icon'></img>
+                    <img src='./puzzle_ikon.svg' className='icon' width='100' height='100' alt='cirkel med puzzlespilsbrikker, ikon for integrering' ></img>
                     <h3>Tæt integrering</h3>
                     <p>Boss er tæt integreret med Ludus, Lectio, Uddata+ og Tabulex.</p>
                 </div>
                 <div>
-                    <img src='./books_ikon.svg' className='icon'></img>
+                    <img src='./books_ikon.svg' className='icon' width='100' height='100' alt='cirkel med stabel af bøger, ikon for alt i en'></img>
                     <h3>alt i en</h3>
                     <p>Boss indeholder alle rutiner til udlån, aflevering og efterfølgende regningshåndtering.</p>
                 </div>
                 <div>
-                    <img src='./tools_ikon.svg' className='icon'></img>
+                    <img src='./tools_ikon.svg' className='icon' width='100' height='100' alt='cirkel med to web vinduer, ikon for særlige værktøjer'></img>
                     <h3>særlige værktøjer</h3>
                     <p>Boss har mange særlige værktøjer som går udover det almindelige bogdepots funktioner bl.a. WebBoss.</p>
                 </div>
             </section>
             <section id='forum_section'>
                 <div id='forum_wrapper'>
-                <img src='./kvinde_ved_computer1.jpg'></img>
+                <img src='./kvinde_ved_computer1.webp' width='6000' height='4000' alt='kvinde der sidder og smiler mens hun bruger en computer'></img>
                 <div>
                     <h3>Få hurtig og nem vejledning</h3>
 
@@ -78,7 +78,7 @@ const Frontpage = () => {
                     <p>Boss er tæt integreret med Ludus, Lectio, Uddata+ og Tabulex og har en række ekstra værktøjer, der gør det endnu nemmere at bruge bl.a WebBoss, der giver undervisere mulighed for at bestille og hjemkalde bøger til deres hold. </p>
 
                 </div>
-                <img src='./students.jpg'></img>
+                <img src='./students.webp' height='4000' width='6000' alt='to elever under uddannelse, sidder på et bibliotek med hver sin bog' ></img>
             </section>
             <section id='review_section'>
                 <p className='citat'>“ Med BOSS er der altid styr på vores bøger. Det er nemt og hurtigt og jeg er bare så glad for at bruge det ”</p>

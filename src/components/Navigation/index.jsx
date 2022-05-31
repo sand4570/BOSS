@@ -98,7 +98,7 @@ const Navbar = () => {
                 <nav className="Navbar" >
                     <div className='logoContainer'>
                         <Link onClick={handleClick} to={'./' + search}>
-                            <img src="./boss_logo.png"></img>
+                            <img src="./boss_logo.png" width='4724' height='2953' alt='BOSS logo'></img>
                         </Link>
                         
                     </div>
