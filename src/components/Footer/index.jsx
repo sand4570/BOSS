@@ -32,7 +32,7 @@ const Footer = () => {
             </div>
             </div>
             <button onClick={goToTop}>
-            <img className='' width='30' src='./up_arrow.svg'></img>
+            <img className='' width='30' height='30' src='./up_arrow.svg' alt='pil op, rul op til toppen' ></img>
             </button>
             </div>
             <p id='copyright'>ⓒ All copyrights reserved | {year}</p>
