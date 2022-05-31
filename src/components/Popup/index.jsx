@@ -65,7 +65,7 @@ const Popup = ({modal, setModal, getQuestionData}) => {
         event.preventDefault()
         
         if(counter > 0 && title !== "" && content !== "") {
-            console.log("post it")
+            //console.log("post it")
         
         const user = searchParams.get("id")
 
@@ -87,7 +87,7 @@ const Popup = ({modal, setModal, getQuestionData}) => {
           })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data)
+                //console.log(data)
                 toggleModal()
                 getQuestionData()
             });
@@ -99,7 +99,7 @@ const Popup = ({modal, setModal, getQuestionData}) => {
         getQuestionData('from popup')
         }else{
             setSubmitClicked(true)
-            console.log("invalid")
+            //console.log("invalid")
             if(counter < 1)
             setHideError(false)
             if(title === ""){

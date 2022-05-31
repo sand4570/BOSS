@@ -27,12 +27,12 @@ const Footer = () => {
             <div id='links'>
                 <h4>OVERSIGT</h4>
                 <Link to={`/${search}`}>Forside</Link>
-                <Link to={`about${search}`}>Om BOSS</Link>
-                <Link to={`contact${search}`}>Kontakt</Link>
+                <Link to={`/about${search}`}>Om BOSS</Link>
+                <Link to={`/contact${search}`}>Kontakt</Link>
             </div>
             </div>
             <button onClick={goToTop}>
-            <img className='' width='30' src='/up_arrow.svg'></img>
+            <img className='' width='30' src='./up_arrow.svg'></img>
             </button>
             </div>
             <p id='copyright'>ⓒ All copyrights reserved | {year}</p>

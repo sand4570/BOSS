@@ -14,7 +14,7 @@ const Response = ({answer, getData}) => {
 
 
     const handleAnswerClick = (accountnName, id) => {
-        console.log('handeling click')
+        //console.log('handeling click')
         setCommentInput([id])
         //console.log('setCommentInput', commentInput)
         

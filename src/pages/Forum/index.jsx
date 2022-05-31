@@ -41,7 +41,7 @@ const Forum = () => {
     let [modal, setModal] = useState(false)
     let [filter, setFilter] = useState(false)
 
-    console.log('categories', categories)
+    //console.log('categories', categories)
     const showFilter = (cat, fil_q) => {
         filterQuestion(fil_q, cat.category);
         // if(cat.category === "Technical") {
@@ -95,7 +95,7 @@ const Forum = () => {
             
                 <div id='top-section'>
                     <SortSlider setSort={setSort}/>
-                    <img onClick={toggleFilter} id="filter_icon" src='/filter_icon-25.svg'></img>
+                    <img onClick={toggleFilter} id="filter_icon" src='./filter_icon-25.svg'></img>
 
                     <button onClick={toggleModal} className='new-question-button'>Nyt spørgsmål</button>
                 </div>

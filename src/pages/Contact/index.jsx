@@ -57,8 +57,8 @@ const Contact = () => {
     const handleSubmit = (e) =>{
         e.preventDefault()
         if(nameInput === "" || mailInput === "" || messageInput === ""){
-        console.log("not submitted")
-        console.log("name: ", nameInput, "mail: ", mailInput, "message: ", messageInput)
+        //console.log("not submitted")
+        //console.log("name: ", nameInput, "mail: ", mailInput, "message: ", messageInput)
         if(nameInput == ""){
         setNameError(true)
         }
@@ -69,7 +69,7 @@ const Contact = () => {
             setMessageError(true)
         }
         } else{
-            console.log("submitted")
+            //console.log("submitted")
             setNameError(false)
             setMailError(false)
             setMessageError(false)
@@ -81,7 +81,7 @@ const Contact = () => {
 
     return(
     <>
-    <img id='form' src='/form6.svg'></img>
+    <img id='form' src='./form6.svg'></img>
     <>
         <h2>Lad os snakke sammen</h2>
         <section id='form_section'>
@@ -111,17 +111,17 @@ const Contact = () => {
         </section>
         <section id='contact_section'>
             <div className=''>
-                <img className='icon' src='/telefon_ikon.svg'></img>
+                <img className='icon' src='./telefon_ikon.svg'></img>
                 <h3>Giv et opkald</h3>
                 <p>+45 12 34 56 78</p>
             </div>
             <div>
-                <img className='icon' src='/mail_ikon.svg'></img>
+                <img className='icon' src='./mail_ikon.svg'></img>
                 <h3>send mail</h3>
                 <p>Torben@bossinfo.dk</p>
             </div>
             <div>
-                <img className='icon' src='/forum_ikon.svg'></img>
+                <img className='icon' src='./forum_ikon.svg'></img>
                 <h3>besøg forum</h3>
                 <ForumLink/>
             </div>

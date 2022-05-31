@@ -21,7 +21,9 @@ const Navbar = () => {
     const [accounts, setAccounts] = useState(null)
 
     useEffect(() => {
+        
         setActiveLink(pathname)
+        console.log('path', pathname)
     })
 
     const { search } = useLocation()
@@ -86,7 +88,7 @@ const Navbar = () => {
 
     window.addEventListener('scroll', listenScrollEvent)
 
-    if(pathname === '/login'){
+    if(pathname === '/kea/hovedopgave/test14/login'){
         return (
             <div></div>
         )
@@ -95,8 +97,8 @@ const Navbar = () => {
             <div className='nav-wrapper' style={{backgroundColor: color, transition: '0.5s ease-in', }}>
                 <nav className="Navbar" >
                     <div className='logoContainer'>
-                        <Link onClick={handleClick} to={'/' + search}>
-                            <img src="/boss_logo.png"></img>
+                        <Link onClick={handleClick} to={'./' + search}>
+                            <img src="./boss_logo.png"></img>
                         </Link>
                         
                     </div>
@@ -113,7 +115,7 @@ const Navbar = () => {
                             
                             const path = item.url === "/logout" ? "/" : item.url + search
                                 return (
-                                    <li key={index}><Link onClick={handleNavClick} to={path} className={activeLink === item.url ? `${item.cName} activeLink` : item.cName}>
+                                    <li key={index}><Link onClick={handleNavClick} to={path} className={activeLink === "/kea/hovedopgave/test14" + item.url ? `${item.cName} activeLink` : item.cName}>
                                     {item.title}   
                                     </Link></li>
                                 )

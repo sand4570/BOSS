@@ -10,7 +10,7 @@ const AddComment = ({id, setComment, commentInput, setCommentInput, getData}) =>
     const [searchParams, setSearchParams] = useSearchParams()
     const [commentContent, setCommentContent] = useState("")
 
-    console.log('commentInput', commentInput)
+    //console.log('commentInput', commentInput)
     const isVisible = commentInput == 'A' + id.toString();
 
     const handleSubmit = (event) => {
@@ -39,7 +39,7 @@ const AddComment = ({id, setComment, commentInput, setCommentInput, getData}) =>
           })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data)
+                //console.log(data)
                 getData()
                 setCommentInput(null)
             });
