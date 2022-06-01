@@ -73,6 +73,8 @@ const Singleview = () => {
       //className="secondaryButton single" id='back-button' 
     if(question) {
         return (
+            <>
+            <img id="single-form1" src="./form4.svg"></img>
             <div id="single-view-container">
             <button className="go_back_single"  onClick={() => history.back()}></button>
             <div id="single-content">
@@ -115,6 +117,8 @@ const Singleview = () => {
 
             </div>
             </div>
+            <img id="single-form2" src="./form3_reverse.svg"></img>
+            </>
         )
     } else {
         return <p>loading</p>

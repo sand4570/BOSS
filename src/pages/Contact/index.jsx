@@ -81,7 +81,7 @@ const Contact = () => {
 
     return(
     <>
-    <img id='form' src='./form6.svg'></img>
+    <img id='form' src='./form1.svg'></img>
     <>
         <h2>Lad os snakke sammen</h2>
         <section id='form_section'>

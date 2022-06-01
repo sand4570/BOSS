@@ -1,5 +1,21 @@
 @import "/src/sass/base/colors";
 
+#single-form1{
+    z-index: -1;
+    position: absolute;
+    top: 0vw;
+    left: -2vw;
+    width: 200px;
+}
+
+#single-form2{
+    z-index: -2;
+    position: absolute;
+    top: 6vw;
+    right: -2vw;
+    width: 150px;
+}
+
 .go_back_single{
     position: relative;
     top: 70px;
