@@ -18,7 +18,7 @@ import Singleview from './pages/Forum/Singleview'
 function App () {
  return (
     <>
-      <BrowserRouter basename='/kea/hovedopgave/test15'>
+      <BrowserRouter basename='/kea/hovedopgave/test16'>
         <ScrollToTop />
 
         <Navigation/>

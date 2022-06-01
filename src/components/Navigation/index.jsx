@@ -88,7 +88,7 @@ const Navbar = () => {
 
     window.addEventListener('scroll', listenScrollEvent)
 
-    if(pathname === '/kea/hovedopgave/test15/login'){
+    if(pathname === '/kea/hovedopgave/test16/login'){
         return (
             <div></div>
         )
@@ -98,7 +98,7 @@ const Navbar = () => {
                 <nav className="Navbar" >
                     <div className='logoContainer'>
                         <Link onClick={handleClick} to={'./' + search}>
-                            <img src="./boss_logo.png" width='4724' height='2953' alt='BOSS logo'></img>
+                            <img src="./boss_logo.webp" width='4724' height='2953' alt='BOSS logo'></img>
                         </Link>
                         
                     </div>
@@ -115,7 +115,7 @@ const Navbar = () => {
                             
                             const path = item.url === "/logout" ? "/" : item.url + search
                                 return (
-                                    <li key={index}><Link onClick={handleNavClick} to={path} className={activeLink === "/kea/hovedopgave/test15" + item.url ? `${item.cName} activeLink` : item.cName}>
+                                    <li key={index}><Link onClick={handleNavClick} to={path} className={activeLink === "/kea/hovedopgave/test16" + item.url ? `${item.cName} activeLink` : item.cName}>
                                     {item.title}   
                                     </Link></li>
                                 )
