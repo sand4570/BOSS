@@ -101,7 +101,7 @@ const Question = ({questions, sort, filterQuestions}) => {
                                 </div>
                                 <div className='comment-container'>
                                     <p>{question.answers} kommentarer</p>
-                                    <img src='./comment_icon.png'></img>
+                                    <img src='./comment_icon.png' alt='taleboble, ikon der indikerer kommentarer'></img>
                                 </div>
                                 <div className='content-box'>
                                     <h3>{question.title}</h3>

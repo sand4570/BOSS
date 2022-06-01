@@ -21,7 +21,7 @@ const Comment = ({comment, answerId, handleAnswerClick}) => {
                         </div>
                     </div>
                     <p>{comment.content}</p>
-                    <button className="answer-button" onClick={() => {handleAnswerClick(comment.account.firstname, `A${answerId}`)}}>Skriv en kommentar</button>
+                    <button className="answer-button-dark" onClick={() => {handleAnswerClick(comment.account.firstname, `A${answerId}`)}}>Skriv en kommentar</button>
                 </div>
             </>
         )
