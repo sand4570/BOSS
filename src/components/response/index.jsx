@@ -40,7 +40,7 @@ const Response = ({answer, getData}) => {
                         </div>
                     </div>
                     <p className="response-content">{answer.content}</p>
-                    <button className="answer-button" onClick={() => {handleAnswerClick(answer.account.firstname, `A${answer.id}`)}}>Skriv en kommentar</button>
+                    <button className="answer-button-dark" onClick={() => {handleAnswerClick(answer.account.firstname, `A${answer.id}`)}}>Skriv en kommentar</button>
                 </div>
 
                 {answer.comments.map((comment) => {
@@ -66,7 +66,7 @@ const Response = ({answer, getData}) => {
                         </div>
                     </div>
                     <p className="response-content">{answer.content}</p>
-                    <button className="answer-button" onClick={() => {handleAnswerClick(answer.account.firstname, `A${answer.id}`)}}>Skriv en kommentar</button>
+                    <button className="answer-button-dark" onClick={() => {handleAnswerClick(answer.account.firstname, `A${answer.id}`)}}>Skriv en kommentar</button>
                 </div>
                 
                 <AddComment id={`${answer.id}`} setComment={setComment} commentInput={commentInput} setCommentInput={setCommentInput} getData={getData}></AddComment>

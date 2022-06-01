@@ -120,3 +120,16 @@ button:hover {
 		text-decoration: underline;
 	}
 }
+
+.answer-button-dark {
+	background-color: transparent;
+	border: none;
+	margin-left: 3rem;
+	padding: 0.5rem;
+	color: $darkSunset;
+	font-family: "Sarabun", sans-serif;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
