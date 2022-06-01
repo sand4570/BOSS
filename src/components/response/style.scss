@@ -5,7 +5,7 @@
     background-color: $rain;
     border-radius: 25px;
     padding: 0.5rem;
-    margin: 2rem 1rem 1rem;
+    margin: 0 1rem;
 
     .response-content {
         margin-left: 3.5rem;
@@ -135,4 +135,6 @@
 
 .hide {
     opacity: 0;
+    margin: 0;
+    height: 1.5rem;
 }
