@@ -2,9 +2,6 @@ import React, {useState, useEffect} from 'react'
 import {useLocation, Link} from 'react-router-dom';
 
 import './style.scss'
-import SecondaryButton from '../../components/SecondaryButton'
-
-
 
 const Frontpage = () => {
     const { search } = useLocation()
@@ -19,6 +16,7 @@ const Frontpage = () => {
         )
     })
 
+    //Checking if the user is logged in, send to either the forum or login page
     const ForumLink = () =>{
 
         if(login){

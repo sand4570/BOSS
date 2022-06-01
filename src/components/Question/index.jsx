@@ -1,21 +1,12 @@
-import { useState, useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
-
-import QuestionBox from './QuestionBox';
 
 
 const Question = ({questions, sort, filterQuestions}) => {
-    //console.log('question sort', sort)
 
     const { search } = useLocation()
-    
-
-    //const [sortedQuestions, setSortedQuestions] = useState(null)
-
-    
   
+    //To reformat the timestamps from the database
     const changeTimeStamp = (timestamp) => {
-
         const date = new Date(timestamp);
         return ('date',date.toLocaleDateString('da-DK', {
             day: 'numeric',
@@ -24,32 +15,26 @@ const Question = ({questions, sort, filterQuestions}) => {
             hour: 'numeric',
             minute: 'numeric',
         }))
-      }
+    }
+
+    //To shortan the question string to a preview
+    const cutString = (string) => {
+        if(string.length > 100) {
+            return (
+                string.substring(0,100) + "..."
+            )
+        } else {
+            return (
+                string
+            )
+        }
+    }
 
 
-      
-
-
-      const cutString = (string) => {
-            if(string.length > 100) {
-
-                return (
-                    string.substring(0,100) + "..."
-                )
-            } else {
-                return (
-                    string
-                )
-            }
-      }
-
-      if (questions) {
-          //console.log("questions", questions)
-
+    if (questions) {
+        //Filtering the question array
         let filtered_data = questions.questions.filter(question => {
             if (filterQuestions.length > 0) {
-                //console.log("question filters: ", filterQuestions)
-                //console.log("Question categories: ", question.categories)
                 return question.categories.some(r => filterQuestions.includes(r.category))
             } else {
                 return true
@@ -57,40 +42,30 @@ const Question = ({questions, sort, filterQuestions}) => {
         })
 
         let sortedArray = [] 
-
+        //Sorting the question array
         if (sort == 'newest') {
-        
             sortedArray = Array.from(filtered_data)
-            //console.log('newest sort', sortedArray)
-    
+
         } else if (sort == 'oldest') {
-    
             sortedArray = Array.from(filtered_data).reverse()
-            //console.log('oldest sort', sortedArray)
 
         } else if (sort == 'unanswered') {
-
             sortedArray = Array.from(filtered_data)
             sortedArray = sortedArray.sort((a, b) => parseInt(a.answers) - parseInt(b.answers));
 
         }  else if (sort == 'answered') {
-
             sortedArray = Array.from(filtered_data)
             sortedArray = sortedArray.sort((a, b) => parseInt(b.answers) - parseInt(a.answers));
         }
 
-            return (
+        return (
                 
-                <div id='content'>
+            <div id='content'>
 
-                    {sortedArray.map((question) => {
-                        //console.log('one question', question)
+                {sortedArray.map((question) => {
 
-                    //{filtered_data.map((question) => {
-                        // console.log('one question', question)
-
-                        return (
-                            <Link to={`/forum/${question.id + search}`}>
+                    return (
+                        <Link to={`/forum/${question.id + search}`}>
                             <div className='question-box'>
                                 <div className='profile-box'>
                                     <div className='circle-name'> <span>{question.account.firstname.substring(0,1) + question.account.lastname.substring(0,1)}</span></div>
@@ -118,11 +93,11 @@ const Question = ({questions, sort, filterQuestions}) => {
                                     </div>
                                 </div>
                             </div>
-                            </Link>
-                        )
-                    })}
-                </div>
-            )
+                        </Link>
+                    )
+                })}
+            </div>
+        )
           
       } else {
           return (

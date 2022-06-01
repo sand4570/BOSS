@@ -1,11 +1,9 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import {useLocation, Link} from 'react-router-dom';
 
 import SortSlider from '../../components/SortSlider';
 import Popup from '../../components/Popup'
 import Question from '../../components/Question'
-import Category from '../../components/categories';
 import './style.scss'
 
 const Forum = () => {
@@ -14,6 +12,7 @@ const Forum = () => {
     const [sort, setSort] = useState("newest")
     const [questions, setQuestions] = useState(null)
 
+    //Async funtion to fetch the data from the api
     async function getQuestionData() {
         fetch('https://boss-info.herokuapp.com/api/questions', {
         headers: {
@@ -23,10 +22,13 @@ const Forum = () => {
         .then((data) => setQuestions(data))
     }
 
+    //function wrapped in use effect
     useEffect(() => {
         getQuestionData()
     },[])
 
+
+    //get request for the categories
     useEffect(() => {
         fetch('https://boss-info.herokuapp.com/api/categories', {
         headers: {
@@ -37,20 +39,15 @@ const Forum = () => {
     },[])
 
 
+
     let [filterQuestions, setFilteredQuestions] = useState([])
     let [modal, setModal] = useState(false)
     let [filter, setFilter] = useState(false)
 
-    //console.log('categories', categories)
+
+    //Filtering the posts
     const showFilter = (cat, fil_q) => {
         filterQuestion(fil_q, cat.category);
-        // if(cat.category === "Technical") {
-        //     filterQuestion(fil_q, "Technical")
-        // } else if (cat.category == "Personal") {
-        //     filterQuestion(fil_q, "Personal")
-        // } else{
-        //     filterQuestion(fil_q, "Error")
-        // }
     }
     
     const filterQuestion = (fil_q, filter) => {
@@ -62,8 +59,6 @@ const Forum = () => {
     }
 
    
-
-      
     const resetCategories = () => {
         setFilteredQuestions([])
         document.querySelectorAll(".category_checkbox").forEach(checkbox =>{
@@ -87,6 +82,7 @@ const Forum = () => {
             document.body.classList.remove('no-scroll');
         }
     }
+
 
     if (categories) {
         return (

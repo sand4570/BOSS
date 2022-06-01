@@ -6,21 +6,16 @@ import Comment from "./comment";
 import AddComment from "./AddComment";
 
 const Response = ({answer, getData}) => {
-    
 
     const [commentInput, setCommentInput] = useState("null")
     const [comment, setComment] = useState("")
    
-
-
+    //Scroll to the input and make it active
     const handleAnswerClick = (accountnName, id) => {
-        //console.log('handeling click')
         setCommentInput([id])
-        //console.log('setCommentInput', commentInput)
         
         const input = document.querySelector(`#${id}`)
         const inputDiv = document.querySelector(`#${id} ~ div`)
-        //console.log(inputDiv)
 
         input.value = (`@${accountnName}`)
         inputDiv.scrollIntoView({ behavior: 'smooth' })

@@ -11,8 +11,6 @@ const Navbar = () => {
 
     const pathname = window.location.pathname
 
-    //const screenWidth = window.innerWidth
-
     const [ active, setActive ] = useState(false)
     const [color, setColor] = useState('transparent')
     const [activeLink, setActiveLink] = useState('/')
@@ -35,18 +33,15 @@ const Navbar = () => {
         } else {
             setActive(true)
         }
-    };
+    }
+
     const handleNavClick = () => {
         if (active) {
             setActive(false)
-            //document.body.classList.remove('no-scroll');
         } else {
             setActive(true)
-            /* if(screenWidth < 900){
-                document.body.classList.add('no-scroll');
-            } */
         }
-    };
+    }
 
     useEffect(() => {
         if (search) {
@@ -59,7 +54,7 @@ const Navbar = () => {
     const user = searchParams.get("id") 
 
     if (user) {
-
+        //Getting the user, if logged in
         useEffect(() => {
             fetch('https://boss-info.herokuapp.com/api/accounts/' + user, {
             headers: {
@@ -74,8 +69,6 @@ const Navbar = () => {
         })
         
     }
-
-    
 
     //Change manu color on scroll
     const listenScrollEvent = e => {

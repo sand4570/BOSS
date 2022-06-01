@@ -1,11 +1,5 @@
-import React from 'react';
-import {useLocation, Link} from 'react-router-dom';
-
-
-//import "./style.scss";
 
 const NavLink = (login) => {
-  const { search } = useLocation()
 
   if (login) {
     return (
@@ -63,9 +57,6 @@ const NavLink = (login) => {
       ]
     )
   }
-
-
-
 }  
 
 export default NavLink;

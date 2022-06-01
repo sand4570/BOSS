@@ -1,4 +1,4 @@
-
+//To format timestamps
 const ChangeTimestamp = ({timestamp}) => {
 
         const date = new Date(timestamp);

@@ -14,12 +14,13 @@ const Singleview = () => {
     const [searchParams, setSearchParams] = useSearchParams()
     const [answerContent, setAnswerContent] = useState("")
 
+    //post request for answers
     const handleSubmit = (event) => {
         event.preventDefault()
-        console.log('time to post')
         
         const user = searchParams.get("id")
 
+        //json object to post as body in the request
         const answer = {
             content: answerContent,
             verified: 0,
@@ -44,12 +45,10 @@ const Singleview = () => {
                 setAnswerContent("")
                 document.querySelector('#answer-input').value = ""
                 getData()
-            });
-
-            
-
+            });   
     }
 
+    //Get request for a single question with answers and comments
     async function getData() {
         fetch(`https://boss-info.herokuapp.com/api/questions/${id}`, {
         headers: {
@@ -61,16 +60,13 @@ const Singleview = () => {
 
     useEffect(() => {
         getData()
-      },[])
+    },[])
 
-      //console.log('single view question', question)
+    const scrollToInput = () => {
+        document.querySelector("#respond-wrapper").scrollIntoView({ behavior: 'smooth' })
+        document.querySelector("#respond-wrapper input").focus({preventScroll: true})
+    }
 
-      const scrollToInput = () => {
-          document.querySelector("#respond-wrapper").scrollIntoView({ behavior: 'smooth' })
-          document.querySelector("#respond-wrapper input").focus({preventScroll: true})
-      }
-
-      //className="secondaryButton single" id='back-button' 
     if(question) {
         return (
             <>

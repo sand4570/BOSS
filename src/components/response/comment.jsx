@@ -1,12 +1,6 @@
-import { useState, useEffect } from "react";
-
 import ChangeTimestamp from "../Timestamp";
 
 const Comment = ({comment, answerId, handleAnswerClick}) => {
-    //console.log('comment', comment)
-
-
-    
 
     if (comment) {
         return (
