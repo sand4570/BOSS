@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react'
 
 const SignupSection = ({state, onButtonClick}) => {
 
-    
+    //Changes between signup and login
 
     const handleClick = useCallback(() => {
         if(state == true){

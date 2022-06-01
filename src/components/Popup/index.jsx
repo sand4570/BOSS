@@ -10,8 +10,6 @@ const Popup = ({modal, setModal, getQuestionData}) => {
     const [content, setContent] = useState("")
     const [submitClicked, setSubmitClicked] = useState(false)
 
-    //states for validation
-    //counts selected categories
     const [counter, setCounter] = useState(0)
     const [hideError, setHideError] = useState(true)
     const [subjectError, setSubjectError] = useState(false)
@@ -21,8 +19,7 @@ const Popup = ({modal, setModal, getQuestionData}) => {
     const [searchParams, setSearchParams] = useSearchParams()
     const [clickedCategoies, setClickedCategoies] = useState([])
 
-    //console.log("What categories", clickedCategoies)
-
+    //get request for cadegories
     useEffect(() => {
         fetch('https://boss-info.herokuapp.com/api/categories', {
         headers: {
@@ -32,6 +29,7 @@ const Popup = ({modal, setModal, getQuestionData}) => {
         .then((data) => setCategories(data))
     },[])
 
+    //to hide and show the pop up
     const toggleModal = useCallback(() => {
         setClickedCategoies([])
         document.querySelector('#title-input').value = ""
@@ -61,11 +59,11 @@ const Popup = ({modal, setModal, getQuestionData}) => {
         }
     }
 
+    //To post a new question
     const handleSubmit = (event) => {
         event.preventDefault()
         
         if(counter > 0 && title !== "" && content !== "") {
-            //console.log("post it")
         
         const user = searchParams.get("id")
 
@@ -87,7 +85,6 @@ const Popup = ({modal, setModal, getQuestionData}) => {
           })
             .then((res) => res.json())
             .then((data) => {
-                //console.log(data)
                 toggleModal()
                 getQuestionData()
             });
@@ -99,7 +96,6 @@ const Popup = ({modal, setModal, getQuestionData}) => {
         getQuestionData('from popup')
         }else{
             setSubmitClicked(true)
-            //console.log("invalid")
             if(counter < 1)
             setHideError(false)
             if(title === ""){

@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react'
 import {useLocation, Link} from 'react-router-dom';
-import PrimaryButton from '../../components/PrimaryButton'
 import './style.scss'
 
 const Contact = () => {
@@ -57,8 +56,6 @@ const Contact = () => {
     const handleSubmit = (e) =>{
         e.preventDefault()
         if(nameInput === "" || mailInput === "" || messageInput === ""){
-        //console.log("not submitted")
-        //console.log("name: ", nameInput, "mail: ", mailInput, "message: ", messageInput)
         if(nameInput == ""){
         setNameError(true)
         }
@@ -69,7 +66,6 @@ const Contact = () => {
             setMessageError(true)
         }
         } else{
-            //console.log("submitted")
             setNameError(false)
             setMailError(false)
             setMessageError(false)

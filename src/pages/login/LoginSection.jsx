@@ -16,14 +16,12 @@ const LoginSection = ({state, data}) => {
     const [lastnameError, setLastnameError] = useState(false)
     const [mailError, setMailError] = useState(false)
     const [passwordError, setPasswordError] = useState(false)
-    const [signupError, setSignupError] = useState(false)
         
 
+    //To login a user
     const handleSubmit = (event) => {
         event.preventDefault()
-
-        if (data) {
-            
+        if (data) {  
             const filteredAccounts = data.accounts.filter(account => account.email == mail)
             
             if (filteredAccounts.length > 0) {
@@ -35,13 +33,13 @@ const LoginSection = ({state, data}) => {
                     }  else {
                         setLoginError(true)
                     }
-                
             } else {
                 setLoginError(true)
             }
         }
     }
 
+    //To validate sigup input
     const validateInputs = (event) => {
         event.preventDefault()
 
@@ -100,13 +98,10 @@ const LoginSection = ({state, data}) => {
         
     }
 
+    //To post a new account
     const handleSignup = () => {
 
-        
-        console.log('account posting')
-
-        
-
+        //The json object for an account
         const account = {
             firstname: firstname.substring(0,1).toUpperCase() + firstname.substring(1).toLocaleLowerCase(),
             lastname: lastname.substring(0,1).toUpperCase() + lastname.substring(1).toLocaleLowerCase(),

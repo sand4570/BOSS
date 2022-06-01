@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './style.scss'
 
+//Setting the state to indecate the sorting
 const SortSlider = ({setSort}) => {
     const [active, setActive] = useState('newest');
 

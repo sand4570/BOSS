@@ -2,6 +2,7 @@ import React from 'react'
 
 import './style.scss'
 
+//Creating the category check boxes and handle if they are checked or not
 const Category = ({cat, setClickedCategoies, clickedCategoies, setCounter, setHideError, counter}) => {
 
     const handleChange = (event) => {

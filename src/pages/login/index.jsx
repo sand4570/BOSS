@@ -1,10 +1,8 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 
 import LoginSection from './LoginSection'
 import SignupSection from './SignupSection';
-import { accountsFetch } from '../../services/accountsService'
 import './style.scss'
 
 
@@ -12,6 +10,7 @@ const Login = () => {
     const [toLogin, setToLogin] = useState(true)
     const [accountData, setAccountData] = useState(null)
 
+    //get request for the accounts
     useEffect(() => {
         fetch('https://boss-info.herokuapp.com/api/accounts', {
         headers: {

@@ -5,14 +5,12 @@ import './style.scss'
 
 const AddComment = ({id, setComment, commentInput, setCommentInput, getData}) => {
 
-    
-
     const [searchParams, setSearchParams] = useSearchParams()
-    const [commentContent, setCommentContent] = useState("")
 
     //console.log('commentInput', commentInput)
     const isVisible = commentInput == 'A' + id.toString();
 
+    //To submit a comment
     const handleSubmit = (event) => {
         event.preventDefault()
         //console.log('time to post')
@@ -20,7 +18,6 @@ const AddComment = ({id, setComment, commentInput, setCommentInput, getData}) =>
         const user = searchParams.get("id")
 
         const theValue = document.querySelector('#' + commentInput[0]).value
-
 
         const comment = {
             content: theValue,
