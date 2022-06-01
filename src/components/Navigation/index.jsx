@@ -88,7 +88,7 @@ const Navbar = () => {
 
     window.addEventListener('scroll', listenScrollEvent)
 
-    if(pathname === '/kea/hovedopgave/test14/login'){
+    if(pathname === '/kea/hovedopgave/test15/login'){
         return (
             <div></div>
         )
@@ -115,7 +115,7 @@ const Navbar = () => {
                             
                             const path = item.url === "/logout" ? "/" : item.url + search
                                 return (
-                                    <li key={index}><Link onClick={handleNavClick} to={path} className={activeLink === "/kea/hovedopgave/test14" + item.url ? `${item.cName} activeLink` : item.cName}>
+                                    <li key={index}><Link onClick={handleNavClick} to={path} className={activeLink === "/kea/hovedopgave/test15" + item.url ? `${item.cName} activeLink` : item.cName}>
                                     {item.title}   
                                     </Link></li>
                                 )

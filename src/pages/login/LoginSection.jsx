@@ -29,7 +29,7 @@ const LoginSection = ({state, data}) => {
             if (filteredAccounts.length > 0) {
 
                 if (passwordLogin.toLocaleLowerCase() === filteredAccounts[0].password) {
-                    window.location.href=`/kea/hovedopgave/test14/forum?id=${filteredAccounts[0].id}`;
+                    window.location.href=`/kea/hovedopgave/test15/forum?id=${filteredAccounts[0].id}`;
                     setLoginError(false)
 
                     }  else {
@@ -128,7 +128,7 @@ const LoginSection = ({state, data}) => {
             .then((res) => res.json())
             .then((data) => {
                 console.log(data)
-                window.location.href=`/kea/hovedopgave/test14/forum?id=${data.id}`
+                window.location.href=`/kea/hovedopgave/test15/forum?id=${data.id}`
             });
         
     }
