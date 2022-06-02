@@ -5,5 +5,5 @@
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME} !-l
-  RewriteRule . /kea/hovedopgave/test16/index.html [L]
+  RewriteRule . /kea/hovedopgave/boss_info/index.html [L]
 </IfModule>
